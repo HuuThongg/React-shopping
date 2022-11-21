@@ -6,7 +6,7 @@ import { HiHeart, HiBars4 } from "react-icons/hi2";
 const Navbar = () => {
   const [active, setActive] = useState("men");
   console.log(active);
-  console.log('đasad')
+  console.log("đasad");
   const [toggle, setToggle] = useState(false);
   return (
     <div className="fixed top-0 left-0 w-full justify-items-center ">
@@ -35,13 +35,13 @@ const Navbar = () => {
             <button className="w-12 h-12 flex   items-center justify-center">
               <HiBars4 className="w-7 h-7"></HiBars4>
             </button>
-            <div className=" bg-blue-200 w-12 h-12 ">
+            <div className="  w-12 h-12 ">
               <a
                 href="#"
-                className="w-full h-full  relative  justify-center grid place-items-center"
+                className="w-full h-full  relative  justify-center grid place-items-center text-center"
               >
                 <HiHeart className="w-6 h-6 inline"></HiHeart>
-                <span className="absolute inset-0 inset-x-4 w-5 h-5 text-xxl bg-blue-400 rounded-full">
+                <span className="absolute top-0 right-0 w-5 h-5 text-xxl bg-blue-400 rounded-full text-center">
                   1
                 </span>
               </a>
@@ -66,32 +66,32 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex space-x-4 justify-items-center">
-            <div className=" bg-blue-200 w-12 h-12  relative ">
+            <div className="  w-12 h-12  relative ">
               <button className=" w-full h-full ">
                 <FaRegUser className="w-6 h-6 inline "></FaRegUser>
-                <span className="absolute inset-0 inset-x-4 w-5 h-5 text-xxl bg-yellow-400 rounded-full">
+                <span className="absolute  w-5 h-5 text-xxl bg-yellow-400 rounded-full top-0 right-0 text-center">
                   1
                 </span>
               </button>
             </div>
-            <div className=" bg-blue-200 w-12 h-12 justify-items-center">
+            <div className="  w-12 h-12 justify-items-center">
               <a
                 href="#"
-                className="w-full h-full relative grid place-items-center  "
+                className="w-full h-full  grid place-items-center relative "
               >
                 <HiHeart className="w-6 h-6"></HiHeart>
-                <span className="absolute inset-0 inset-x-4 w-5 h-5 text-xxl bg-blue-400 rounded-full">
+                <span className="absolute w-5 h-5 text-xxl bg-blue-400 rounded-full top-0 right-0 text-center">
                   1
                 </span>
               </a>
             </div>
-            <div className=" bg-blue-200 w-12 h-12  ">
+            <div className="  w-12 h-12  ">
               <a
                 href="#"
-                className="w-full h-full grid place-items-center  relative "
+                className="w-full h-full grid place-items-center  relative justify-center "
               >
                 <FaRegUser className="w-6 h-6 "></FaRegUser>
-                <span className="absolute inset-0 inset-x-4 w-5 h-5 text-xxl bg-blue-400 rounded-full">
+                <span className="absolute top-0 right-0 w-5 h-5 text-xxl bg-blue-400 rounded-full  block text-center ">
                   1
                 </span>
               </a>

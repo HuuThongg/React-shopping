@@ -5,9 +5,11 @@ const BlackFriday = () => {
   return (
     <section className="bg-red-100 min-h-[30vh] relative">
       <div className="object-contain">
-        {/* <picture>
+        <picture>
           <source media="min-width:960px" srcSet={blackfriday_full}></source>
-        </picture> */}
+        </picture>
+        {/* <div class="bg-[url('/img/hero-pattern.svg')]">
+</div> */}
         <img src={blackfriday_full} alt="" />
       </div>
       <div className="absolute left-0 bottom-0 mx-2 lg:mx-auto max-w-7xl py-10 h-auto flex text-white">
@@ -55,7 +57,7 @@ const BlackFriday = () => {
             </div>
           </div>
         </div>
-        <div className="basis-1/2">aasdasdsadas</div>
+        <div className="basis-1/2"></div>
       </div>
     </section>
   );

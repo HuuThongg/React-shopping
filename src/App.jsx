@@ -1,10 +1,11 @@
-import { Navbar, BlackFriday,MainContent } from "./components";
+import { Navbar, BlackFriday,MainContent,Footer } from "./components";
 
 function App() {
   return (
     <>
       <Navbar />
       <MainContent/>
+      <Footer/>
     </>
   );
 }
