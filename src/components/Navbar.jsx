@@ -4,15 +4,19 @@ import { useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { HiHeart, HiBars4 } from "react-icons/hi2";
 const Navbar = () => {
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState("men");
+  console.log(active);
+  console.log('đasad')
   const [toggle, setToggle] = useState(false);
   return (
-    <div className="fixed top-0 left-0 w-full ">
-      <div className="bg-[#18181b] h-[45px] md:h-[40px]">
-        <p className="text-white text-center">Text</p>
+    <div className="fixed top-0 left-0 w-full justify-items-center ">
+      <div className="bg-[#18181b] h-[45px] w-full  md:h-[40px] grid place-items-center">
+        <button className="text-white w-full h-full ">
+          FREE STANDARD SHIPPING & RETURNS
+        </button>
       </div>
-      <nav className="border w-full flex flex-col pt-1 px-2 justify-between items-center h-[60px] md:h-[80px]  ">
-        <div className="hidden lg:block w-full">
+      <nav className="border w-full flex flex-col  px-2 justify-between  h-[60px] md:h-[80px]  ">
+        <div className="hidden md:block w-full">
           <ul className="list-none flex items-center pl-12 justify-end -pr-5">
             {topInfo.map((nav, index) => (
               <li
@@ -34,7 +38,7 @@ const Navbar = () => {
             <div className=" bg-blue-200 w-12 h-12 ">
               <a
                 href="#"
-                className="w-full h-full  relative block justify-center"
+                className="w-full h-full  relative  justify-center grid place-items-center"
               >
                 <HiHeart className="w-6 h-6 inline"></HiHeart>
                 <span className="absolute inset-0 inset-x-4 w-5 h-5 text-xxl bg-blue-400 rounded-full">
@@ -48,13 +52,14 @@ const Navbar = () => {
             alt="Adidas Logo"
             className=" pl-12 h-[60px] object-contain "
           ></img>
-          <ul className="list-none hidden md:flex justify-start lg:justify-center  items-center flex-1 pl-12 ">
+          <ul className="list-none hidden md:flex justify-start lg:justify-center  items-center flex-1 pl-12  pb-3 lg:pb-0">
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
                 className={`font-poppins font-semibold cursor-pointer text-[16px] ${
-                  active === nav.title ? "text-white" : "text-neutral-800"
+                  active === nav.title ? "text-black-100" : "text-neutral-400"
                 }  ${index === navLinks.length - 1 ? "mr-0" : "mr-10"} `}
+                onClick={() => setActive(nav.title)}
               >
                 <a href={`#${nav.id}`}>{nav.title}</a>
               </li>
@@ -70,7 +75,10 @@ const Navbar = () => {
               </button>
             </div>
             <div className=" bg-blue-200 w-12 h-12 justify-items-center">
-              <a href="#" className="w-full h-full block relative   ">
+              <a
+                href="#"
+                className="w-full h-full relative grid place-items-center  "
+              >
                 <HiHeart className="w-6 h-6"></HiHeart>
                 <span className="absolute inset-0 inset-x-4 w-5 h-5 text-xxl bg-blue-400 rounded-full">
                   1
@@ -78,7 +86,10 @@ const Navbar = () => {
               </a>
             </div>
             <div className=" bg-blue-200 w-12 h-12  ">
-              <a href="#" className="w-full h-full block relative ">
+              <a
+                href="#"
+                className="w-full h-full grid place-items-center  relative "
+              >
                 <FaRegUser className="w-6 h-6 "></FaRegUser>
                 <span className="absolute inset-0 inset-x-4 w-5 h-5 text-xxl bg-blue-400 rounded-full">
                   1
