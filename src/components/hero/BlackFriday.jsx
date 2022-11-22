@@ -6,15 +6,28 @@ const BlackFriday = () => {
     <section className="bg-red-100 min-h-[30vh] relative">
       <div className="object-contain">
         <picture>
-          <source media="min-width:960px" srcSet={blackfriday_full}></source>
+          <source
+            media="(min-width: 960px)"
+            srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_1920,w_1920/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-d_tcm221-965606.jpg"
+          />
+          <source
+            media="(min-width: 600px)"
+            srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_960,w_960/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-t_tcm221-965605.jpg"
+          />
+          <source srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_600,w_600/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-m_tcm221-965604.jpg" />
+          <img
+            id="tcm:221-965607"
+            src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_1920,w_1920/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-d_tcm221-965606.jpg"
+            class="performance-item"
+            data-inject_ssr_performance_instrument=""
+            alt="sa"
+          />
         </picture>
-        {/* <div class="bg-[url('/img/hero-pattern.svg')]">
-</div> */}
-        <img src={blackfriday_full} alt="" />
+        {/* <img src={blackfriday_full} alt="" /> */}
       </div>
-      <div className="absolute left-0 bottom-0 mx-2 lg:mx-auto max-w-7xl py-10 h-auto flex text-white">
-        <div className="basis-1/2 flex flex-col ">
-          <div>
+      <div className="absolute left-0 bottom-0 lg:right-0 mx-2  max-w-7xl w-full lg:min-w-7xl py-10 h-auto lg:h-full flex text-white lg:mx-auto">
+        <div className="h-auto md:basis-1/2 flex flex-col justify-end screen960:justify-center screen960:items-start pl-2">
+          <div className="max-w-sm">
             Welcome back! Start your holiday journey now with our best deals of
             the year, just for you
           </div>

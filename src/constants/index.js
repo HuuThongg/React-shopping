@@ -41,6 +41,67 @@ export const topInfo = [
   },
 ];
 
+export const footerLinks_mobile = [
+  {
+    title: "footerlink",
+    links : [
+      {
+        name: "Help",
+        link: "https://www.adidas_T&K.com/help",
+      },
+      {
+        name: "Returns & Exchanges",
+        link: "https://www.adidas_T&K.com/returns&exchange",
+      },
+      {
+        name: "Order Tracker",
+        link: "https://www.adidas_T&K.com/ordertracker",
+      },
+      {
+        name: "Shipping",
+        link: "https://www.adidas_T&K.com/shipping",
+      },
+      {
+        name: "Promotions",
+        link: "https://www.adidas_T&K.com/promotions",
+      },
+      {
+        name: "Black Friday Deals",
+        link: "https://www.adidas_T&K.com/blackfridaydeals",
+      },
+      {
+        name: "Location Selector",
+        link: "https://www.adidas_T&K.com/locationselector",
+      },
+      {
+        name: "adiCLub",
+        link: "https://www.adidas_T&K.com/adiclub",
+      },
+      {
+        name: "Store Finder",
+        link: "https://www.adidas_T&K.com/storefinder",
+      },
+      {
+        name: "Gift Cards",
+        link: "https://www.adidas_T&K.com/giftcards",
+      },
+      {
+        name: "adidas Apps",
+        link: "https://www.adidas_T&K.com/adidasapps",
+      },
+      {
+        name: "Size Charts",
+        link: "https://www.adidas_T&K.com/sizecharts",
+      },
+      {
+        name: "Cyber Monday Deals",
+        link: "https://www.adidas_T&K.com/cybermondaydeals",
+      },
+    ]
+  }
+  
+];
+
 export const footerLinks = [
   {
     title: "PRODUCTS",

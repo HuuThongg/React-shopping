@@ -18,6 +18,8 @@ module.exports = {
       xs: "480px",
       ss: "620px",
       sm: "768px",
+      screen950: "950px",
+      screen960: "960px",
       md: "1060px",
       lg: "1200px",
       xl: "1700px",
