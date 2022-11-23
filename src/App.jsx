@@ -1,11 +1,18 @@
-import { Navbar, BlackFriday,MainContent,Footer } from "./components";
+import {
+  Navbar,
+  BlackFriday,
+  MainContent,
+  Footer,
+  MainShop,
+} from "./components";
 
 function App() {
   return (
     <>
       <Navbar />
-      <MainContent/>
-      <Footer/>
+      {/* <MainContent/> */}
+      <MainShop />
+      <Footer />
     </>
   );
 }

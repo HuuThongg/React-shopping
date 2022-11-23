@@ -62,6 +62,128 @@ const Navbar = () => {
                 onClick={() => setActive(nav.title)}
               >
                 <a href={`#${nav.id}`}>{nav.title}</a>
+
+                {/* Header-stick- wrapper z-50 */}
+
+                {/* <div className="bg-blue-400 z-50">
+                  <div className="">
+                    <div>
+                      <div className="flex justify-between flex-nowrap">
+                        <div class="col-5 tridion-col">
+                          <div class="headline">
+                            <a
+                              href="/us/men-shoes"
+                              manual_cm_sp="header-_-men-_-shoes"
+                            >
+                              <span class="">SHOES</span>
+                            </a>
+                          </div>
+                          <ul>
+                            <li>
+                              <a
+                                href="/us/men-athletic_sneakers"
+                                manual_cm_sp="header-_-men-_-shoes-_-sneakers"
+                              >
+                                <span class="">Sneakers</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/us/men-running-shoes"
+                                manual_cm_sp="header-_-men-_-shoes-_-running"
+                              >
+                                <span class="">Running</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/us/men-soccer-shoes"
+                                manual_cm_sp="header-_-men-_-shoes-_-soccer"
+                              >
+                                <span class="">Soccer</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/us/men-basketball-shoes"
+                                manual_cm_sp="header-_-men-_-shoes-_-basketball"
+                              >
+                                <span class="">Basketball</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/us/men-slides"
+                                manual_cm_sp="header-_-men-_-shoes-_-sandals &amp; slides"
+                              >
+                                <span class="">Sandals &amp; Slides</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/us/men-outdoor-shoes"
+                                manual_cm_sp="header-_-men-_-shoes-_-outdoor &amp; hiking"
+                              >
+                                <span class="">Outdoor &amp; Hiking</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/us/men-shoes?price=price<101.0"
+                                manual_cm_sp="header-_-men-_-shoes-_-shoes $100 &amp; under"
+                              >
+                                <span class="">Shoes $100 &amp; Under</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/us/men-football-cleats"
+                                manual_cm_sp="header-_-men-_-shoes-_-football"
+                              >
+                                <span class="">Football</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/us/men-workout-shoes"
+                                manual_cm_sp="header-_-men-_-shoes-_-workout &amp; gym"
+                              >
+                                <span class="">Workout &amp; Gym</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/us/men-golf-shoes"
+                                manual_cm_sp="header-_-men-_-shoes-_-golf"
+                              >
+                                <span class="">Golf</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/us/men-baseball-shoes"
+                                manual_cm_sp="header-_-men-_-shoes-_-baseball"
+                              >
+                                <span class="">Baseball</span>
+                              </a>
+                            </li>
+                          </ul>
+                          <div class="bottom-link">
+                            <a
+                              href="/us/men-shoes"
+                              manual_cm_sp="header-_-men-_-shoes-_-all men's shoes"
+                            >
+                              <span class="">All Men's Shoes</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> */}
+
+
+
               </li>
             ))}
           </ul>

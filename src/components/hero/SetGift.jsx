@@ -2,8 +2,8 @@ import React from "react";
 
 const SetGift = () => {
   return (
-    <section className="w-full relative  h-[700px] overflow-hidden">
-      <div className="w-full relative mb-4 h-full text-white flex pb-10">
+    <section className="w-full relative  overflow-hidden">
+      <div className=" w-full relative  h-full text-white flex overflow-hidden">
         {/* Backgroud */}
         <div className="h-full absolute inset-0 z-0">
           {/* container */}
@@ -29,17 +29,17 @@ const SetGift = () => {
           </div>
         </div>
 
-        <div className="pt-4 pl-4 z-10 w-full bg-red-400 mx-auto h-full  ">
+        <div className="pt-4 pl-4 z-10 w-full bg-red-300 mx-auto h-full screen1300:mx-auto overflow-hidden ">
           {/* container */}
 
           <div className="flex flex-wrap px-0 w-full">
             {/* wrapper */}
-            <div>
+            <div className="w-full">
               <div>
                 <h4 className="text-[30px] text-slate-900 font-bold">
                   Ready. SET. GIFT.
                 </h4>
-                <p className="text-slate-900 font-normal mt-4">
+                <p className=" block text-slate-900 font-normal mt-4 w-full">
                   We’ve done the hard part for you and rounded up great gift
                   ideas for everyone on your list—from best sellers to
                   reimagined classics.
@@ -49,12 +49,12 @@ const SetGift = () => {
           </div>
 
           {/* container    row no-gutters  */}
-          <div className="flex flex-wrap w-full z-30  ">
-            <div className="relative  ">
+          <div className="flex flex-wrap w-full z-30 overflow-hidden ">
+            <div className="relative overflow-hidden ">
               {/* control scroll */}
-              <div class="w-full h-full flex py-1 snap-x snap-mandatory overflow-x-auto ">
+              <div class="w-full h-full flex py-1 snap-x snap-mandatory overflow-x-auto scrollbar-hide scrollbar-hide mb-5 ">
                 {/* content for each  */}
-                <div className="snap-start w-[calc((100%-10px)/1.187)] mr-[10px]">
+                <div className="snap-start w-[calc((100%-10px)/1.187)] screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  ">
                   <div className="h-full relative bg-slate-500">
                     <a href="#">
                       {/* teaser-card-content */}
@@ -68,17 +68,17 @@ const SetGift = () => {
                               <picture>
                                 <source
                                   media="(min-width: 960px)"
-                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                 />
                                 <source
                                   media="(min-width: 600px)"
-                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                 />
-                                <source srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg" />
+                                <source srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg" />
                                 <img
                                   class="high-res-picture___3SJ41 loaded___3ltPt img___zgj1u"
-                                  id="tcm:221-947079"
-                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  id="tcm:221-967814"
+                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                   decoding="async"
                                   loading="lazy"
                                 />
@@ -108,7 +108,7 @@ const SetGift = () => {
                   </div>
                 </div>
                 {/* content for each  */}
-                <div className="snap-start w-[calc((100%-10px)/1.187)] mr-[10px]">
+                <div className="snap-start w-[calc((100%-10px)/1.187)] screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  ">
                   <div className="h-full relative bg-slate-500">
                     <a href="#">
                       {/* teaser-card-content */}
@@ -122,17 +122,17 @@ const SetGift = () => {
                               <picture>
                                 <source
                                   media="(min-width: 960px)"
-                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                 />
                                 <source
                                   media="(min-width: 600px)"
-                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                 />
-                                <source srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg" />
+                                <source srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg" />
                                 <img
                                   class="high-res-picture___3SJ41 loaded___3ltPt img___zgj1u"
-                                  id="tcm:221-947079"
-                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  id="tcm:221-967814"
+                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                   decoding="async"
                                   loading="lazy"
                                 />
@@ -162,7 +162,7 @@ const SetGift = () => {
                   </div>
                 </div>
                 {/* content for each  */}
-                <div className="snap-start w-[calc((100%-10px)/1.187)] mr-[10px]">
+                <div className="snap-start w-[calc((100%-10px)/1.187)] screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  ">
                   <div className="h-full relative bg-slate-500">
                     <a href="#">
                       {/* teaser-card-content */}
@@ -176,17 +176,17 @@ const SetGift = () => {
                               <picture>
                                 <source
                                   media="(min-width: 960px)"
-                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                 />
                                 <source
                                   media="(min-width: 600px)"
-                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                 />
-                                <source srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg" />
+                                <source srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg" />
                                 <img
                                   class="high-res-picture___3SJ41 loaded___3ltPt img___zgj1u"
-                                  id="tcm:221-947079"
-                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  id="tcm:221-967814"
+                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                   decoding="async"
                                   loading="lazy"
                                 />
@@ -216,7 +216,7 @@ const SetGift = () => {
                   </div>
                 </div>
                 {/* content for each  */}
-                <div className="snap-start w-[calc((100%-10px)/1.187)] mr-[10px]">
+                <div className="snap-start w-[calc((100%-10px)/1.187)] screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  ">
                   <div className="h-full relative bg-slate-500">
                     <a href="#">
                       {/* teaser-card-content */}
@@ -230,17 +230,17 @@ const SetGift = () => {
                               <picture>
                                 <source
                                   media="(min-width: 960px)"
-                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                 />
                                 <source
                                   media="(min-width: 600px)"
-                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                 />
-                                <source srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg" />
+                                <source srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg" />
                                 <img
                                   class="high-res-picture___3SJ41 loaded___3ltPt img___zgj1u"
-                                  id="tcm:221-947079"
-                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-stocking-tcc_tcm221-947067.jpg"
+                                  id="tcm:221-967814"
+                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
                                   decoding="async"
                                   loading="lazy"
                                 />
@@ -279,4 +279,3 @@ const SetGift = () => {
 };
 
 export default SetGift;
-

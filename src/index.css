@@ -17,7 +17,25 @@
 * {
   scroll-behavior: smooth;
 }
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.grid-2 {
+  grid-template-columns: 50% 50%;
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 33.33%);
+}
+.grid-4 {
+  grid-template-columns: repeat(4, 25.00%);
+}
 .text-gradient {
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,

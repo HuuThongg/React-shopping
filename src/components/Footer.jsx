@@ -2,7 +2,7 @@ import { footerLinks, followUs, footerLinks_mobile } from "../constants";
 import { HiChevronUp } from "react-icons/hi2";
 const Footer = () => {
   return (
-    <section>
+    <section >
       {/* Footer interactive */}
       <div className="text-xs  block screen960:hidden">
         <div className="bg-slate-100 p-5 text-left">

@@ -16,12 +16,18 @@ module.exports = {
     },
     screens: {
       xs: "480px",
+      screen600: "600px",
       ss: "620px",
       sm: "768px",
       screen950: "950px",
       screen960: "960px",
       md: "1060px",
       lg: "1200px",
+      screen1280: "1280px",
+
+      screen1300: "1300px",
+      screen1600: "1600px",
+
       xl: "1700px",
     },
   },
