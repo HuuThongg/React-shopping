@@ -25,16 +25,26 @@
 /* For IE, Edge and Firefox */
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  /* scrollbar-width: none; Firefox */
 }
-.grid-2 {
-  grid-template-columns: 50% 50%;
+
+.truncated {
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
-.grid-3 {
-  grid-template-columns: repeat(3, 33.33%);
+.bg-webkit {
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), #ffffff);
 }
-.grid-4 {
-  grid-template-columns: repeat(4, 25.00%);
+
+.opacityTransistion {
+  transition: opacity .3s cubic-bezier(0, 0.5, 0.2, 1),visibility .3s cubic-bezier(0, 0.5, 0.2, 1);
+}
+
+.filterTransistion {
+  transition: right .2s ease-out;
 }
 .text-gradient {
   background: radial-gradient(

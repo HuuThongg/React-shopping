@@ -1,41 +1,15 @@
-import React from "react";
-import GridItem from "./GridItem";
-
+import HeaderShop from "./HeaderShop";
+import ItemsContainer from "./ItemsContainer";
+import FilterWrapper from "./FilterWrapper";
 const MainShop = () => {
   return (
-    <section className="pt-[105px] md:pt-[120px] relative w-full ">
-      {/* container  */}
-      <div className="mx-auto w-full relative  screen1280:w-[1280px] screen1600:w-[1600px] screen960:px-4">
-        {/* row  add flex-wrap */}
-        <div className="">
-          {/* main container  */}
-          <div className="p-1">
-            {/*  */}
-            <div className="px-0 screen600:px-3">
-              {/* product container */}
-              {/* flex flex-wrap justify-center 
-              why does this make image size not scale 
-              */}
-              <div className="mt-[10px] mb-5 ">
-                {/* gird */}
-                <div className="grid grid-cols-2 screen600:grid-cols-3 screen960:grid-cols-4">
-                  <GridItem />
-                  <GridItem />
-                  <GridItem />
-                  <GridItem />
-                  <GridItem />
-                  <GridItem />
-                  <GridItem />
-                  <GridItem />
-                  <GridItem />
-                  <GridItem />
-
-                  <GridItem />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section className="pt-[105px] md:pt-[120px] relative w-full  z-0">
+      <div className="relative w-full screen960:pt-[39px]  ">
+        
+        <HeaderShop/>
+        <FilterWrapper/>
+        <ItemsContainer/>
+        
       </div>
     </section>
   );

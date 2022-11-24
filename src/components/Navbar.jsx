@@ -5,11 +5,10 @@ import { FaRegUser } from "react-icons/fa";
 import { HiHeart, HiBars4 } from "react-icons/hi2";
 const Navbar = () => {
   const [active, setActive] = useState("men");
-  console.log(active);
-  console.log("đasad");
+
   const [toggle, setToggle] = useState(false);
   return (
-    <div className="fixed top-0 left-0 w-full justify-items-center z-50">
+    <div className="fixed top-0 left-0 w-full justify-items-center z-40">
       <div className="bg-[#18181b] h-[45px] w-full  md:h-[40px] grid place-items-center">
         <button className="text-white w-full h-full ">
           FREE STANDARD SHIPPING & RETURNS

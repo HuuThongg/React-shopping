@@ -9,8 +9,8 @@ import {
 function App() {
   return (
     <>
-      <Navbar />
-      {/* <MainContent/> */}
+      {/* <Navbar /> */}
+      {/* <MainContent /> */}
       <MainShop />
       <Footer />
     </>
