@@ -4,15 +4,19 @@ import {
   MainContent,
   Footer,
   MainShop,
+  ProductDetail
 } from "./components";
+import OverlayFilter from "./components/shop/OverlayFilter";
 
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <MainContent /> */}
-      <MainShop />
+      <Navbar />
+      <MainContent />
+      {/* <MainShop /> */}
+      {/* <ProductDetail/> */}
       <Footer />
+      {/* <OverlayFilter/> */}
     </>
   );
 }

@@ -4,7 +4,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 
 const GridItem = () => {
   return (
-    <div>
+    <div className="screeb960:hover hover:border-solid hover:border-[1px] hover:border-black">
       <div className="relative">
         {/* Product card container */}
         <div className="w-full p-[2px] sm:p-1 m-[2px]">
@@ -32,18 +32,18 @@ https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_aut
               <div className="absolute right-5 top-5">
                 <button>
                   {/* <FaHeart className=""></FaHeart> */}
-                  <AiOutlineHeart className="text-[16px]"/>
+                  <AiOutlineHeart className="text-[16px]" />
                 </button>
               </div>
-              <a href="#" className=" absolute bottom-0">
-                <div className="font-semibold ml-1"><span>-40%</span></div>
+              <a href="#" className=" absolute bottom-0 left-1 ">
+                <div className="font-semibold ml-1">
+                  <span>-40%</span>
+                </div>
                 <div className="flex mt-[5px] py-[2px] px-[5px] bg-white">
                   <div className="mr-[4px] text-gray-400 leading-4 line-through">
                     $35
                   </div>
-                  <div className="leading-4 text-red-600">
-                    $21
-                  </div>
+                  <div className="leading-4 text-red-600">$21</div>
                 </div>
               </a>
             </div>

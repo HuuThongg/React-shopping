@@ -2,7 +2,7 @@ import { footerLinks, followUs, footerLinks_mobile } from "../constants";
 import { HiChevronUp } from "react-icons/hi2";
 const Footer = () => {
   return (
-    <section >
+    <section>
       {/* Footer interactive */}
       <div className="text-xs  block screen960:hidden">
         <div className="bg-slate-100 p-5 text-left">
@@ -67,7 +67,10 @@ const Footer = () => {
             {footerLinks_mobile.map((ftlink) => (
               <ul className="flex list-none flex-wrap w-full">
                 {ftlink.links.map((link) => (
-                  <li className="w-1/2 py-[9px] px-[15px]">
+                  <li
+                    key={link.link}
+                    className="w-1/2 py-[9px] px-[15px]"
+                  >
                     <a href={link.link} className="text-center block">
                       {link.name}
                     </a>
