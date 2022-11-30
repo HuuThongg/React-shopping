@@ -12,8 +12,10 @@ const Footer = () => {
           </p>
         </div>
         <button className="flex h-12 justify-center items-center w-full text-[15px] uppercase tracking-tighter">
-          <HiChevronUp className="mr-3 text-xl" />
-          back to top
+          <a href="#" className="flex justify-center items-center">
+            <HiChevronUp className="mr-3 text-xl" />
+            back to top
+          </a>
         </button>
         <div className="uppercase flex justify-center text-white bg-black text-sm p-3">
           <a href="#" className="w-1/2">
@@ -67,10 +69,7 @@ const Footer = () => {
             {footerLinks_mobile.map((ftlink) => (
               <ul className="flex list-none flex-wrap w-full">
                 {ftlink.links.map((link) => (
-                  <li
-                    key={link.link}
-                    className="w-1/2 py-[9px] px-[15px]"
-                  >
+                  <li key={link.link} className="w-1/2 py-[9px] px-[15px]">
                     <a href={link.link} className="text-center block">
                       {link.name}
                     </a>

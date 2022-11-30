@@ -1,6 +1,6 @@
 import { blackfriday_full, blackfriday_s, blackfriday_m } from "../../assets";
 import { HiArrowRight } from "react-icons/hi2";
-
+import { NavLink } from "react-router-dom";
 const BlackFriday = () => {
   return (
     <section className="bg-red-100 min-h-[30vh] relative">
@@ -8,17 +8,16 @@ const BlackFriday = () => {
         <picture>
           <source
             media="(min-width: 960px)"
-            srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_1920,w_1920/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-d_tcm221-965606.jpg"
+            srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_1920,w_1920/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-d_tcm221-965606.jpg"
           />
           <source
             media="(min-width: 600px)"
-            srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_960,w_960/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-t_tcm221-965605.jpg"
+            srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_960,w_960/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-t_tcm221-965605.jpg"
           />
-          <source srcset="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_600,w_600/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-m_tcm221-965604.jpg" />
+          <source srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_600,w_600/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-m_tcm221-965604.jpg" />
           <img
             id="tcm:221-965607"
             src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_1920,w_1920/enUS/Images/promo-fw22-blackfriday-firstaccess-lastday-large-mh-d_tcm221-965606.jpg"
-            class="performance-item"
             data-inject_ssr_performance_instrument=""
             alt="sa"
           />
@@ -33,8 +32,8 @@ const BlackFriday = () => {
           </div>
           <div>
             <div className="block justify-start my-2  text-black w-full">
-              <a
-                href="#"
+              <NavLink
+                to="/products"
                 className="text-xs font-semibold  bg-slate-100 h-[50px]  items-center inline-flex space-x-1 px-2"
               >
                 {" "}
@@ -42,11 +41,11 @@ const BlackFriday = () => {
                 <span className="">
                   <HiArrowRight className="text-xl"></HiArrowRight>
                 </span>
-              </a>
+              </NavLink>
             </div>
             <div className="block justify-start my-2  text-black w-full">
-              <a
-                href="#"
+              <NavLink
+                to="/products"
                 className="text-xs font-semibold  bg-slate-100 h-[50px]  items-center inline-flex space-x-1 px-2"
               >
                 {" "}
@@ -54,11 +53,11 @@ const BlackFriday = () => {
                 <span className="text-xl">
                   <HiArrowRight></HiArrowRight>
                 </span>
-              </a>
+              </NavLink>
             </div>
             <div className="block justify-start my-2  text-black w-full">
-              <a
-                href="#"
+              <NavLink
+                to="/products"
                 className="text-xs font-semibold  bg-slate-100 h-[50px]  items-center inline-flex space-x-1 px-2 "
               >
                 {" "}
@@ -66,7 +65,7 @@ const BlackFriday = () => {
                 <span className="">
                   <HiArrowRight className="text-xl"></HiArrowRight>
                 </span>
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>
