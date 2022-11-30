@@ -4,11 +4,15 @@ import { FaRegUser } from "react-icons/fa";
 import { HiHeart, HiBars4 } from "react-icons/hi2";
 import { useState, useEffect } from "react";
 import { debounce } from "../utilities/helper";
-// import MenuOverlay from "./menuOverlay";
+import MenuOverlay from "./menuOverlay";
 import { NavLink } from "react-router-dom";
+import MenuIfor from "./MenuIfor";
 
 
 const Navbar = () => {
+
+  const [transform, setTransform] = useState("full");
+
   const [active, setActive] = useState("men");
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -65,7 +69,7 @@ const Navbar = () => {
             <div className="flex md:hidden ">
               <button
                 className="w-12 h-12 flex  items-center justify-center "
-                onClick={toggleHandler}
+                onClick={()=>{setTransform("0")}}
               >
                 <HiBars4 className="w-7 h-7"></HiBars4>
               </button>
@@ -82,7 +86,6 @@ const Navbar = () => {
               </div>
             </div>
             <NavLink to="/">
-
               <img
                 src={logo}
                 alt="Adidas Logo"
@@ -137,30 +140,12 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-        
-      {/* <MenuOverlay>
-        <div
-        // ${
-        //     !toggle ? "hidden" : "flex"
-        //   }
-          className={` p-6 bg-black-gradient absolute inset-0 w-full h-full rounded-xl sidebar `}
-        >
-          <ul className="list-none  md:flex justify-start lg:justify-center  items-center flex-1 pl-12  pb-3 lg:pb-0">
-            {navLinks.map((nav, index) => (
-              <li
-                key={nav.id}
-                className={`font-poppins font-semibold cursor-pointer text-[16px] ${
-                  active === nav.title ? "text-black-100" : "text-neutral-400"
-                }  ${index === navLinks.length - 1 ? "mr-0" : "mr-10"} `}
-                onClick={() => setActive(nav.title)}
-              >
-                <a href={`#${nav.id}`}>{nav.title}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-            
-        </MenuOverlay> */}
+
+      {/* <MenuOverlay> */}
+      {/* {toggle && ( */}
+      <MenuIfor transform={transform} setTransform={setTransform} />
+      {/* )} */}
+      {/* </MenuOverlay> */}
     </>
   );
 };

@@ -146,6 +146,9 @@
   }
 }
 
+.gridSize{
+  grid-template-columns: repeat(auto-fill, minmax(65px,1fr));
+}
 .feature-card:hover {
   background: var(--black-gradient);
   box-shadow: var(--card-shadow);
@@ -176,4 +179,13 @@
 .white__gradient {
   background: rgba(255, 255, 255, 0.6);
   filter: blur(750px);
+}
+.header_logo_bg{
+  position: absolute;
+  background-image: url(https://www.adidas.com/glass/react/fabca50/assets/img/icon-adidas-logo.svg);
+  left:0;
+  right:0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
 }

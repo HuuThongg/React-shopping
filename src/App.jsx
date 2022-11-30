@@ -14,7 +14,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import  RootLayout  from "./routes/RootLayout";
+import RootLayout from "./routes/RootLayout";
 import Products from "./routes/Products";
 import DetailItem from "./routes/DetailItem";
 import HomePage from "./routes/HomePage";
@@ -37,13 +37,23 @@ const router = createBrowserRouter([
         index: true,
         element: <Products />,
       },
+      {
+        path: "detail",
+        element: <DetailItem />,
+        // children: [
+        //   {
+        //     index: true,
+        //     element: <Products />,
+        //   },
+          
+        // ],
+      },
     ],
   },
 ]);
 
-
 function App() {
-  return <RouterProvider router={router}/>
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,6 +1,7 @@
 import { HiOutlineChevronDown } from "react-icons/hi2";
-
+import { useState, useRef, useEffect } from "react";
 const Content = () => {
+
   return (
     // content
     <div className="w-full min-h-screen h-full min-w-0">
@@ -39,9 +40,10 @@ const Content = () => {
                     />
                     <div className="opacity-100 cursor-pointer w-full h-full absolute top-0 left-0 object-center">
                       <video
-                        className="object-cover max-w-full max-h-full w-full h-full align-middle "
+                        className="object-cover max-w-full max-h-full w-full h-full align-middle  "
                         src="https://assets.adidas.com/videos/q_auto,f_auto,g_auto/2295df640df14692bb1caed900fc5a1f_d98c/Ultraboost_22_Shoes_Black_HQ0965_video.mp4"
                         loop
+                        // isVideoStopped ? 'autoPlay':''
                         autoPlay
                         playsInline
                         muted

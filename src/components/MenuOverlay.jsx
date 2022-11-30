@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+
 const portalElement = document.getElementById('overlays');
 
 const Backdrop = props => {
@@ -15,11 +17,9 @@ const Menu = props=> {
   );
 };
 const MenuOverlay = props => {
-  // const  toggle = true;
   return (
     <>
-      {ReactDOM.createPortal(
-      <Backdrop />, portalElement)}
+      {ReactDOM.createPortal(<Backdrop />, portalElement)}
       {ReactDOM.createPortal(<Menu>{props.children}</Menu>, portalElement)}
     </>
   );
