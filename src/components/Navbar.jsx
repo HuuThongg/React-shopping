@@ -34,10 +34,8 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos, visible, handleScroll]);
   const toggleHandler = () => {
-    console.log(toggle);
     setToggle(!toggle);
   };
-  console.log(toggle);
   return (
     <>
       <div

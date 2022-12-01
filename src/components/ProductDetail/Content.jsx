@@ -1,6 +1,35 @@
 import { HiOutlineChevronDown } from "react-icons/hi2";
 import { useState, useRef, useEffect } from "react";
 const Content = () => {
+  const [translateX, setTranslateX] = useState(0);
+  
+  const [isDraggin,setIsDraggin] = useState(false)
+  const [origX, setOrigX] = useState(0)
+  const [translateXX,setTranslateXX] = useState(0)
+  const [lastTranslateX, setLastTranslateX] = useState(0)
+
+
+  const handleMouseDown = ({clientX}) => {
+    console.log('dasdsad')
+    // window.addEventListener("mousemove", this.handleMouseMove);
+    // window.addEventListener("mouseup", this.handleMouseUp);
+    setIsDraggin(true)
+    setOrigX(clientX)
+    
+  };
+  const handleMouseup = ({ clientX }) => {
+    window.removeEventListener("mousemove", this.handleMouseMove);
+    window.removeEventListener("mouseup", this.handleMouseUp);
+    setTranslateXX(prev =>clientX- prev.origX + prev.lastTranslateX)
+  };
+  const handleMouseMove = ({ clientX }) => {
+    if(!isDraggin)
+      return
+    setIsDraggin(false);
+    setOrigX(clientX);
+    setLastTranslateX(translateXX);
+  };
+
 
   return (
     // content
@@ -9,7 +38,7 @@ const Content = () => {
       <div className="w-full relative">
         {/* back/ home/ running/ shoes */}
         {/* image */}
-        <div className="">
+        <div className=" w-full ">
           {/* imgge grid */}
           <section className=" w-full relative select-none  text-center block">
             {/* image gird container  */}
@@ -137,17 +166,36 @@ const Content = () => {
           {/* sticky products available */}
           {/* none or flex  */}
           {/* becarefull with pointer-events-none */}
-          <div className="flex  w-full justify-center sticky mb-[40px] pointer-events-none bottom-12 z-50 ">
+          <div
+            className="flex  w-full justify-center sticky mb-[40px] pointer-events-none bottom-12 z-[100000000] "
+            onClick={() => {
+              console.log("belowsection");
+            }}
+          >
             {/* sticky container */}
             <div className="flex px-[20px]  flex-col  max-w-full ">
               {/* background container */}
               <div className="p-[10px] bg-white">
                 <div className="font-bold ml-3">4 colors available </div>
-                <nav className="overflow-hidden flex max-w-full relative mt-[10px] ">
+                <nav
+                  className="overflow-hidden flex max-w-full relative mt-[10px] "
+                  onClick={() => {
+                    console.log("AAonclick");
+                  }}
+                >
                   <div className="fade absolute left-0 w-[60px] h-full z-[1]"></div>
                   <div className="fade absolute right-0 w-[60px] h-full z-[1]"></div>
 
-                  <div className="inline-flex h-100%">
+                  <div
+                    className={`inline-flex h-full `}
+                    onClick={() => {
+                      console.log("onclick");
+                    }}
+                    onMouseDown={handleMouseDown}
+                    x={translateXX}
+                    isDraggin={isDraggin}
+                    style={{ transform: `translateX(${translateXX}px)` }}
+                  >
                     <a
                       href="#"
                       className="ml-[10px] mr-[10px] h-[60px] w-[60px] bg-[#eceff1] relative "
@@ -155,6 +203,15 @@ const Content = () => {
                       <img
                         src="https://assets.adidas.com/images/w_320,f_auto,q_auto,fl_lossy,c_fill,g_auto/b9bd6dc6bbb84a8faa3dae8400320b3e_9366/Ultra_4DFWD_Shoes_Black_GX6632_01_standard.jpg"
                         alt=""
+                      />
+                    </a>
+                    <a
+                      href="#"
+                      className="ml-[10px] mr-[10px] h-[60px] w-[60px] bg-[#eceff1] relative "
+                    >
+                      <img
+                        src="https://assets.adidas.com/images/w_320,f_auto,q_auto,fl_lossy,c_fill,g_auto/40eced1090dd4d88aee0ae84015a9e00_9366/Ultraboost_1.0_Arizona_State_White_HQ5877_01_standard.jpg"
+                        alt="Product color: Cloud White / Team Maroon / Team Colleg Gold"
                       />
                     </a>
                     <a
@@ -171,17 +228,8 @@ const Content = () => {
                       className="ml-[10px] mr-[10px] h-[60px] w-[60px] bg-[#eceff1] relative "
                     >
                       <img
-                        src="https://assets.adidas.com/images/w_320,f_auto,q_auto,fl_lossy,c_fill,g_auto/b9bd6dc6bbb84a8faa3dae8400320b3e_9366/Ultra_4DFWD_Shoes_Black_GX6632_01_standard.jpg"
-                        alt=""
-                      />
-                    </a>
-                    <a
-                      href="#"
-                      className="ml-[10px] mr-[10px] h-[60px] w-[60px] bg-[#eceff1] relative "
-                    >
-                      <img
-                        src="https://assets.adidas.com/images/w_320,f_auto,q_auto,fl_lossy,c_fill,g_auto/b9bd6dc6bbb84a8faa3dae8400320b3e_9366/Ultra_4DFWD_Shoes_Black_GX6632_01_standard.jpg"
-                        alt=""
+                        src="https://assets.adidas.com/images/w_320,f_auto,q_auto,fl_lossy,c_fill,g_auto/ead7a6967e654e28a311aee800f4812a_9366/Ultraboost_1.0_DNA_Shoes_White_GY9134_01_standard.jpg"
+                        alt="Product color: Cloud White / Cloud White / Green"
                       />
                     </a>
                     <a
@@ -267,6 +315,8 @@ const Content = () => {
         </div>
       </div>
       {/* fixed content : revfiews description */}
+
+  
     </div>
   );
 };

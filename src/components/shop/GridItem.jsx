@@ -1,7 +1,7 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 const GridItem = () => {
   return (
     <div className="screeb960:hover hover:border-solid hover:border-[1px] hover:border-black">
@@ -11,7 +11,7 @@ const GridItem = () => {
           <div className="w-full cursor-pointer bg-white relative text-black text-sm font-normal">
             {/* Assets ( images) */}
             <div className="relative pb-[100%]">
-              <NavLink to="/detail" className="absolute inset-0">
+              <Link to="detail" className="absolute inset-0">
                 <img
                   data-auto-id="image"
                   title="Adilette Comfort Slides"
@@ -28,14 +28,14 @@ https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_aut
                   class="img_with_fallback___2aHBu glass-product-card__image performance-item"
                   data-inject_ssr_performance_instrument=""
                 />
-              </NavLink>
+              </Link>
               <div className="absolute right-5 top-5">
                 <button>
                   {/* <FaHeart className=""></FaHeart> */}
                   <AiOutlineHeart className="text-[16px]" />
                 </button>
               </div>
-              <NavLink to="/detail" className=" absolute bottom-0 left-1 ">
+              <Link to="/detail" className=" absolute bottom-0 left-1 ">
                 <div className="font-semibold ml-1">
                   <span>-40%</span>
                 </div>
@@ -45,9 +45,9 @@ https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_aut
                   </div>
                   <div className="leading-4 text-red-600">$21</div>
                 </div>
-              </NavLink>
+              </Link>
             </div>
-            <NavLink to="detail">
+            <Link to="detail">
               {/* Product-card _ details  Adjust min high later */}
               <div className="p-[10px] min-h-[75px] ">
                 <p>Adilette Comfort Slides</p>
@@ -56,7 +56,7 @@ https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_aut
                   <span>2 colors</span>
                 </p>
               </div>
-            </NavLink>
+            </Link>
           </div>
         </div>
       </div>
