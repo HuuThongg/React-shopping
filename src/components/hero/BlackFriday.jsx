@@ -1,6 +1,6 @@
 import { blackfriday_full, blackfriday_s, blackfriday_m } from "../../assets";
 import { HiArrowRight } from "react-icons/hi2";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 const BlackFriday = () => {
   return (
     <section className="bg-red-100 min-h-[30vh] relative">
@@ -32,7 +32,7 @@ const BlackFriday = () => {
           </div>
           <div>
             <div className="block justify-start my-2  text-black w-full">
-              <NavLink
+              <Link
                 to="/products"
                 className="text-xs font-semibold  bg-slate-100 h-[50px]  items-center inline-flex space-x-1 px-2"
               >
@@ -41,10 +41,10 @@ const BlackFriday = () => {
                 <span className="">
                   <HiArrowRight className="text-xl"></HiArrowRight>
                 </span>
-              </NavLink>
+              </Link>
             </div>
             <div className="block justify-start my-2  text-black w-full">
-              <NavLink
+              <Link
                 to="/products"
                 className="text-xs font-semibold  bg-slate-100 h-[50px]  items-center inline-flex space-x-1 px-2"
               >
@@ -53,10 +53,10 @@ const BlackFriday = () => {
                 <span className="text-xl">
                   <HiArrowRight></HiArrowRight>
                 </span>
-              </NavLink>
+              </Link>
             </div>
             <div className="block justify-start my-2  text-black w-full">
-              <NavLink
+              <Link
                 to="/products"
                 className="text-xs font-semibold  bg-slate-100 h-[50px]  items-center inline-flex space-x-1 px-2 "
               >
@@ -65,7 +65,7 @@ const BlackFriday = () => {
                 <span className="">
                   <HiArrowRight className="text-xl"></HiArrowRight>
                 </span>
-              </NavLink>
+              </Link>
             </div>
           </div>
         </div>

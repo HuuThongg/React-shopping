@@ -3,10 +3,15 @@ import { HiXMark } from "react-icons/hi2";
 import { useState } from "react";
 import { logo } from "../assets";
 const MenuIfor = (props) => {
+  const onClickHandler = () => {
+    props.setTransform("full");
+  };
 
   return (
+    // prevent scroll
+
     <div
-      className={`overflow-hidden bg-white fixed inset-0 w-full h-full -translate-x-${props.transform} transition-all duration-500 ease-in-out  z-[100]`}
+      className={`overflow-hidden bg-white fixed inset-0 w-full h-full -translate-x-full transition-all duration-500 ease-in-out  z-[100]`}
     >
       <div
         // -translate-x-${transform}
@@ -21,7 +26,7 @@ const MenuIfor = (props) => {
           <button
             className=" absolute right-0 top-1  text-[40px]  z-[110] w-[50px] h-[50px] "
             onClick={() => {
-              props.setTransform("full");
+              onClickHandler
             }}
           >
             <HiXMark className="w-full h-full" />

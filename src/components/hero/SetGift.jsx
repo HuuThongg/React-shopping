@@ -1,6 +1,18 @@
 import React from "react";
-
+import { useQuery } from "@tanstack/react-query";
 const SetGift = () => {
+  // const resposne = fetch(
+  //   "https://my-json-server.typicode.com/HuuThongg/mockjson/db"
+  // )
+  //   .then((result) => {
+  //     console.log(result.json());
+  //   })
+  //   .catch((err) => console.log(err));
+  // const { data, status, error } = useQuery(["films"], () =>
+  //   fetch("https://my-json-server.typicode.com/HuuThongg/mockjson/db")
+  // );
+  // console.log(data);
+
   return (
     <section className="w-full relative  overflow-hidden">
       <div className=" w-full relative  h-full text-white flex overflow-hidden">

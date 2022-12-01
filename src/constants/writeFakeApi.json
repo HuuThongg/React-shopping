@@ -1,0 +1,59 @@
+{
+  "backgrounds" : 
+    {
+      "bg-m-w-960": "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-tcc-background-d_tcm221-947069.jpg",
+      "bg-m-w-600":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-tcc-background-t_tcm221-947071.jpg",
+      "bg-smallest": "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-tcc-background-m_tcm221-947068.jpg"
+    }
+  ,
+  "content":[
+    {
+      "id": "1",
+      "images": [
+        {
+          "bg-m-w-960": "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg",
+          "bg-m-w-600":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg",
+          "bg-smallest": "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
+        }
+      ],
+      "sale_off" :"STOCKING STUFFERS",
+      "description" : "Stock up on hats, socks, and more so you can gift 3-Stripes to everyone this season."
+    },
+    {
+      "id": "2",
+      "images": [
+        {
+          "bg-m-w-960": "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-cybermonday-fleece-d_tcm221-967938.jpg",
+          "bg-m-w-600":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-cybermonday-fleece-d_tcm221-967938.jpg",
+          "bg-smallest": "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-cybermonday-fleece-d_tcm221-967938.jpg"
+        }
+      ],
+      "sale_off" :"FLEECE UP TO 60% OFF",
+      "description" : "Make the season extra cozy with soft hoodies, comfy joggers, and more."
+    },
+    {
+      "id": "3",
+      "images": [
+        {
+          "bg-m-w-960": "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-cybermonday-footwear-d_tcm221-967937.jpg",
+          "bg-m-w-600":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-cybermonday-footwear-d_tcm221-967937.jpg",
+          "bg-smallest": "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
+        }
+      ],
+      "sale_off" :"FOOTWEAR FAVES UNDER $100",
+      "description" : "Gift classic sneakers that everyone on your list will wear on repeat."
+    },
+    {
+      "id": "4",
+      "images": [
+        {
+          "bg-m-w-960": "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-cybermonday-stocking-d_tcm221-967941.jpg",
+          "bg-m-w-600":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-cybermonday-stocking-d_tcm221-967941.jpg",
+          "bg-smallest": "https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-cybermonday-stocking-d_tcm221-967941.jpg"
+        }
+      ],
+      "sale_off" :"STOCKING STUFFERS UNDER $30",
+      "description" : "Stock up on hats, slides, socks, and more last-minute gifts they'll love."
+    }
+  ]
+}

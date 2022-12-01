@@ -2,34 +2,30 @@ import { HiOutlineChevronDown } from "react-icons/hi2";
 import { useState, useRef, useEffect } from "react";
 const Content = () => {
   const [translateX, setTranslateX] = useState(0);
-  
-  const [isDraggin,setIsDraggin] = useState(false)
-  const [origX, setOrigX] = useState(0)
-  const [translateXX,setTranslateXX] = useState(0)
-  const [lastTranslateX, setLastTranslateX] = useState(0)
 
+  const [isDraggin, setIsDraggin] = useState(false);
+  const [origX, setOrigX] = useState(0);
+  const [translateXX, setTranslateXX] = useState(0);
+  const [lastTranslateX, setLastTranslateX] = useState(0);
 
-  const handleMouseDown = ({clientX}) => {
-    console.log('dasdsad')
+  const handleMouseDown = ({ clientX }) => {
+    console.log("dasdsad");
     // window.addEventListener("mousemove", this.handleMouseMove);
     // window.addEventListener("mouseup", this.handleMouseUp);
-    setIsDraggin(true)
-    setOrigX(clientX)
-    
+    setIsDraggin(true);
+    setOrigX(clientX);
   };
   const handleMouseup = ({ clientX }) => {
     window.removeEventListener("mousemove", this.handleMouseMove);
     window.removeEventListener("mouseup", this.handleMouseUp);
-    setTranslateXX(prev =>clientX- prev.origX + prev.lastTranslateX)
+    setTranslateXX((prev) => clientX - prev.origX + prev.lastTranslateX);
   };
   const handleMouseMove = ({ clientX }) => {
-    if(!isDraggin)
-      return
+    if (!isDraggin) return;
     setIsDraggin(false);
     setOrigX(clientX);
     setLastTranslateX(translateXX);
   };
-
 
   return (
     // content
@@ -315,8 +311,6 @@ const Content = () => {
         </div>
       </div>
       {/* fixed content : revfiews description */}
-
-  
     </div>
   );
 };
