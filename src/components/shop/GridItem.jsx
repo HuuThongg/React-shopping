@@ -2,13 +2,30 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
 const GridItem = () => {
+  const { status, data, error, isFetching, isSuccess, isLoading } = useQuery({
+    queryKey: ["totalItems"],
+    queryFn: async () => {
+      const { data } = await axios.get(
+        "https://api.npoint.io/be591a0e6482dd90142a"
+      );
+      return data;
+    },
+  });
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error</div>;
+  // console.log(data[0].colors.length);
+  console.log("a");
+
   return (
-    <div className="screeb960:hover hover:border-solid hover:border-[1px] hover:border-black">
+    <div className="screeb960:hover hover:border-[1px] hover:border-solid hover:border-black">
       <div className="relative">
         {/* Product card container */}
-        <div className="w-full p-[2px] sm:p-1 m-[2px]">
-          <div className="w-full cursor-pointer bg-white relative text-black text-sm font-normal">
+        <div className="m-[2px] w-full p-[2px] sm:p-1">
+          <div className="relative w-full cursor-pointer bg-white text-sm font-normal text-black">
             {/* Assets ( images) */}
             <div className="relative pb-[100%]">
               <Link to="detail" className="absolute inset-0">
@@ -36,11 +53,11 @@ https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_aut
                 </button>
               </div>
               <Link to="/detail" className=" absolute bottom-0 left-1 ">
-                <div className="font-semibold ml-1">
+                <div className="ml-1 font-semibold">
                   <span>-40%</span>
                 </div>
-                <div className="flex mt-[5px] py-[2px] px-[5px] bg-white">
-                  <div className="mr-[4px] text-gray-400 leading-4 line-through">
+                <div className="mt-[5px] flex bg-white py-[2px] px-[5px]">
+                  <div className="mr-[4px] leading-4 text-gray-400 line-through">
                     $35
                   </div>
                   <div className="leading-4 text-red-600">$21</div>
@@ -49,7 +66,7 @@ https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_aut
             </div>
             <Link to="detail">
               {/* Product-card _ details  Adjust min high later */}
-              <div className="p-[10px] min-h-[75px] ">
+              <div className="min-h-[75px] p-[10px] ">
                 <p>Adilette Comfort Slides</p>
                 <p className="text-slate-700">Yoga</p>
                 <p className="text-slate-700">
