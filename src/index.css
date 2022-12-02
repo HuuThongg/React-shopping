@@ -192,3 +192,8 @@
 .heightMaxCalc{
   height: max(calc(100vh - 300px, 600px));
 }
+.outlineBox{
+  outline :#11101d;
+  outline: solid;
+  outline-offset: 1px;
+}
