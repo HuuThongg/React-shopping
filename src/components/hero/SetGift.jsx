@@ -1,18 +1,29 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 const SetGift = () => {
-  // const resposne = fetch(
-  //   "https://my-json-server.typicode.com/HuuThongg/mockjson/db"
-  // )
-  //   .then((result) => {
-  //     console.log(result.json());
-  //   })
-  //   .catch((err) => console.log(err));
-  // const { data, status, error } = useQuery(["films"], () =>
-  //   fetch("https://my-json-server.typicode.com/HuuThongg/mockjson/db")
+  const { status, data, error, isFetching, isSuccess, isLoading } = useQuery({
+    queryKey: ["repoData"],
+    queryFn: async () => {
+      const { data } = await axios.get(
+        "https://my-json-server.typicode.com/HuuThongg/mockjson/db"
+      );
+      return data;
+    },
+  });
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error</div>;
+  // let a = data.backgrounds;
+  // const { isLoading, error, data, isFetching } = useQuery(
+  //   ["repoData"],
+  //   async () => {
+  //     const res = await axios.get(
+  //       "https://my-json-server.typicode.com/HuuThongg/mockjson/db"
+  //     );
+  //     // console.log(res.data)
+  //     return await res.data;
+  //   }
   // );
-  // console.log(data);
-
   return (
     <section className="w-full relative  overflow-hidden">
       <div className=" w-full relative  h-full text-white flex overflow-hidden">
@@ -23,19 +34,14 @@ const SetGift = () => {
             <picture className="h-full">
               <source
                 media="(min-width: 960px)"
-                srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-tcc-background-d_tcm221-947069.jpg"
+                srcSet={data.backgrounds.bg_m_w_960}
               />
               <source
                 media="(min-width: 600px)"
-                srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-tcc-background-t_tcm221-947071.jpg"
+                srcSet={data.backgrounds.bg_m_w_600}
               />
-              <source srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-tcc-background-m_tcm221-947068.jpg" />
-              <img
-                id="tcm:221-947080"
-                src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/xcat-fw22-holiday-october-generic-tcc-background-d_tcm221-947069.jpg"
-                decoding="async"
-                loading="lazy"
-              />
+              <source srcSet={data.backgrounds.bg_smallest} />
+              <img src={data.backgrounds.bg_m_w_960} />
             </picture>
           </div>
         </div>
@@ -48,12 +54,10 @@ const SetGift = () => {
             <div className="w-full">
               <div>
                 <h4 className="text-[30px] text-slate-900 font-bold">
-                  Ready. SET. GIFT.
+                  {data.header.headerInfo}
                 </h4>
                 <p className=" block text-slate-900 font-normal mt-4 w-full">
-                  We’ve done the hard part for you and rounded up great gift
-                  ideas for everyone on your list—from best sellers to
-                  reimagined classics.
+                  {data.header.description}
                 </p>
               </div>
             </div>
@@ -66,218 +70,56 @@ const SetGift = () => {
               <div className="w-full  flex py-1  snap-x snap-mandatory overflow-x-auto scrollbar-hide  mb-5   ">
                 {/* content for each  */}
                 {/*w-[calc((100%-10px)/1.187)]  */}
-                <div className=" grow-0 shrink-0 basis-auto  snap-start w-[calc((100%-10px)/1.187)]  screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  ">
-                  <div className="h-full relative w-full ">
-                    <a href="#" className="w-full ">
-                      {/* teaser-card-content */}
-                      <div className=" h-full  flex flex-col w-full relative">
-                        {/* image */}
-                        <div className=" h-full before:block before:content-['']  before:w-full pt-[133.333333333333%] w-full">
-                          {/* Wrapper */}
-                          <div className="absolute inset-0 h-full w-full">
-                            {/* container */}
-                            <div className="w-full h-full">
-                              <picture>
-                                <source
-                                  media="(min-width: 960px)"
-                                  srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                />
-                                <source
-                                  media="(min-width: 600px)"
-                                  srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                />
-                                <source srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg" />
-                                <img
-                                  id="tcm:221-967814"
-                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                  decoding="async"
-                                  loading="lazy"
-                                />
-                              </picture>
-                            </div>
-                          </div>
-                        </div>
-                        {/* Content  */}
-                        <div className="flex flex-col mt-3 text-white flex-end ">
-                          <span className="block text-ellipsis overflow-hidden mb-0">
-                            <strong>STOCKING STUFFERS</strong>
-                          </span>
-                          <p className="pt-[5px]">
-                            Stock up on hats, socks, and more so you can gift
-                            3-Stripes to everyone this season.
-                          </p>
-                          <div className="flex mt-5 flex-1 items-end text-[20px] underline underline-offset-2">
-                            <button>
-                              <span className="text-[18px] flex-1 overflow-hidden text-ellipsis">
-                                SHOP NOW
-                              </span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
 
-                {/* content for each  */}
-                <div className="grow-0 shrink-0 basis-auto  snap-start w-[calc((100%-10px)/1.187)]  screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  ">
-                  <div className="h-full relative w-full ">
-                    <a href="#" className="w-full">
-                      {/* teaser-card-content */}
-                      <div className=" h-full  flex flex-col w-full">
-                        {/* image */}
-                        <div className=" h-full before:block before:content-['']  before:w-full pt-[133.333333333333%] w-full">
-                          {/* Wrapper */}
-                          <div className="absolute inset-0 h-full w-full">
-                            {/* container */}
-                            <div className="w-full h-full">
-                              <picture>
-                                <source
-                                  media="(min-width: 960px)"
-                                  srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                />
-                                <source
-                                  media="(min-width: 600px)"
-                                  srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                />
-                                <source srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg" />
-                                <img
-                                  id="tcm:221-967814"
-                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                  decoding="async"
-                                  loading="lazy"
-                                />
-                              </picture>
+                {data.content.map((product, index) => (
+                  <div
+                    key={product.id}
+                    className=" grow-0 shrink-0 basis-auto  snap-start w-[calc((100%-10px)/1.187)]  screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  "
+                  >
+                    <div className="h-full relative w-full ">
+                      <a href="#" className="w-full ">
+                        {/* teaser-card-content */}
+                        <div className=" h-full  flex flex-col w-full relative">
+                          {/* image */}
+                          <div className=" h-full before:block before:content-['']  before:w-full pt-[133.333333333333%] w-full">
+                            {/* Wrapper */}
+                            <div className="absolute inset-0 h-full w-full">
+                              {/* container */}
+                              <div className="w-full h-full">
+                                <picture>
+                                  <source
+                                    media="(min-width: 960px)"
+                                    srcSet={product.images[0].bg_m_w_960}
+                                  />
+                                  <source
+                                    media="(min-width: 600px)"
+                                    srcSet={product.images[0].bg_m_w_600}
+                                  />
+                                  <source srcSet={product.images[0].bg_smallest} />
+                                  <img srcSet={product.images[0].bg_m_w_960} />
+                                </picture>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Content  */}
+                          <div className="flex flex-col mt-3 text-white flex-end ">
+                            <span className="block text-ellipsis overflow-hidden mb-0">
+                              <strong>{product.sale_off}</strong>
+                            </span>
+                            <p className="pt-[5px]">{product.description}</p>
+                            <div className="flex mt-5 flex-1 items-end text-[20px] underline underline-offset-2">
+                              <button>
+                                <span className="text-[18px] flex-1 overflow-hidden text-ellipsis">
+                                  SHOP NOW
+                                </span>
+                              </button>
                             </div>
                           </div>
                         </div>
-                        {/* Content  */}
-                        <div className="flex flex-col mt-3 text-white flex-end">
-                          <span className="block text-ellipsis overflow-hidden mb-0">
-                            <strong>STOCKING STUFFERS</strong>
-                          </span>
-                          <p className="pt-[5px]">
-                            Stock up on hats, socks, and more so you can gift
-                            3-Stripes to everyone this season.
-                          </p>
-                          <div className="flex mt-5 flex-1 items-end text-[20px] underline underline-offset-2">
-                            <button>
-                              <span className="text-[18px] flex-1 overflow-hidden text-ellipsis">
-                                SHOP NOW
-                              </span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                {/* content for each  */}
-                <div className="grow-0 shrink-0 basis-auto  snap-start w-[calc((100%-10px)/1.187)]  screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  ">
-                  <div className="h-full relative w-full ">
-                    <a href="#" className="w-full">
-                      {/* teaser-card-content */}
-                      <div className=" h-full  flex flex-col w-full">
-                        {/* image */}
-                        <div className=" h-full before:block before:content-['']  before:w-full pt-[133.333333333333%] w-full">
-                          {/* Wrapper */}
-                          <div className="absolute inset-0 h-full w-full">
-                            {/* container */}
-                            <div className="w-full h-full">
-                              <picture>
-                                <source
-                                  media="(min-width: 960px)"
-                                  srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                />
-                                <source
-                                  media="(min-width: 600px)"
-                                  srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                />
-                                <source srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg" />
-                                <img
-                                  id="tcm:221-967814"
-                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                  decoding="async"
-                                  loading="lazy"
-                                />
-                              </picture>
-                            </div>
-                          </div>
-                        </div>
-                        {/* Content  */}
-                        <div className="flex flex-col mt-3 text-white flex-end">
-                          <span className="block text-ellipsis overflow-hidden mb-0">
-                            <strong>STOCKING STUFFERS</strong>
-                          </span>
-                          <p className="pt-[5px]">
-                            Stock up on hats, socks, and more so you can gift
-                            3-Stripes to everyone this season.
-                          </p>
-                          <div className="flex mt-5 flex-1 items-end text-[20px] underline underline-offset-2">
-                            <button>
-                              <span className="text-[18px] flex-1 overflow-hidden text-ellipsis">
-                                SHOP NOW
-                              </span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                {/* content for each  */}
-                <div className=" grow-0 shrink-0 basis-auto snap-start w-[calc((100%-10px)/1.187)]  screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  ">
-                  <div className="h-full relative w-full ">
-                    <a href="#" className="w-full">
-                      {/* teaser-card-content */}
-                      <div className=" h-full  flex flex-col w-full">
-                        {/* image */}
-                        <div className=" h-full before:block before:content-['']  before:w-full pt-[133.333333333333%] w-full">
-                          {/* Wrapper */}
-                          <div className="absolute inset-0 h-full w-full">
-                            {/* container */}
-                            <div className="w-full h-full">
-                              <picture>
-                                <source
-                                  media="(min-width: 960px)"
-                                  srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                />
-                                <source
-                                  media="(min-width: 600px)"
-                                  srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                />
-                                <source srcSet="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg" />
-                                <img
-                                  id="tcm:221-967814"
-                                  src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/promo-fw22-blackfriday-ultraboost-tcc_tcm221-967808.jpg"
-                                  decoding="async"
-                                  loading="lazy"
-                                />
-                              </picture>
-                            </div>
-                          </div>
-                        </div>
-                        {/* Content  */}
-                        <div className="flex flex-col mt-3 text-white flex-end">
-                          <span className="block text-ellipsis overflow-hidden mb-0">
-                            <strong>STOCKING STUFFERS</strong>
-                          </span>
-                          <p className="pt-[5px]">
-                            Stock up on hats, socks, and more so you can gift
-                            3-Stripes to everyone this season.
-                          </p>
-                          <div className="flex mt-5 flex-1 items-end text-[20px] underline underline-offset-2">
-                            <button>
-                              <span className="text-[18px] flex-1 overflow-hidden text-ellipsis">
-                                SHOP NOW
-                              </span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
