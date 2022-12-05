@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import RootLayout from "./routes/RootLayout";
 import Products from "./routes/Products";
-import DetailItem from "./routes/DetailItem";
+import DetailItem, {loader as DetailLoader} from "./routes/DetailItem";
 import HomePage from "./routes/HomePage";
 
 const queryClient  = new QueryClient();
@@ -32,8 +32,9 @@ const router = createBrowserRouter([
         element: <Products />,
       },
       {
-        path: "detail",
+        path: "/products/:productId",
         element: <DetailItem />,
+        loader: DetailLoader(queryClient),
       },
     ],
   },

@@ -5,9 +5,8 @@ import { HiHeart, HiBars4, HiXMark } from "react-icons/hi2";
 import { useState, useEffect } from "react";
 import { debounce } from "../utilities/helper";
 // import MenuOverlay from "./menuOverlay";
-import { NavLink } from "react-router-dom";
+import { NavLink ,Navigate} from "react-router-dom";
 // import MenuIfor from "./MenuIfor";
-
 
 const Navbar = () => {
   const [transform, setTransform] = useState("full");
@@ -38,47 +37,47 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 w-full justify-items-center z-40 transition-shadow  duration-[250] delay-100 ease-[cubic-bezier(0.25, 0.1, 0.25, 1.0) ] ${
+        className={`ease-[cubic-bezier(0.25, 0.1, 0.25, 1.0) ] fixed top-0  left-0 z-40 w-full justify-items-center transition-shadow delay-100 duration-[250] ${
           !visible ? "-translate-y-full" : ""
         }`}
       >
-        <div className="bg-[#18181b] h-[45px] w-full  md:h-[40px] grid place-items-center">
-          <button className="text-white w-full h-full ">
+        <div className="grid h-[45px] w-full  place-items-center bg-[#18181b] md:h-[40px]">
+          <button className="h-full w-full text-white ">
             FREE STANDARD SHIPPING & RETURNS
           </button>
         </div>
-        <nav className="border w-full flex flex-col  px-2 justify-between  h-[60px] md:h-[80px] bg-white ">
-          <div className="hidden md:block w-full">
-            <ul className="list-none flex items-center pl-12 justify-end -pr-5">
+        <nav className="flex h-[60px] w-full flex-col  justify-between border  bg-white px-2 md:h-[80px] ">
+          <div className="hidden w-full md:block">
+            <ul className="-pr-5 flex list-none items-center justify-end pl-12">
               {topInfo.map((nav, index) => (
                 <li
                   key={nav.id}
-                  className={` font-normal italic cursor-pointer text-sm ${
+                  className={` cursor-pointer text-sm font-normal italic ${
                     index === topInfo.length - 1 ? "mr-0" : "mr-4"
                   } `}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  <NavLink to="/products">{nav.title}</NavLink>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="w-full flex justify-between items-center md:items-end lg:items-center ">
+          <div className="flex w-full items-center justify-between md:items-end lg:items-center ">
             <div className="flex md:hidden ">
               <button
-                className="w-12 h-12 flex  items-center justify-center "
+                className="flex h-12 w-12  items-center justify-center "
                 onClick={() => {
                   setTransform("0");
                 }}
               >
-                <HiBars4 className="w-7 h-7"></HiBars4>
+                <HiBars4 className="h-7 w-7"></HiBars4>
               </button>
-              <div className="  w-12 h-12 ">
+              <div className="  h-12 w-12 ">
                 <a
                   href="#"
-                  className="w-full h-full  relative  justify-center grid place-items-center text-center"
+                  className="relative grid  h-full  w-full place-items-center justify-center text-center"
                 >
-                  <HiHeart className="w-6 h-6 inline"></HiHeart>
-                  <span className="absolute top-0 right-0 w-5 h-5 text-xxl bg-blue-400 rounded-full text-center">
+                  <HiHeart className="inline h-6 w-6"></HiHeart>
+                  <span className="text-xxl absolute top-0 right-0 h-5 w-5 rounded-full bg-blue-400 text-center">
                     1
                   </span>
                 </a>
@@ -88,49 +87,49 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="Adidas Logo"
-                className=" pl-12 h-[60px] object-contain"
+                className=" h-[60px] object-contain pl-12"
               ></img>
             </NavLink>
-            <ul className="list-none hidden md:flex justify-start lg:justify-center  items-center flex-1 pl-12  pb-3 lg:pb-0">
+            <ul className="hidden flex-1 list-none items-center justify-start  pl-12 pb-3 md:flex  lg:justify-center lg:pb-0">
               {navLinks.map((nav, index) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-semibold cursor-pointer text-[16px] ${
+                  className={`cursor-pointer font-poppins text-[16px] font-semibold ${
                     active === nav.title ? "text-black-100" : "text-neutral-400"
                   }  ${index === navLinks.length - 1 ? "mr-0" : "mr-10"} `}
                   onClick={() => setActive(nav.title)}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  <NavLink to="products">{nav.title}</NavLink>
                 </li>
               ))}
             </ul>
-            <div className="flex space-x-4 justify-items-center">
-              <div className="  w-12 h-12  relative ">
-                <button className=" w-full h-full ">
-                  <FaRegUser className="w-6 h-6 inline "></FaRegUser>
-                  <span className="absolute  w-5 h-5 text-xxl bg-yellow-400 rounded-full top-0 right-0 text-center">
+            <div className="flex justify-items-center space-x-4">
+              <div className="  relative h-12  w-12 ">
+                <button className=" h-full w-full ">
+                  <FaRegUser className="inline h-6 w-6 "></FaRegUser>
+                  <span className="text-xxl  absolute top-0 right-0 h-5 w-5 rounded-full bg-yellow-400 text-center">
                     1
                   </span>
                 </button>
               </div>
-              <div className="  w-12 h-12 justify-items-center">
+              <div className="  h-12 w-12 justify-items-center">
                 <a
                   href="#"
-                  className="w-full h-full  grid place-items-center relative "
+                  className="relative grid  h-full w-full place-items-center "
                 >
-                  <HiHeart className="w-6 h-6"></HiHeart>
-                  <span className="absolute w-5 h-5 text-xxl bg-blue-400 rounded-full top-0 right-0 text-center">
+                  <HiHeart className="h-6 w-6"></HiHeart>
+                  <span className="text-xxl absolute top-0 right-0 h-5 w-5 rounded-full bg-blue-400 text-center">
                     1
                   </span>
                 </a>
               </div>
-              <div className="  w-12 h-12  ">
+              <div className="  h-12 w-12  ">
                 <a
                   href="#"
-                  className="w-full h-full grid place-items-center  relative justify-center "
+                  className="relative grid h-full w-full  place-items-center justify-center "
                 >
-                  <FaRegUser className="w-6 h-6 "></FaRegUser>
-                  <span className="absolute top-0 right-0 w-5 h-5 text-xxl bg-blue-400 rounded-full  block text-center ">
+                  <FaRegUser className="h-6 w-6 "></FaRegUser>
+                  <span className="text-xxl absolute top-0 right-0 block h-5 w-5 rounded-full  bg-blue-400 text-center ">
                     1
                   </span>
                 </a>
@@ -141,31 +140,31 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`overflow-hidden bg-white fixed inset-0 w-full h-full -translate-x-${transform} transition-all duration-500 ease-in-out  z-[100]`}
+        className={`fixed inset-0 h-full w-full overflow-hidden bg-white -translate-x-${transform} z-[100] transition-all duration-500  ease-in-out`}
       >
         <div
-          className={` overflow-hidden bg-white fixed inset-0 w-full h-full    z-[100]   opacity-100`}
+          className={` fixed inset-0 z-[100] h-full w-full overflow-hidden    bg-white   opacity-100`}
         >
           {/* header */}
-          <div className=" bg-white flex justify-center items-center  min-h-[60px]  border-b-2 border-solid border-slate-400 w-full">
+          <div className=" flex min-h-[60px] w-full items-center  justify-center  border-b-2 border-solid border-slate-400 bg-white">
             <img src={logo} alt="" />
             <button
-              className=" absolute right-0 top-1  text-[40px]  z-[110] w-[50px] h-[50px] "
+              className=" absolute right-0 top-1  z-[110]  h-[50px] w-[50px] text-[40px] "
               onClick={() => {
-                setTransform("full")
+                setTransform("full");
               }}
             >
-              <HiXMark className="w-full h-full" />
+              <HiXMark className="h-full w-full" />
             </button>
           </div>
-          <ul className="list-none  flex flex-col justify-start   items-center flex-1 p-10">
+          <ul className="flex  flex-1 list-none flex-col   items-center justify-start p-10">
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
-                className={`font-poppins font-semibold cursor-pointer text-[16px]  py-5`}
+                className={`cursor-pointer py-5 font-poppins text-[16px]  font-semibold`}
                 onClick={() => setActive(nav.title)}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <NavLink to="products">{nav.title}</NavLink>
               </li>
             ))}
           </ul>

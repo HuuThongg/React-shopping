@@ -1,15 +1,15 @@
 import Content from "./Content";
 import Sidebar from "./Sidebar";
 
-const ProductDetail = () => {
+const ProductDetail = ({ product }) => {
   return (
-    <section className="pt-[105px] md:pt-[120px] relative w-full   z-10">
-      <div className="flex flex-auto overflow-visible w-full maxvw relative">
-        <Content />
-        <Sidebar />
+    <section className="relative z-10 w-full pt-[105px]   md:pt-[120px]">
+      <div className="maxvw relative flex w-full flex-auto overflow-visible">
+        <Content product={product}/>
+        <Sidebar product={product}/>
       </div>
     </section>
   );
-}
+};
 
-export default ProductDetail
+export default ProductDetail;

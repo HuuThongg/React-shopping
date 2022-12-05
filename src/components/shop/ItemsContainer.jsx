@@ -1,13 +1,11 @@
-import React from 'react'
-import GridItem from './GridItem'
-import OverlayFilter from './OverlayFilter'
-const ItemsContainer = () => {
-    
-    
+import React from "react";
+import GridItem from "./GridItem";
+import OverlayFilter from "./OverlayFilter";
 
+const ItemsContainer = ({ data }) => {
   return (
     // container
-    <div className="mx-auto w-full relative  screen1280:w-[1280px] screen1600:w-[1600px] screen960:px-4 ">
+    <div className="relative mx-auto w-full  screen960:px-4 screen1280:w-[1280px] screen1600:w-[1600px] ">
       {/* row  add flex-wrap */}
       <div className="">
         {/* main container  */}
@@ -21,18 +19,9 @@ const ItemsContainer = () => {
             <div className="mt-[10px] mb-5 ">
               {/* gird */}
               <div className="grid grid-cols-2 screen600:grid-cols-3 screen960:grid-cols-4">
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-                <GridItem />
-
-                <GridItem />
+                {data.map((item) => (
+                  <GridItem key={item._id.$oid} data={item} />
+                ))}
               </div>
             </div>
 
@@ -43,6 +32,6 @@ const ItemsContainer = () => {
       </div>
     </div>
   );
-}
+};
 
-export default ItemsContainer
+export default ItemsContainer;

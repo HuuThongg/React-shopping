@@ -4,20 +4,20 @@ const Footer = () => {
   return (
     <section>
       {/* Footer interactive */}
-      <div className="text-xs  block screen960:hidden">
+      <div className="block  text-xs screen960:hidden">
         <div className="bg-slate-100 p-5 text-left">
-          <h5 className="font-semibold text-lg mb-3">Your opinion counts</h5>
+          <h5 className="mb-3 text-lg font-semibold">Your opinion counts</h5>
           <p className="mb-3 ">
             We strive to serve you better and appreciate your feedback
           </p>
         </div>
-        <button className="flex h-12 justify-center items-center w-full text-[15px] uppercase tracking-tighter">
-          <a href="#" className="flex justify-center items-center">
+        <button className="flex h-12 w-full items-center justify-center text-[15px] uppercase tracking-tighter">
+          <a href="#" className="flex items-center justify-center">
             <HiChevronUp className="mr-3 text-xl" />
             back to top
           </a>
         </button>
-        <div className="uppercase flex justify-center text-white bg-black text-sm p-3">
+        <div className="flex justify-center bg-black p-3 text-sm uppercase text-white">
           <a href="#" className="w-1/2">
             my account
           </a>
@@ -29,10 +29,10 @@ const Footer = () => {
       {/* Footer-top */}
       <div>
         {/* For desktop */}
-        <div className="max-w-5xl mx-auto hidden screen960:block">
+        <div className="mx-auto hidden max-w-5xl screen960:block">
           <div className="flex  pt-5  ">
             {footerLinks.map((footerlink) => (
-              <div key={footerlink.title} className="basis-full my-5 ml-4 mr-7">
+              <div key={footerlink.title} className="my-5 ml-4 mr-7 basis-full">
                 <h4 className="text-xl font-bold">{footerlink.title}</h4>
                 <ul className="list-none">
                   {footerlink.links.map((link) => (
@@ -47,11 +47,22 @@ const Footer = () => {
             ))}
 
             {followUs.map((company) => (
-              <div key={company.title} className="basis-full my-5 ml-4 mr-7">
-                <h4 className="text-xl font-bold mb-4">{company.title}</h4>
+              <div key={company.title} className="my-5 ml-4 mr-7 basis-full">
+                <h4 className="mb-4 text-xl font-bold">{company.title}</h4>
                 <ul className="list-none space-y-3">
                   {company.links.map((link) => (
-                    <li key={link.name} className="">
+                    <li
+                      key={window.btoa(
+                        unescape(
+                          encodeURIComponent(
+                            Math.floor(
+                              Math.random() * (10000 - 5000) + 5000
+                            ).toString()
+                          )
+                        )
+                      )}
+                      className=""
+                    >
                       <a href={link.link} className="">
                         <img src={link.logo} alt="icon companies" />
                       </a>
@@ -64,13 +75,19 @@ const Footer = () => {
         </div>
 
         {/* For mobile */}
-        <div className="text-xs  block screen960:hidden">
+        <div className="block  text-xs screen960:hidden">
           <div className="bg-black py-4 text-white">
             {footerLinks_mobile.map((ftlink) => (
-              <ul className="flex list-none flex-wrap w-full">
+              <ul
+                key={Math.random().toString()}
+                className="flex w-full list-none flex-wrap"
+              >
                 {ftlink.links.map((link) => (
-                  <li key={link.link} className="w-1/2 py-[9px] px-[15px]">
-                    <a href={link.link} className="text-center block">
+                  <li
+                    key={Math.random().toString()}
+                    className="w-1/2 py-[9px] px-[15px]"
+                  >
+                    <a href={link.link} className="block text-center">
                       {link.name}
                     </a>
                   </li>
@@ -82,19 +99,19 @@ const Footer = () => {
       </div>
 
       {/* Footer- bottom */}
-      <div className="text-xs screen950:w-full border-t-2 border-neutral-900 bg-gray-800 text-white">
-        <div className="max-w-5xl mx-auto">
-          <ol className="flex justify-center basis-1/2 screen950:basis-auto flex-wrap py-3 ">
-            <li className="my-[9px] px-[15px] text-center md:border-r-2 w-1/2 screen960:w-auto">
+      <div className="border-t-2 border-neutral-900 bg-gray-800 text-xs text-white screen950:w-full">
+        <div className="mx-auto max-w-5xl">
+          <ol className="flex basis-1/2 flex-wrap justify-center py-3 screen950:basis-auto ">
+            <li className="my-[9px] w-1/2 px-[15px] text-center screen960:w-auto md:border-r-2">
               <a>Data settings</a>
             </li>
-            <li className="my-[9px] px-[15px] text-center md:border-r-2 w-1/2 screen960:w-auto">
+            <li className="my-[9px] w-1/2 px-[15px] text-center screen960:w-auto md:border-r-2">
               <a>Do not sell my personal information</a>
             </li>
-            <li className="my-[9px] px-[15px] text-center md:border-r-2 w-1/2 screen960:w-auto">
+            <li className="my-[9px] w-1/2 px-[15px] text-center screen960:w-auto md:border-r-2">
               <a> Privacy</a>
             </li>
-            <li className="my-[9px] px-[15px] text-center w-1/2 screen960:w-auto">
+            <li className="my-[9px] w-1/2 px-[15px] text-center screen960:w-auto">
               <a> Terms and Conditions</a>
             </li>
           </ol>
