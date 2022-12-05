@@ -24,7 +24,6 @@ const MainShop = () => {
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>error</div>;
   const pathname = location.pathname;
-  console.log(pathname);
   return (
     <section className={`relative z-10 ${pathname!=='/' ?"": "pt-[105px]   md:pt-[120px] " }w-full `}>
       <div className="z- relative w-full screen960:pt-[39px] ">

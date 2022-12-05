@@ -111,50 +111,54 @@ const Content = ({ product }) => {
           {/* sticky products available */}
           {/* none or flex  */}
           {/* becarefull with pointer-events-none */}
-          <div className="sticky  bottom-12 z-[100000000] mb-[40px] flex  w-full justify-center ">
-            {/* sticky container */}
-            <div className="flex max-w-full  flex-col  px-[20px] ">
-              {/* background container */}
-              <div className="bg-white p-[10px]">
-                <div className="ml-3 font-bold">
-                  {product.colors?.length} colors available{" "}
-                </div>
-                <nav className="relative mt-[10px] flex max-w-full overflow-hidden ">
-                  {/* <div className="fade absolute left-0 z-[1] h-full w-[60px]"></div>
-                    <div className="fade absolute right-0 z-[1] h-full w-[60px]"></div> */}
 
-                  <div
-                    className={`inline-flex h-full `}
-                    // onDragStart={(e) => dragStart(e, index)}
-                    // onDragEnter={(e) => dragEnter(e, index)}
-                    onMouseDown={handleMouseDown}
-                    style={{ transform: `translateX(${translateXX}px)` }}
-                  >
-                    {product.colors.map((color) => (
-                      <a
-                        key={Math.random()}
-                        href="#"
-                        className="relative ml-[10px] mr-[10px] h-[60px] w-[60px] bg-[#eceff1] "
-                      >
-                        <img src={color.img} alt="" />
-                      </a>
-                    ))}
-                    {/* <a
-                      href="#"
-                      className="relative z-10 ml-[10px] mr-[10px] flex h-[60px] w-[60px] items-center justify-center bg-[#eceff1]   "
-                    >
-                      <img
-                        className=" h-full w-full "
-                        src="https://assets.adidas.com/images/w_320,f_auto,q_auto,fl_lossy,c_fill,g_auto/b9bd6dc6bbb84a8faa3dae8400320b3e_9366/Ultra_4DFWD_Shoes_Black_GX6632_01_standard.jpg"
-                        alt="dsadsad"
-                      />
-                      <span className="h-full w-full before:absolute before:bottom-0 before:left-0 before:h-[4px] before:w-full before:bg-black before:content-['']"></span>
-                    </a> */}
+          {product.colors?.length > 0 &&
+          
+            <div className="sticky  bottom-12 z-[100000000] mb-[40px] flex  w-full justify-center ">
+              {/* sticky container */}
+              <div className="flex max-w-full  flex-col  px-[20px] ">
+                {/* background container */}
+                <div className="bg-white p-[10px]">
+                  <div className="ml-3 font-bold">
+                    {product.colors?.length } colors available
                   </div>
-                </nav>
+                  <nav className="relative mt-[10px] flex max-w-full overflow-hidden ">
+                    {/* <div className="fade absolute left-0 z-[1] h-full w-[60px]"></div>
+                      <div className="fade absolute right-0 z-[1] h-full w-[60px]"></div> */}
+
+                    <div
+                      className={`inline-flex h-full `}
+                      // onDragStart={(e) => dragStart(e, index)}
+                      // onDragEnter={(e) => dragEnter(e, index)}
+                      // onMouseDown={handleMouseDown}
+                      style={{ transform: `translateX(${translateXX}px)` }}
+                    >
+                      {product.colors.map((color) => (
+                        <a
+                          key={Math.random()}
+                          href="#"
+                          className="relative ml-[10px] mr-[10px] h-[60px] w-[60px] bg-[#eceff1] "
+                        >
+                          <img src={color.img} alt="" />
+                        </a>
+                      ))}
+                      {/* <a
+                        href="#"
+                        className="relative z-10 ml-[10px] mr-[10px] flex h-[60px] w-[60px] items-center justify-center bg-[#eceff1]   "
+                      >
+                        <img
+                          className=" h-full w-full "
+                          src="https://assets.adidas.com/images/w_320,f_auto,q_auto,fl_lossy,c_fill,g_auto/b9bd6dc6bbb84a8faa3dae8400320b3e_9366/Ultra_4DFWD_Shoes_Black_GX6632_01_standard.jpg"
+                          alt="dsadsad"
+                        />
+                        <span className="h-full w-full before:absolute before:bottom-0 before:left-0 before:h-[4px] before:w-full before:bg-black before:content-['']"></span>
+                      </a> */}
+                    </div>
+                  </nav>
+                </div>
               </div>
             </div>
-          </div>
+          }
           {/* description view : Running sopportive dsada */}
         </div>
       </div>

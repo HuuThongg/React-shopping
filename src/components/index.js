@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import MainShop from "./shop/MainShop";
 import ProductDetail from "./ProductDetail/ProductDetail";
 import NewArrivals from "./Hompage/NewArrivals";
+import Cart from "./cart/Cart";
 export {
   Navbar,
   BlackFriday,
@@ -15,4 +16,5 @@ export {
   MainShop,
   ProductDetail,
   NewArrivals,
+  Cart
 };

@@ -1,13 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import { FaHeart } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const GridItem = ({ data }) => {
-  // note <span>{data.saleoffPercent?.price}</span>;
-
+  const [isShown, setIsShown] = useState(false);
   return (
-    <div className="screeb960:hover hover:border-[1px] hover:border-solid hover:border-black">
+    <div
+      className="screeb960:hover hover:border-[1px] hover:border-solid hover:border-black"
+      onMouseEnter={() => setIsShown(true)}
+      onMouseLeave={() => setIsShown(false)}
+    >
       <div className="relative">
         {/* Product card container */}
         <div className="m-[2px] w-full p-[2px] sm:p-1">
@@ -19,7 +22,7 @@ const GridItem = ({ data }) => {
                   data-auto-id="image"
                   title="Adilette Comfort Slides"
                   // src="https://assets.adidas.com/images/w_600,f_auto,q_auto/dee464faf8db400e9980ae92003f95dc_9366/4CMTE_Track_Top_Black_HM6235_21_model.jpg"
-                  src={data.imgs[0]}
+                  src={isShown ? data.imgs[0] : data.imgs[1]}
                   //                   srcSet="https://assets.adidas.com/images/w_178,h_178,f_auto,q_auto,fl_lossy,c_fill,g_auto/30378ca9761a43c78c37ad6e00cba5e6_9366/adilette-comfort-slides.jpg 178w,
                   // https://assets.adidas.com/images/w_186,h_186,f_auto,q_auto,fl_lossy,c_fill,g_auto/30378ca9761a43c78c37ad6e00cba5e6_9366/adilette-comfort-slides.jpg 186w,
                   // https://assets.adidas.com/images/w_205,h_205,f_auto,q_auto,fl_lossy,c_fill,g_auto/30378ca9761a43c78c37ad6e00cba5e6_9366/adilette-comfort-slides.jpg 205w,
@@ -36,7 +39,7 @@ const GridItem = ({ data }) => {
                   <AiOutlineHeart className="text-[16px]" />
                 </button>
               </div>
-              <Link to={data._id.$oid} className=" absolute bottom-0 left-1 ">
+              <Link to={data._id.$oid} className={` absolute ${isShown ? "bottom-2": "bottom-0"} left-1  transition-all`}>
                 <div className="ml-1 font-semibold">
                   {/* <span>-40%</span> */}
                   <span>{data.saleoffPercent?.price}</span>
@@ -74,3 +77,5 @@ const GridItem = ({ data }) => {
 };
 
 export default GridItem;
+  // note <span>{data.saleoffPercent?.price}</span>;
+

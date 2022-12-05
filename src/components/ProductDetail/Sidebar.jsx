@@ -7,13 +7,8 @@ import { useCart } from "../store/store";
 
 const Sidebar = ({ product }) => {
 
-  const totalAmount = useCart((state) =>state.totalAmount)
   const storedItems = useCart((state) => state.items);
   const addItem = useCart((state) => state.addItem);
-  const increasePopulation = useCart((state) => state.increasePopulation);
-  const bears = useCart((state)=>state.bears)
-  console.log(totalAmount)
-  console.log(storedItems);
   // items: [id, amount, price];
   const handleAddItem = () =>{
     console.log(product)

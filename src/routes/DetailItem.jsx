@@ -16,7 +16,7 @@ const productDetailQuery = (id) => ({
   queryKey: ["productDetail", id],
   queryFn: async () => {
     const { data } = await axios.get(
-      `https://api.npoint.io/412448615c4faa493df3/` + id
+      `https://api.npoint.io/412448615c4faa493df3/` + (+id -1).toString()
     );
     return data;
   },

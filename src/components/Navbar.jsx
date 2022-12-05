@@ -6,9 +6,12 @@ import { useState, useEffect } from "react";
 import { debounce } from "../utilities/helper";
 // import MenuOverlay from "./menuOverlay";
 import { NavLink, useLocation } from "react-router-dom";
-// import MenuIfor from "./MenuIfor";
+import { useCart } from "./store/store";
 
 const Navbar = () => {
+  const storedItems = useCart((state) => state.items);
+  const amountItems = storedItems.reduce(
+    (accumulator, currentValue) =>  accumulator + currentValue.amount,0);
   const [transform, setTransform] = useState("full");
 
   const [active, setActive] = useState("men");
@@ -40,7 +43,9 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`${location.pathname==='/' ? "fixed":""} top-0 left-0  z-40 w-full ease-in-out justify-items-center transition-shadow delay-1000 duration-[2500]  ${
+        className={`${
+          location.pathname === "/" ? "fixed" : ""
+        } top-0 left-0  z-40 w-full justify-items-center transition-shadow delay-1000 duration-[2500] ease-in-out  ${
           !visible ? "-translate-y-full" : ""
         }`}
       >
@@ -81,7 +86,7 @@ const Navbar = () => {
                 >
                   <HiHeart className="inline h-6 w-6"></HiHeart>
                   <span className="text-xxl absolute top-0 right-0 h-5 w-5 rounded-full bg-blue-400 text-center">
-                    1
+                    2
                   </span>
                 </a>
               </div>
@@ -127,15 +132,17 @@ const Navbar = () => {
                 </a>
               </div>
               <div className="  h-12 w-12  ">
-                <a
-                  href="#"
+                <NavLink
+                  to="cart"
                   className="relative grid h-full w-full  place-items-center justify-center "
                 >
                   <FaRegUser className="h-6 w-6 "></FaRegUser>
-                  <span className="text-xxl absolute top-0 right-0 block h-5 w-5 rounded-full  bg-blue-400 text-center ">
-                    1
-                  </span>
-                </a>
+                  {amountItems > 0 &&
+                    <span className="text-xxl absolute top-0 right-0 block h-5 w-5 rounded-full  bg-blue-400 text-center ">
+                      {amountItems}
+                    </span>
+                  }
+                </NavLink>
               </div>
             </div>
           </div>

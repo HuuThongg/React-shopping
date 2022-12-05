@@ -9,6 +9,8 @@ import RootLayout from "./routes/RootLayout";
 import Products from "./routes/Products";
 import DetailItem, {loader as DetailLoader} from "./routes/DetailItem";
 import HomePage from "./routes/HomePage";
+import RootLayout_Cart from "./routes/RootLayout_Cart";
+import CartRoot from "./routes/CartRoot";
 
 const queryClient  = new QueryClient();
 
@@ -35,6 +37,16 @@ const router = createBrowserRouter([
         path: "/products/:productId",
         element: <DetailItem />,
         loader: DetailLoader(queryClient),
+      },
+    ],
+  },
+  {
+    path: "/cart",
+    element: <RootLayout_Cart />,
+    children: [
+      {
+        index: true,
+        element: <CartRoot />,
       },
     ],
   },

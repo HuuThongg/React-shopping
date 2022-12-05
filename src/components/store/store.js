@@ -9,8 +9,6 @@ export const useCart = create(
       // items: [id, amount, price]
       items: [],
       totalAmount: 0,
-      bears: 0,
-      increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
       addItem: (item) => set((state)=>{
         console.log(item);
         const updatedTotalAmount = state.totalAmount + item.amount * Number(item.price.slice(1))
