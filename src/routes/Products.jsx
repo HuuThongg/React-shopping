@@ -12,9 +12,9 @@ const Products = () => {
   return (
     <div className="relative">
       <MainShop />
-      {/* <OverlayFilter/> */}
+      {/* <OverlayFilter /> */}
     </div>
-  )
+  );
 };
 
 export default Products;

@@ -3,8 +3,8 @@ import { FaHeart } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-
-const GridItem = ({data}) => {
+const GridItem = ({ data }) => {
+  // note <span>{data.saleoffPercent?.price}</span>;
 
   return (
     <div className="screeb960:hover hover:border-[1px] hover:border-solid hover:border-black">
@@ -14,7 +14,7 @@ const GridItem = ({data}) => {
           <div className="relative w-full cursor-pointer bg-white text-sm font-normal text-black">
             {/* Assets ( images) */}
             <div className="relative pb-[100%]">
-              <Link to={data._id.$oid}  className="absolute inset-0">
+              <Link to={data._id.$oid} className="absolute inset-0">
                 <img
                   data-auto-id="image"
                   title="Adilette Comfort Slides"
@@ -38,13 +38,21 @@ const GridItem = ({data}) => {
               </div>
               <Link to={data._id.$oid} className=" absolute bottom-0 left-1 ">
                 <div className="ml-1 font-semibold">
-                  <span>-40%</span>
+                  {/* <span>-40%</span> */}
+                  <span>{data.saleoffPercent?.price}</span>
                 </div>
                 <div className="mt-[5px] flex bg-white py-[2px] px-[5px]">
                   <div className="mr-[4px] leading-4 text-gray-400 line-through">
-                    $35
+                    {/* $35 */}
+                    {data.deduction?.price}
                   </div>
-                  <div className="leading-4 text-red-600">{data.price}</div>
+                  <div
+                    className={`leading-4   ${
+                      data.deduction?.price ? "text-red-600" : "text-black"
+                    }`}
+                  >
+                    {data.price}
+                  </div>
                 </div>
               </Link>
             </div>

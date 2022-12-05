@@ -388,7 +388,7 @@ const NewArrivals = () => {
                     </div>
                     {/* prev button */}
                     <button
-                      className=" text-[25px]p-2 absolute  top-[50px] left-1 z-50 hidden h-[30px]  w-[30px] items-center  justify-center rounded-sm border-[3px] border-solid border-slate-400 bg-white screen600:top-[120px]  screen600:flex screen600:h-[50px] screen600:w-[50px]"
+                      className=" text-[25px]p-2 absolute  top-[50px] left-1 z-10 hidden h-[30px]  w-[30px] items-center  justify-center rounded-sm border-[3px] border-solid border-slate-400 bg-white screen600:top-[120px]  screen600:flex screen600:h-[50px] screen600:w-[50px]"
                       onClick={handlePrevButton}
                     >
                       <span>
@@ -397,7 +397,7 @@ const NewArrivals = () => {
                     </button>
                     {/* next button */}
                     <button
-                      className="absolute right-0 top-[50px] z-50 hidden h-[30px]  w-[30px] items-center  justify-center rounded-sm
+                      className="absolute right-0 top-[50px] z-10 hidden h-[30px]  w-[30px] items-center  justify-center rounded-sm
                       border-[3px] border-solid border-slate-400 bg-white p-2 text-[25px] screen600:top-[120px] screen600:flex screen600:h-[50px] screen600:w-[50px]"
                       onClick={handleNextButton}
                     >

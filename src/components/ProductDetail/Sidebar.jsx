@@ -1,7 +1,24 @@
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { HiArrowLongRight, HiOutlineBellAlert } from "react-icons/hi2";
-import { useState } from "react";
+import React from "react";
+
+import { useCart } from "../store/store";
+// import create, useStore from "zustand";
+
 const Sidebar = ({ product }) => {
+
+  const totalAmount = useCart((state) =>state.totalAmount)
+  const storedItems = useCart((state) => state.items);
+  const addItem = useCart((state) => state.addItem);
+  const increasePopulation = useCart((state) => state.increasePopulation);
+  const bears = useCart((state)=>state.bears)
+  console.log(totalAmount)
+  console.log(storedItems);
+  // items: [id, amount, price];
+  const handleAddItem = () =>{
+    console.log(product)
+    addItem({id:product._id.$oid, amount: 1, price: product.price})
+  }
   return (
     <div className="hidden max-w-[450px]  shrink-0   grow-0 basis-[450px] border-[1px] border-y-0 border-r-0 border-solid border-slate-300 bg-white screen960:block screen960:max-w-[320px] screen1280:max-w-[430px] screen1280:basis-[430px] screen1440:max-w-[450px] screen1440:basis-[450px]">
       <div className=" h-0 w-full bg-fuchsia-500 "></div>
@@ -43,7 +60,10 @@ const Sidebar = ({ product }) => {
           {/* Prduct price */}
           <div className="mt-2">
             <div className="flex items-center ">
-              <div className="mr-1 text-gray-500 line-through">$30</div>
+              {/* sale off price  */}
+              <div className="mr-1 text-gray-500 line-through">
+                {product.saleoff?.price}
+              </div>
               <div className="ml-1 font-bold text-red-600">{product.price}</div>
             </div>
             <div className="mt-2">Black / White</div>
@@ -73,7 +93,10 @@ const Sidebar = ({ product }) => {
           {/* sizes */}
           <div className="gridSize mt-[10px] grid rounded border-[1px] border-b-0 border-solid border-slate-300">
             {product.sizes.map((size) => (
-              <button key={Math.random()} className="relative border-[1px] border-t-0 border-l-0 border-solid border-slate-300  line-through hover:bg-black hover:text-white ">
+              <button
+                key={Math.random()}
+                className="relative h-[50px] border-[1px] border-t-0 border-l-0 border-solid  border-slate-300 line-through hover:bg-black hover:text-white "
+              >
                 {/* text-slate-500 */}
                 <span>{size}</span>
                 <span className="absolute right-2 top-0">
@@ -84,7 +107,11 @@ const Sidebar = ({ product }) => {
           </div>
           {/* add to bag */}
           <div className="mt-7  flex w-full items-center justify-between  text-white">
-            <button className="flex h-[50px] w-full items-center  justify-between rounded bg-black px-3 font-semibold shadow-xl">
+            <button
+              className="flex h-[50px] w-full items-center  justify-between rounded bg-black px-3 font-semibold shadow-xl"
+              // onClick={addItem(product._id.$oid)}
+              onClick={handleAddItem}
+            >
               <span>ADD TO BAG</span>
               <span className="text-[35px]">
                 <HiArrowLongRight />
@@ -105,3 +132,4 @@ const Sidebar = ({ product }) => {
 };
 
 export default Sidebar;
+  // note {product.saleoff?.price} need to add  salfeoff field to api later

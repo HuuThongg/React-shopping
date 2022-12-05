@@ -5,7 +5,7 @@ import { HiHeart, HiBars4, HiXMark } from "react-icons/hi2";
 import { useState, useEffect } from "react";
 import { debounce } from "../utilities/helper";
 // import MenuOverlay from "./menuOverlay";
-import { NavLink ,Navigate} from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 // import MenuIfor from "./MenuIfor";
 
 const Navbar = () => {
@@ -15,13 +15,16 @@ const Navbar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const [toggle, setToggle] = useState(false);
+
+  const location = useLocation();
+
   const handleScroll = debounce(() => {
     // find current scroll position
     const currentScrollPos = window.scrollY;
 
     setVisible(
       (prevScrollPos > currentScrollPos &&
-        prevScrollPos - currentScrollPos > 0) ||
+        prevScrollPos - currentScrollPos > 5) ||
         currentScrollPos < 120
     );
     setPrevScrollPos(currentScrollPos);
@@ -37,7 +40,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`ease-[cubic-bezier(0.25, 0.1, 0.25, 1.0) ] fixed top-0  left-0 z-40 w-full justify-items-center transition-shadow delay-100 duration-[250] ${
+        className={`${location.pathname==='/' ? "fixed":""} top-0 left-0  z-40 w-full ease-in-out justify-items-center transition-shadow delay-1000 duration-[2500]  ${
           !visible ? "-translate-y-full" : ""
         }`}
       >

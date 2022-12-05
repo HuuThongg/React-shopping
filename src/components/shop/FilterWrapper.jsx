@@ -1,5 +1,11 @@
 import { HiAdjustmentsHorizontal } from "react-icons/hi2";
+import { useAtom } from "jotai";
+import { toggle_filter } from "../store/jotai";
 const FilterWrapper = () => {
+  const [isToggleFilter, setIsToggleFilter] = useAtom(toggle_filter);
+  const handleToggleFilter = () => {
+      setIsToggleFilter(true);
+  };
   return (
     // Align item flex end
     <div className="relative mx-auto flex w-full  items-end px-2  screen600:px-5 screen960:px-9 screen1280:w-[1280px] screen1600:w-[1600px]">
@@ -25,7 +31,11 @@ const FilterWrapper = () => {
       {/* Filter */}
       <div className="hidden screen960:block">
         <div className="">
-          <button className="text-md flex h-[40px] items-center justify-between border-2 border-solid border-slate-900 px-[15px] font-semibold capitalize">
+          <button
+            className="text-md flex h-[40px] items-center justify-between border-2 border-solid border-slate-900 px-[15px] font-semibold capitalize"
+            onClick={handleToggleFilter}
+            // onClick={console.log('anh day em oi')}
+          >
             <span className=" flex flex-auto overflow-hidden text-ellipsis whitespace-nowrap text-left">
               Filter & Sort
             </span>

@@ -26,7 +26,7 @@ const ItemsContainer = ({ data }) => {
             </div>
 
             {/* Filter */}
-            {/* <OverlayFilter/> */}
+            {/* <OverlayFilter /> */}
           </div>
         </div>
       </div>
