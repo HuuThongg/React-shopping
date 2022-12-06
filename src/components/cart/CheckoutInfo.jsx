@@ -1,12 +1,106 @@
-import React from 'react'
+import {
+  HiArrowLongRight,
+  HiOutlineArrowUpOnSquareStack,
+} from "react-icons/hi2";
 
-const CheckoutInfo = () => {
+const CheckoutInfo = ({ amountItems, totalAmount, storedItems }) => {
+  const isEmpty = amountItems !== 0;
   return (
-    <div className="ml-0 px-0 screen960:ml-[4.16667%] screen960:w-[37.5]">
-      
-      <p>BBBBBBBBBBBBBBBBBBBBB</p>
-    </div>
-  );
-}
+    <aside className="ml-0 px-0 screen960:ml-[4.16667%] screen960:w-[37.5%] screen1280:w-[29.1666667%]">
+      {isEmpty && (
+        <div className="flex w-full flex-col  pt-[40px]">
+          <div className="flex w-full flex-col screen960:flex-col-reverse justify-end">
+            {/* promo code */}
+            <div className=" mt-[15px]  w-full ">
+              <div className="h-[100px] w-full">
+                <form className="flex h-full items-center justify-start">
+                  <button className="underline ">Use a promo code</button>
+                </form>
+              </div>
+            </div>
+            {/* // Tap to apply  */}
 
-export default CheckoutInfo
+            {/* // ORDER SUMMARY */}
+            <div className="mt-[40px] bg-white">
+              <div className="relative border border-solid border-[#eceff1] px-[15px] screen960:py-[24px]">
+                {/* Order summary */}
+                <div>
+                  <h5 className="mb-[10px] text-[20px] font-bold uppercase">
+                    order summary
+                  </h5>
+                  <div>
+                    <div className="mb-[10px] flex justify-between">
+                      <span>Original price</span>
+                      <span>$1,500.00</span>
+                    </div>
+                    <div className="mb-[10px] flex justify-between">
+                      <span>Sale</span>
+                      <span>-$200.00</span>
+                    </div>
+                    <div className="mb-[10px] flex justify-between">
+                      <span className="uppercase">23 items</span>
+                      <span>$1,300.00</span>
+                    </div>
+                    <div className="mb-[10px] flex justify-between">
+                      <span className="uppercase">delivery</span>
+                      <span className="uppercase">free</span>
+                    </div>
+                    <div className="mb-[10px] flex justify-between">
+                      <span className="capitalize">sale tax</span>
+                      <span className="">-</span>
+                    </div>
+                    <div className=" flex justify-between">
+                      <span className="uppercase">Total</span>
+                      <span className="">$1,299.000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Checkout or pay with paypal */}
+            <div className="  flex flex-auto flex-col screen960:mt-0">
+              <div className="flex-auto translate-x-0 translate-y-0 bg-black font-semibold text-white">
+                <button className=" checkoutShadow  relative inline-flex min-h-[50px] w-full cursor-pointer  items-center justify-between whitespace-nowrap border-none  px-[15px] text-left">
+                  <span className="uppercase">Checkout</span>
+                  <span className="text-[30px]">
+                    <HiArrowLongRight />
+                  </span>
+                </button>
+              </div>
+              <p className="mx-[10px] text-center font-light leading-[50px]">
+                OR
+              </p>
+              <div className="flex-auto translate-x-0 translate-y-0 border-2 border-black bg-white">
+                <button className=" checkoutShadow  relative inline-flex min-h-[50px] w-full cursor-pointer  items-center justify-between whitespace-nowrap border-none  px-[15px] text-left">
+                  <span className="font-bold uppercase">
+                    <img
+                      src="https://www.adidas.com/static/checkout/react/d15ae68/assets/img/img-paypal-logo.svg"
+                      alt="paypal"
+                    />
+                  </span>
+                  <span className="text-[30px]">
+                    <HiOutlineArrowUpOnSquareStack />
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div></div>
+        </div>
+      )}
+      {/* Accepted payment methods */}
+      <div className="mt-[40px]">
+        <div>
+          <h4>accpeted payment methods</h4>
+          <img
+            src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/enUS/Images/visa-master-amex-discover-paypal-applepay-affirm-klarna-afterpay_tcm221-698514.png"
+            alt="payment methods"
+          />
+        </div>
+      </div>
+    </aside>
+  );
+};
+
+export default CheckoutInfo;

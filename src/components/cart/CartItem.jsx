@@ -2,16 +2,16 @@ import { HiXMark, HiChevronDown } from "react-icons/hi2";
 import { FaRegHeart, FaSortAmountDown } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useState } from "react";
 
-const CartItem = ({item}) => {
-  const {amount, price,size,id } =item;
-  console.log(id)
-  
+const CartItem = ({ item }) => {
+  const { amount, price, size, id } = item;
+
   const { status, data, error, isFetching, isSuccess, isLoading } = useQuery({
-    queryKey: ["singleItem",id],
+    queryKey: ["singleItem", id],
     queryFn: async () => {
       const { data } = await axios.get(
-        "https://api.npoint.io/412448615c4faa493df3/"+id
+        "https://api.npoint.io/412448615c4faa493df3/" + id
       );
       return data;
     },
@@ -19,11 +19,11 @@ const CartItem = ({item}) => {
   });
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
-  
-  const { imgs,name} = data;
-  const img= imgs[0];
+
+  const { imgs, name } = data;
+  const img = imgs[0];
   return (
-    <div className="max-h[500px] w-full  opacity-100 transition-all">
+    <div className="max-h[500px] w-full  opacity-100 transition-all ">
       <div className="relative mt-[40px]">
         <div className="relative flex  w-full   truncate border  border-[#767677] text-[16px]">
           <div className="w-[41.666667%] pl-0 screen600:w-[240px] screen600:min-w-[240px]">
@@ -39,7 +39,7 @@ const CartItem = ({item}) => {
 
           {/* right side */}
           {/* screen960:ml-[4.116667%] */}
-          <div className="  flex w-[58.333333%] flex-grow flex-col flex-nowrap justify-between  screen600:flex-1 screen960:ml-[4.116667%]">
+          <div className="   flex w-[58.333333%] flex-grow flex-col flex-nowrap  justify-between screen600:flex-1 screen960:ml-[4.116667%]">
             {/* <div className="flex w-full flex-col justify-between"> */}
             {/* will change to flex-wrap at some point */}
             <div className="flex w-full  flex-nowrap justify-between pl-[15px] screen960:pl-0">
@@ -106,17 +106,54 @@ const CartItem = ({item}) => {
                 <div className="relative">
                   <div className="relative block cursor-pointer ">
                     {/* dropdown native select */}
-                    <div className="relative flex w-full cursor-pointer items-center justify-between border border-[#767677] bg-white p-[15px] px-[10px] text-[16px] text-black ">
+                    <button className="relative flex w-full cursor-pointer items-center justify-between border border-[#767677] bg-white p-[15px] px-[10px] text-[16px] text-black ">
                       <span className="overflow-hidden text-ellipsis whitespace-nowrap">
                         <span>{amount}</span>
                       </span>
                       <span>
                         <HiChevronDown />
                       </span>
+                    </button>
+                    {/* dropdwon custom options */}
+                    <div
+                      className=" border-t-[#767677]] visible absolute left-0 
+                    
+                    right-0 top-[100%]  max-h-[195px]
+                    overflow-y-scroll border border-[#000000]
+                    bg-white opacity-100 transition-all
+                    "
+                    >
+                      <ul className="">
+                        <li>
+                          <button className="m-0  block w-full cursor-pointer  border-b border-solid border-[#767677] bg-none p-[15px] text-left transition-colors">
+                            2
+                          </button>
+                        </li>
+                        <li>
+                          <button className="m-0  block w-full cursor-pointer  border-b border-solid border-[#767677] bg-none p-[15px] transition-colors ">
+                            3
+                          </button>
+                        </li>
+                        <li>
+                          <button className="m-0  block w-full cursor-pointer  border-b border-solid border-[#767677] bg-none p-[15px] transition-colors">
+                            4
+                          </button>
+                        </li>
+                        <li>
+                          <button className="m-0  block w-full cursor-pointer  border-b border-solid border-[#767677] bg-none p-[15px] transition-colors">
+                            5
+                          </button>
+                        </li>
+                        <li>
+                          <button className="m-0  block w-full cursor-pointer  border-b border-solid border-[#767677] bg-none p-[15px] transition-colors">
+                            6
+                          </button>
+                        </li>
+                      </ul>
                     </div>
                     {/* select */}
                     <select
-                      className="absolute left-0 top-0 h-full w-full cursor-pointer appearance-none border-0 p-0 opacity-0 "
+                      className="absolute left-0 top-0 h-0 w-0 cursor-pointer appearance-none border-0 p-0 opacity-0 "
                       name="amount"
                       id="amount"
                     >

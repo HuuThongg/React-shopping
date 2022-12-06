@@ -27,7 +27,7 @@ const Navbar = () => {
 
     setVisible(
       (prevScrollPos > currentScrollPos &&
-        prevScrollPos - currentScrollPos > 5) ||
+        prevScrollPos - currentScrollPos > 0) ||
         currentScrollPos < 120
     );
     setPrevScrollPos(currentScrollPos);
@@ -45,9 +45,9 @@ const Navbar = () => {
       <div
         className={`${
           location.pathname === "/" ? "fixed" : ""
-        } top-0 left-0  z-40 w-full justify-items-center transition-shadow delay-1000 duration-[2500] ease-in-out  ${
+        } top-0 left-0  z-40 w-full justify-items-center   ${
           !visible ? "-translate-y-full" : ""
-        }`}
+        } transition-all duration-500  ease-in-out`}
       >
         <div className="grid h-[45px] w-full  place-items-center bg-[#18181b] md:h-[40px]">
           <button className="h-full w-full text-white ">
@@ -137,11 +137,11 @@ const Navbar = () => {
                   className="relative grid h-full w-full  place-items-center justify-center "
                 >
                   <FaRegUser className="h-6 w-6 "></FaRegUser>
-                  {amountItems > 0 &&
+                  {amountItems > 0 && (
                     <span className="text-xxl absolute top-0 right-0 block h-5 w-5 rounded-full  bg-blue-400 text-center ">
                       {amountItems}
                     </span>
-                  }
+                  )}
                 </NavLink>
               </div>
             </div>
