@@ -1,11 +1,4 @@
-import {
-  Navbar,
-  BlackFriday,
-  MainContent,
-  Footer,
-  MainShop,
-  ProductDetail,
-} from "../components";
+import {ProductDetail,} from "../components";
 import OverlayFilter from "../components/shop/OverlayFilter";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";

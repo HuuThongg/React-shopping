@@ -1,19 +1,20 @@
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { HiArrowLongRight, HiOutlineBellAlert } from "react-icons/hi2";
-import React from "react";
+import React,{useState } from "react";
 
 import { useCart } from "../store/store";
-// import create, useStore from "zustand";
 
 const Sidebar = ({ product }) => {
 
   const storedItems = useCart((state) => state.items);
   const addItem = useCart((state) => state.addItem);
+  const [sizeItem, setSizeItem] = useState("")
+  const [idButtonSize, setIdButtonSize] = useState(null)
   // items: [id, amount, price];
   const handleAddItem = () =>{
-    console.log(product)
-    addItem({id:product._id.$oid, amount: 1, price: product.price})
+    addItem({id:product._id.$oid, amount: 1, price: product.price,size: sizeItem})
   }
+
   return (
     <div className="hidden max-w-[450px]  shrink-0   grow-0 basis-[450px] border-[1px] border-y-0 border-r-0 border-solid border-slate-300 bg-white screen960:block screen960:max-w-[320px] screen1280:max-w-[430px] screen1280:basis-[430px] screen1440:max-w-[450px] screen1440:basis-[450px]">
       <div className=" h-0 w-full bg-fuchsia-500 "></div>
@@ -87,10 +88,14 @@ const Sidebar = ({ product }) => {
           </div>
           {/* sizes */}
           <div className="gridSize mt-[10px] grid rounded border-[1px] border-b-0 border-solid border-slate-300">
-            {product.sizes.map((size) => (
+            {product.sizes.map((size,index) => (
               <button
-                key={Math.random()}
-                className="relative h-[50px] border-[1px] border-t-0 border-l-0 border-solid  border-slate-300 line-through hover:bg-black hover:text-white "
+                
+                key={index}
+                className={`relative h-[50px] border-[1px] border-t-0 border-l-0 border-solid  border-slate-300 line-through hover:bg-black hover:text-white ${sizeItem !=="" & idButtonSize===index  ? "bg-black text-white" : "bg-white text-black" } `}
+                onClick={()=>{setSizeItem(size)
+                  setIdButtonSize(index)
+                }}
               >
                 {/* text-slate-500 */}
                 <span>{size}</span>

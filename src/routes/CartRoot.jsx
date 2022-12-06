@@ -1,12 +1,8 @@
-import {
-  Cart
-} from "../components";
+import { CheckoutPage } from "../components";
 
 
 const CartRoot = () => {
-  return (
-    <Cart/>
-  );
+  return <CheckoutPage />;
 };
 
 export default CartRoot;

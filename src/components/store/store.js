@@ -6,14 +6,15 @@ import { persist } from "zustand/middleware";
 export const useCart = create(
   persist(
     (set, get) => ({
-      // items: [id, amount, price]
+      // items: [id, amount, price,size]
       items: [],
       totalAmount: 0,
+      amountItems:0,
       addItem: (item) => set((state)=>{
-        console.log(item);
+        // console.log(item);
         const updatedTotalAmount = state.totalAmount + item.amount * Number(item.price.slice(1))
 
-        const exisitingCartItemIndex = get().items.findIndex(itemInCart => itemInCart.id === item.id)
+        const exisitingCartItemIndex = get().items.findIndex(itemInCart => itemInCart.id === item.id && itemInCart.size === item.size)
         
         const exisitingCartItem = get().items[exisitingCartItemIndex];
         let updatedItems;
@@ -28,9 +29,10 @@ export const useCart = create(
           updatedItems = state.items.concat(item)
         }
         return {
-          id:item.id,
+          id: item.id,
           items: updatedItems,
           totalAmount: updatedTotalAmount,
+          amountItems: get().amountItems + 1,
         };
       }),
 
