@@ -35,8 +35,8 @@ const Footer = () => {
               <div key={footerlink.title} className="my-5 ml-4 mr-7 basis-full">
                 <h4 className="text-xl font-bold">{footerlink.title}</h4>
                 <ul className="list-none">
-                  {footerlink.links.map((link) => (
-                    <li key={link.name} className="">
+                  {footerlink.links.map((link,index) => (
+                    <li key={index} className="">
                       <a href={link.link} className="text-[13px] leading-6">
                         <span>{link.name}</span>
                       </a>

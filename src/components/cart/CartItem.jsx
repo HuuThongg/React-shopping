@@ -3,6 +3,7 @@ import { FaRegHeart, FaSortAmountDown } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
+import { useCart } from "../store/store";
 
 const CartItem = ({ item }) => {
   const { amount, price, size, id } = item;
@@ -11,17 +12,22 @@ const CartItem = ({ item }) => {
     queryKey: ["singleItem", id],
     queryFn: async () => {
       const { data } = await axios.get(
-        "https://api.npoint.io/412448615c4faa493df3/" + id
+        "https://api.npoint.io/412448615c4faa493df3/" + (id - 1)
       );
       return data;
     },
     enabled: !!id,
   });
+  const deleteItemFromCart = useCart((state) => state.deleteItem);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
 
   const { imgs, name } = data;
   const img = imgs[0];
+
+  const handleDeleteItem = () => {
+    deleteItemFromCart(item);
+  };
   return (
     <div className="max-h[500px] w-full  opacity-100 transition-all ">
       <div className="relative mt-[40px]">
@@ -83,7 +89,7 @@ const CartItem = ({ item }) => {
               {/* remove and add favorite item to cart */}
               <div className="">
                 <div className="mt-0 mr-0 flex flex-col items-end  text-[25px]">
-                  <button className="h-[50px] px-4 ">
+                  <button className="h-[50px] px-4 " onClick={handleDeleteItem}>
                     <span className="h-[24px] w-[24px]">
                       <HiXMark />
                     </span>

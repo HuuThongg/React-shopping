@@ -1,41 +1,68 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
 
-
-
 export const useCart = create(
   persist(
     (set, get) => ({
       // items: [id, amount, price,size]
       items: [],
       totalAmount: 0,
-      amountItems:0,
-      addItem: (item) => set((state)=>{
-        // console.log(item);
-        const updatedTotalAmount = state.totalAmount + item.amount * Number(item.price.slice(1))
+      amountItems: 0,
+      addItem: (item) =>
+        set((state) => {
+          // console.log(item);
+          const updatedTotalAmount =
+            state.totalAmount + item.amount * Number(item.price.slice(1));
 
-        const exisitingCartItemIndex = get().items.findIndex(itemInCart => itemInCart.id === item.id && itemInCart.size === item.size)
-        
-        const exisitingCartItem = get().items[exisitingCartItemIndex];
-        let updatedItems;
-        if (exisitingCartItem){
-          const updatedItem = {
-            ...exisitingCartItem,
-            amount : exisitingCartItem.amount + item.amount
+          const exisitingCartItemIndex = get().items.findIndex(
+            (itemInCart) =>
+              itemInCart.id === item.id && itemInCart.size === item.size
+          );
+
+          const exisitingCartItem = get().items[exisitingCartItemIndex];
+          let updatedItems;
+          if (exisitingCartItem) {
+            const updatedItem = {
+              ...exisitingCartItem,
+              amount: exisitingCartItem.amount + item.amount,
+            };
+            updatedItems = [...state.items];
+            updatedItems[exisitingCartItemIndex] = updatedItem;
+          } else {
+            updatedItems = state.items.concat(item);
           }
-          updatedItems = [...state.items]
-          updatedItems[exisitingCartItemIndex] = updatedItem;
-        } else{
-          updatedItems = state.items.concat(item)
-        }
-        return {
-          id: item.id,
-          items: updatedItems,
-          totalAmount: updatedTotalAmount,
-          amountItems: get().amountItems + 1,
-        };
-      }),
+          return {
+            id: item.id,
+            items: updatedItems,
+            totalAmount: updatedTotalAmount,
+            amountItems: get().amountItems + 1,
+          };
+        }),
+      deleteItem: (item) =>
+        set((state) => {
+          const indexDeleted = get().items.findIndex(
+            (itemInCart) =>
+              itemInCart.id === item.id && itemInCart.size === item.size
+          );
+          const updatedTotalAmount =
+            state.totalAmount -
+            get().items[indexDeleted].amount *
+              Number(get().items[indexDeleted].price.slice(1));
+          const updatedAmountItems =
+            state.amountItems - get().items[indexDeleted].amount;
 
+          let updatedItems = state.items.filter(
+            (itemInCart) =>
+              itemInCart.id !== item.id ||
+              (itemInCart.id === item.id && itemInCart.size !== item.size)
+          );
+          
+          return {
+            items:updatedItems,
+            totalAmount: updatedTotalAmount,
+            amountItems:updatedAmountItems
+          };
+        }),
     }),
     {
       name: "adidasStore", // unique name

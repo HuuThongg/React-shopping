@@ -1,9 +1,8 @@
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
 import CheckoutInfo from "./CheckoutInfo";
 import YourBag from "./YourBag";
 import HeaderBag from "./HeaderBag";
 import { useCart } from "../store/store";
-
 
 const CheckoutPage = () => {
   const storedItems = useCart((state) => state.items);
@@ -39,6 +38,6 @@ const CheckoutPage = () => {
       </div>
     </section>
   );
-}
+};
 
 export default CheckoutPage;

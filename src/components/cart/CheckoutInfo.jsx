@@ -4,12 +4,14 @@ import {
 } from "react-icons/hi2";
 
 const CheckoutInfo = ({ amountItems, totalAmount, storedItems }) => {
+  console.log(totalAmount);
+  console.log(storedItems);
   const isEmpty = amountItems !== 0;
   return (
     <aside className="ml-0 px-0 screen960:ml-[4.16667%] screen960:w-[37.5%] screen1280:w-[29.1666667%]">
       {isEmpty && (
         <div className="flex w-full flex-col  pt-[40px]">
-          <div className="flex w-full flex-col screen960:flex-col-reverse justify-end">
+          <div className="flex w-full flex-col justify-end screen960:flex-col-reverse">
             {/* promo code */}
             <div className=" mt-[15px]  w-full ">
               <div className="h-[100px] w-full">
@@ -31,15 +33,16 @@ const CheckoutInfo = ({ amountItems, totalAmount, storedItems }) => {
                   <div>
                     <div className="mb-[10px] flex justify-between">
                       <span>Original price</span>
-                      <span>$1,500.00</span>
+                      <span>${totalAmount}</span>
                     </div>
                     <div className="mb-[10px] flex justify-between">
                       <span>Sale</span>
-                      <span>-$200.00</span>
+                      <span>{storedItems.salePrice?.price}</span>
+                      {/* <span>-$200.00</span> */}
                     </div>
                     <div className="mb-[10px] flex justify-between">
-                      <span className="uppercase">23 items</span>
-                      <span>$1,300.00</span>
+                      <span className="uppercase">{amountItems} items</span>
+                      <span>${totalAmount.toFixed(2)}</span>
                     </div>
                     <div className="mb-[10px] flex justify-between">
                       <span className="uppercase">delivery</span>
@@ -51,7 +54,7 @@ const CheckoutInfo = ({ amountItems, totalAmount, storedItems }) => {
                     </div>
                     <div className=" flex justify-between">
                       <span className="uppercase">Total</span>
-                      <span className="">$1,299.000</span>
+                      <span className="">${totalAmount}</span>
                     </div>
                   </div>
                 </div>
