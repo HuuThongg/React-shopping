@@ -3,9 +3,11 @@ import {
   HiOutlineArrowUpOnSquareStack,
 } from "react-icons/hi2";
 
-const CheckoutInfo = ({ amountItems, totalAmount, storedItems }) => {
-  console.log(totalAmount);
-  console.log(storedItems);
+const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
+  
+  const handleDeleteAllItems = () =>{
+    deleteAll();
+  }
   const isEmpty = amountItems !== 0;
   return (
     <aside className="ml-0 px-0 screen960:ml-[4.16667%] screen960:w-[37.5%] screen1280:w-[29.1666667%]">
@@ -64,7 +66,9 @@ const CheckoutInfo = ({ amountItems, totalAmount, storedItems }) => {
             {/* Checkout or pay with paypal */}
             <div className="  flex flex-auto flex-col screen960:mt-0">
               <div className="flex-auto translate-x-0 translate-y-0 bg-black font-semibold text-white">
-                <button className=" checkoutShadow  relative inline-flex min-h-[50px] w-full cursor-pointer  items-center justify-between whitespace-nowrap border-none  px-[15px] text-left">
+                <button className=" checkoutShadow  relative inline-flex min-h-[50px] w-full cursor-pointer  items-center justify-between whitespace-nowrap border-none  px-[15px] text-left"
+                onClick={handleDeleteAllItems}
+                >
                   <span className="uppercase">Checkout</span>
                   <span className="text-[30px]">
                     <HiArrowLongRight />

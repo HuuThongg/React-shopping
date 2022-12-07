@@ -12,23 +12,39 @@ const OverlayFilter = () => {
 
   return (
     <div className="z-50 hidden screen960:block ">
-      <div  className={`opacityTransistion ${isToggleFilter ? "visible opacity-100": "invisible opacity-0"}  fixed inset-0  z-50 w-full cursor-pointer bg-[#00000033]  `}
-      onClick={()=>{setIsToggleFilter(false)}}
+      <div
+        className={`opacityTransistion ${
+          isToggleFilter ? "visible opacity-100" : "invisible opacity-0"
+        }  fixed inset-0  z-50 w-full cursor-pointer bg-[#00000033]  `}
+        onClick={() => {
+          setIsToggleFilter(false);
+        }}
       >
         {/* filter panel desktop */}
         {/* unset */}
-        <div className={`scrollbar-hide fixed top-0 ${isToggleFilter ? "right-0" :"-right-[30%]"}  z-[111] h-full w-[30%] overflow-auto overscroll-contain bg-white py-0 text-black  `}>
+        <div
+          className={`scrollbar-hide fixed top-0 ${
+            isToggleFilter ? "right-0" : "-right-[30%]"
+          }  z-[111] h-full w-[30%] overflow-auto overscroll-contain bg-white py-0 text-black  `}
+          // onClick={() => {
+          //   setIsToggleFilter(true);
+          // }}
+        >
           {/* Filter Header */}
           <div className="h-auto divide-inherit border-[1px] border-x-0 border-t-0 border-solid">
             <h5 className="relative my-5 flex h-auto items-center justify-start px-5 text-[18px] ">
               <span className="font-bold normal-case  leading-6">
                 Filter & Sort
               </span>
-              <a className="my-0 ml-auto mr-[20px] capitalize    text-gray-500 underline underline-offset-1 ">
+
+              <a href="#"
+                className="my-0 ml-auto mr-[20px] capitalize    text-gray-500 underline underline-offset-1 "
+              >
                 Clear All
               </a>
-              <span className="absolute right-1 top-[50%] -translate-y-1/2 text-[24px]" 
-              onClick={()=>setIsToggleFilter(false)}
+              <span
+                className="absolute right-1 top-[50%] -translate-y-1/2 text-[24px]"
+                onClick={() => setIsToggleFilter(false)}
               >
                 <HiXMark />
               </span>

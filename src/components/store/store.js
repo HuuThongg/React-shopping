@@ -63,10 +63,44 @@ export const useCart = create(
             amountItems:updatedAmountItems
           };
         }),
+      deleteAllItems: ()=>set({items:[], totalAmount:0, amountItems:0})
     }),
     {
       name: "adidasStore", // unique name
-      getStorage: () => sessionStorage, // (optional) by default, 'localStorage' is used
+      getStorage: () => localStorage, // (optional) by default, 'localStorage' is used
+    }
+  )
+);
+
+export const useFavorite = create(
+  persist(
+    (set, get) => ({
+      favItems: [],
+      amountItems: 0,
+      addFav: (item) =>
+        set((state) => {
+          let updatedItems = state.favItems.concat(item);
+          
+          return {
+            favItems: updatedItems,
+            amountItems: get().amountItems + 1,
+          };
+        }),
+      deleteFav: ({id}) =>
+        set((state) => {
+
+            let updatedItems = state.favItems.filter(e => e.id !==id)
+          return {
+            favItems: updatedItems,
+            amountItems: get().amountItems - 1
+          };
+        }),
+      deleteAllFav: () => set({ itemsFav: [], totalAmount: 0, amountItems: 0 }),
+      
+    }),
+    {
+      name: "favoriteProducts",
+      getStorage: () => sessionStorage,
     }
   )
 );

@@ -1,15 +1,17 @@
 import { logo } from "../assets";
 import { navLinks, topInfo } from "../constants";
 import { FaRegUser } from "react-icons/fa";
-import { HiHeart, HiBars4, HiXMark } from "react-icons/hi2";
+import { HiHeart, HiBars4, HiXMark, HiOutlineBriefcase } from "react-icons/hi2";
 import { useState, useEffect } from "react";
 import { debounce } from "../utilities/helper";
 // import MenuOverlay from "./menuOverlay";
 import { NavLink, useLocation } from "react-router-dom";
 import { useCart } from "./store/store";
+import { useFavorite } from "./store/store";
 
 const Navbar = () => {
   const storedItems = useCart((state) => state.items);
+  const amountFav = useFavorite((state) => state.amountItems);
   const amountItems = storedItems.reduce(
     (accumulator, currentValue) =>  accumulator + currentValue.amount,0);
   const [transform, setTransform] = useState("full");
@@ -121,24 +123,27 @@ const Navbar = () => {
                 </button>
               </div>
               <div className="  h-12 w-12 justify-items-center">
-                <a
-                  href="#"
+                <NavLink
+                  to="wishlists"
                   className="relative grid  h-full w-full place-items-center "
                 >
                   <HiHeart className="h-6 w-6"></HiHeart>
-                  <span className="text-xxl absolute top-0 right-0 h-5 w-5 rounded-full bg-blue-400 text-center">
-                    1
+                  {amountFav > 0 && 
+
+                  <span className="text-xxl absolute top-0 right-0 h-5 w-5 rounded-full bg-blue-400 text-center text-white font-bold text-[10px]">
+                    {amountFav}
                   </span>
-                </a>
+                  }
+                </NavLink>
               </div>
               <div className="  h-12 w-12  ">
                 <NavLink
                   to="cart"
-                  className="relative grid h-full w-full  place-items-center justify-center "
+                  className="relative grid h-full w-full  place-items-center justify-cente "
                 >
-                  <FaRegUser className="h-6 w-6 "></FaRegUser>
+                  <HiOutlineBriefcase className="h-6 w-6 "></HiOutlineBriefcase>
                   {amountItems > 0 && (
-                    <span className="text-xxl absolute top-0 right-0 block h-5 w-5 rounded-full  bg-blue-400 text-center ">
+                    <span className="text-xxl absolute top-0 right-0 block h-5 w-5 rounded-full  bg-blue-400 text-center text-white font-bold text-[10px]">
                       {amountItems}
                     </span>
                   )}

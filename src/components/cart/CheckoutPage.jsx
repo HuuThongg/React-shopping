@@ -8,6 +8,7 @@ const CheckoutPage = () => {
   const storedItems = useCart((state) => state.items);
   const totalAmount = useCart((state) => state.totalAmount);
   const amountItems = useCart((state) => state.amountItems);
+  const deleteAll = useCart((state) => state.deleteAllItems)
   const location = useLocation();
   const pathname = location.pathname;
   return (
@@ -33,6 +34,7 @@ const CheckoutPage = () => {
             amountItems={amountItems}
             totalAmount={totalAmount}
             storedItems={storedItems}
+            deleteAll={deleteAll}
           />
         </div>
       </div>

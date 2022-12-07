@@ -11,6 +11,8 @@ import DetailItem, {loader as DetailLoader} from "./routes/DetailItem";
 import HomePage from "./routes/HomePage";
 import RootLayout_Cart from "./routes/RootLayout_Cart";
 import CartRoot from "./routes/CartRoot";
+import RootLayout_wishLists from "./routes/RootLayout_wishLists";
+import WishListsPage from "./routes/WishListsPage";
 
 const queryClient  = new QueryClient();
 
@@ -47,6 +49,16 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <CartRoot />,
+      },
+    ],
+  },
+  {
+    path: "/wishlists",
+    element: <RootLayout_wishLists />,
+    children: [
+      {
+        index: true,
+        element: <WishListsPage />,
       },
     ],
   },

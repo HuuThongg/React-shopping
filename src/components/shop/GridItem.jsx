@@ -1,9 +1,29 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useFavorite } from "../store/store";
 
 const GridItem = ({ data }) => {
+  const favoriteItems = useFavorite((state) => state.favItems);
+  const addFav = useFavorite((state) => state.addFav);
+  const deleteFav = useFavorite((state) => state.deleteFav)
+  // console.log(data);
+  const { _id: fakeId, price } = data;
+  const id = fakeId.$oid;
+  const isFavItem = favoriteItems.findIndex((e) => e.id === id);
+  // console.log(isFavItem);
+  // console.log(favoriteItems);
+
+  const handleAddFave = () => {
+    if(isFavItem !== -1){
+      console.log("delete")
+      deleteFav({id})
+    }else{
+      addFav({ id, price });
+    }
+  };
+
   const [isShown, setIsShown] = useState(false);
   return (
     <div
@@ -34,12 +54,20 @@ const GridItem = ({ data }) => {
                 />
               </Link>
               <div className="absolute right-5 top-5">
-                <button>
-                  {/* <FaHeart className=""></FaHeart> */}
-                  <AiOutlineHeart className="text-[16px]" />
+                <button onClick={handleAddFave}>
+                  {isFavItem !== -1 ? 
+                  <FaHeart className=""></FaHeart>
+                  :
+                  <AiOutlineHeart className="text-[16px]" /> 
+                  }
                 </button>
               </div>
-              <Link to={data._id.$oid} className={` absolute ${isShown ? "bottom-2": "bottom-0"} left-1  transition-all`}>
+              <Link
+                to={data._id.$oid}
+                className={` absolute ${
+                  isShown ? "bottom-2" : "bottom-0"
+                } left-1  transition-all`}
+              >
                 <div className="ml-1 font-semibold">
                   {/* <span>-40%</span> */}
                   <span>{data.saleoffPercent?.price}</span>
@@ -77,5 +105,4 @@ const GridItem = ({ data }) => {
 };
 
 export default GridItem;
-  // note <span>{data.saleoffPercent?.price}</span>;
-
+// note <span>{data.saleoffPercent?.price}</span>;
