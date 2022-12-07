@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
 import { useCart } from "../store/store";
+import { Link } from "react-router-dom";
 
 const CartItem = ({ item }) => {
   const { amount, price, size, id } = item;
@@ -33,14 +34,17 @@ const CartItem = ({ item }) => {
       <div className="relative mt-[40px]">
         <div className="relative flex  w-full   truncate border  border-[#767677] text-[16px]">
           <div className="w-[41.666667%] pl-0 screen600:w-[240px] screen600:min-w-[240px]">
-            <a className="relative block h-0 bg-[#eceff1] pb-[100%]" href="#">
+            <Link
+              className="relative block h-0 bg-[#eceff1] pb-[100%]"
+              to={`/products/${id}`}
+            >
               <img
                 className="w-full object-contain"
                 // src="https://assets.adidas.com/images/w_280,h_280,f_auto,q_auto:sensitive/f544367209ae4494b5f0ab730140c5af_9366/FY8970_600_FY8970_01_standard.jpg.jpg?sh=364&strip=false&sw=364"
                 src={data.imgs[0]}
                 alt=""
               />
-            </a>
+            </Link>
           </div>
 
           {/* right side */}
@@ -54,9 +58,9 @@ const CartItem = ({ item }) => {
                 <div>
                   {/* row */}
                   <div className="flex flex-wrap justify-between  ">
-                    <a href="#">
+                    <Link to={`/products/${id}`}>
                       <span className="">{name}</span>
-                    </a>
+                    </Link>
                     {/* price */}
                     <div className="flex flex-col space-x-5 whitespace-nowrap">
                       <div className="flex flex-wrap items-center">

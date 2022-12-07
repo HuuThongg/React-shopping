@@ -27,7 +27,7 @@ const GridItem = ({ data }) => {
   const [isShown, setIsShown] = useState(false);
   return (
     <div
-      className="screeb960:hover hover:border-[1px] hover:border-solid hover:border-black"
+      className="screeb960:hover hover:outline hover:outline-1 hover:outline-solid hover:outline-black"
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
     >

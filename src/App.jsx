@@ -1,20 +1,16 @@
-import {
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import RootLayout from "./routes/RootLayout";
 import Products from "./routes/Products";
-import DetailItem, {loader as DetailLoader} from "./routes/DetailItem";
+import DetailItem, { loader as DetailLoader } from "./routes/DetailItem";
 import HomePage from "./routes/HomePage";
 import RootLayout_Cart from "./routes/RootLayout_Cart";
 import CartRoot from "./routes/CartRoot";
 import RootLayout_wishLists from "./routes/RootLayout_wishLists";
 import WishListsPage from "./routes/WishListsPage";
-
-const queryClient  = new QueryClient();
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -65,11 +61,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return( 
+  return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />  
+      <RouterProvider router={router} />
     </QueryClientProvider>
-  )
+  );
 }
 
 export default App;

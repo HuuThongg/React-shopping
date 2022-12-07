@@ -109,7 +109,7 @@ const Navbar = () => {
                   }  ${index === navLinks.length - 1 ? "mr-0" : "mr-10"} `}
                   onClick={() => setActive(nav.title)}
                 >
-                  <NavLink to="products">{nav.title}</NavLink>
+                  <NavLink to="/products">{nav.title}</NavLink>
                 </li>
               ))}
             </ul>
@@ -124,7 +124,7 @@ const Navbar = () => {
               </div>
               <div className="  h-12 w-12 justify-items-center">
                 <NavLink
-                  to="wishlists"
+                  to="/wishlists"
                   className="relative grid  h-full w-full place-items-center "
                 >
                   <HiHeart className="h-6 w-6"></HiHeart>
@@ -138,7 +138,7 @@ const Navbar = () => {
               </div>
               <div className="  h-12 w-12  ">
                 <NavLink
-                  to="cart"
+                  to="/cart"
                   className="relative grid h-full w-full  place-items-center justify-cente "
                 >
                   <HiOutlineBriefcase className="h-6 w-6 "></HiOutlineBriefcase>
@@ -179,7 +179,7 @@ const Navbar = () => {
                 className={`cursor-pointer py-5 font-poppins text-[16px]  font-semibold`}
                 onClick={() => setActive(nav.title)}
               >
-                <NavLink to="products">{nav.title}</NavLink>
+                <NavLink to="/products">{nav.title}</NavLink>
               </li>
             ))}
           </ul>

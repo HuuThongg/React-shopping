@@ -26,7 +26,7 @@ const WishList = ({ product }) => {
   const img = imgs[0];
 
   return (
-    <div className="mb-[15px] grid w-[100%] px-0 screen600:pr-[15px] screen600:w-[25%]">
+    <div className="mb-[15px] grid w-[100%] px-0 screen600:w-[25%] screen600:pr-[15px]">
       {/* wishlist card */}
       <div className="h-full min-h-[220px] w-full min-w-[150px] bg-yellow-100">
         {/* product card container */}
@@ -40,9 +40,9 @@ const WishList = ({ product }) => {
             {/* product assets */}
             <div className="relative bg-[#eceff1]">
               {/* insert img */}
-              <a href="#">
+              <Link to={`/products/${id}`}>
                 <img src={img} alt="" />
-              </a>
+              </Link>
               {/* heart */}
               {/* price */}
               <div className="absolute right-2 top-2">
@@ -50,8 +50,8 @@ const WishList = ({ product }) => {
                   <FaHeart className=""></FaHeart>
                 </button>
               </div>
-              <a
-                href="#"
+              <Link
+                to={`/products/${id}`}
                 className={` absolute ${
                   isShown ? "bottom-2" : "bottom-0"
                 } left-1  transition-all`}
@@ -67,14 +67,14 @@ const WishList = ({ product }) => {
                     {product.price}
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
-            <a href="#">
+            <Link to={`/products/${id}`}>
               {/* Product-card _ details  Adjust min high later */}
               <div className="min-h-[75px] p-[10px] text-[12px] text-[#2e2828]">
                 <p>Predator Edge.4 Flexible Ground Soccer Cleats</p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
