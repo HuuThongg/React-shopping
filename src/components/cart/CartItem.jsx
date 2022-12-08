@@ -1,13 +1,18 @@
-import { HiXMark, HiChevronDown } from "react-icons/hi2";
-import { FaRegHeart, FaSortAmountDown } from "react-icons/fa";
+import { HiXMark, HiChevronDown,HiChevronUp } from "react-icons/hi2";
+
+import { FaHeart, FaRegHeart, FaSortAmountDown } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useCart } from "../store/store";
+import { useFavorite } from "../store/store";
 import { Link } from "react-router-dom";
 
 const CartItem = ({ item }) => {
+  const [isSizeOptions, setIsSizeOptions] = useState(false)
+  const ref = useRef();
   const { amount, price, size, id } = item;
+  const [chosenAmountItems, setChosenAmountItems] = useState(amount)
 
   const { status, data, error, isFetching, isSuccess, isLoading } = useQuery({
     queryKey: ["singleItem", id],
@@ -20,30 +25,55 @@ const CartItem = ({ item }) => {
     enabled: !!id,
   });
   const deleteItemFromCart = useCart((state) => state.deleteItem);
+  const changeAmountItems = useCart((state) => state.changeAmountItems);
+
+  const favoriteItems = useFavorite((state) => state.favItems);
+  const addFav = useFavorite((state) => state.addFav);
+  const deleteFav = useFavorite((state) => state.deleteFav);
+  
+  useEffect(() => {
+    const checkIfLickedOutside = (e) => {
+      // // If the menu is open and the clicked target is not within the menu, then close filter sidebar
+      if (isSizeOptions && ref.current && !ref.current.contains(e.target))
+        setIsSizeOptions(false);
+    };
+    document.addEventListener("mousedown", checkIfLickedOutside);
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfLickedOutside);
+    };
+  }, [isSizeOptions]);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
 
   const { imgs, name } = data;
   const img = imgs[0];
+  const isFavItem = favoriteItems.findIndex((e) => e.id === id);
+  const handleAddDelelteFave = () => {
+    if (isFavItem !== -1) {
+      deleteFav({ id });
+    } else {
+      addFav({ id, price });
+    }
+  };
+  const handleChangeAmountItems = (ammount) => {
+    changeAmountItems({id,size,ammount})
+  }
 
   const handleDeleteItem = () => {
     deleteItemFromCart(item);
   };
   return (
     <div className=" max-h-[500px] w-full  opacity-100 transition-all ">
-      <div className="relative mt-[40px]">
-        <div className="relative flex  w-full   truncate border  border-[#767677] text-[16px]">
-          <div className="w-[41.666667%] pl-0 screen600:w-[240px] screen600:min-w-[240px]">
+      <div className="relative mt-[40px] ">
+        <div className="relative flex  w-full    border  border-[#767677] text-[16px]">
+          <div className="w-[41.666667%] pl-0 screen600:w-[200px] screen600:min-w-[200px]">
             <Link
               className="relative block h-0 bg-[#eceff1] pb-[100%]"
               to={`/products/${id}`}
             >
-              <img
-                className="w-full object-contain"
-                // src="https://assets.adidas.com/images/w_280,h_280,f_auto,q_auto:sensitive/f544367209ae4494b5f0ab730140c5af_9366/FY8970_600_FY8970_01_standard.jpg.jpg?sh=364&strip=false&sw=364"
-                src={data.imgs[0]}
-                alt=""
-              />
+              <img className="w-full  object-contain" src={img} alt="" />
             </Link>
           </div>
 
@@ -54,7 +84,7 @@ const CartItem = ({ item }) => {
             {/* will change to flex-wrap at some point */}
             <div className="flex w-full  flex-nowrap justify-between pl-[15px] screen960:pl-0">
               {/* line item */}
-              <div className=" w-[calc(100%-45px)]  text-[16px] screen600:py-[20px] screen600:pr-0">
+              <div className=" w-[calc(100%-54px)]  text-[16px] screen600:py-[20px] screen600:pr-0">
                 <div>
                   {/* row */}
                   <div className="flex flex-wrap justify-between  ">
@@ -64,10 +94,18 @@ const CartItem = ({ item }) => {
                     {/* price */}
                     <div className="flex flex-col space-x-5 whitespace-nowrap">
                       <div className="flex flex-wrap items-center">
-                        <div className="mr-1 text-[#767677] line-through">
-                          $100
+                        {item.saleoff?.price && (
+                          <div className="mr-1 text-[#767677] line-through">
+                            $100
+                          </div>
+                        )}
+                        <div
+                          className={` ${
+                            item.saleoff?.price && "text-red-500"
+                          }`}
+                        >
+                          {price}
                         </div>
-                        <div className="text-red-500">{price}</div>
                       </div>
                     </div>
                   </div>
@@ -102,8 +140,11 @@ const CartItem = ({ item }) => {
                     </span>
                   </button>
                   <div className="px-4 py-3 text-[21px]">
-                    <span className="h-[21px] w-[21px]">
-                      <FaRegHeart />
+                    <span
+                      className="h-[21px] w-[21px]"
+                      onClick={handleAddDelelteFave}
+                    >
+                      {isFavItem != -1 ? <FaRegHeart /> : <FaHeart />}
                     </span>
                   </div>
                 </div>
@@ -119,49 +160,52 @@ const CartItem = ({ item }) => {
                 <div className="relative">
                   <div className="relative block cursor-pointer  ">
                     {/* dropdown native select */}
-                    <button className="relative flex w-full cursor-pointer items-center justify-between border border-[#767677] bg-white p-[15px] px-[10px] text-[16px] text-black ">
-                      <span className="overflow-hidden text-ellipsis whitespace-nowrap">
-                        <span>{amount}</span>
+                    <button
+                      className="relative flex w-full cursor-pointer items-center justify-between border border-[#767677] bg-white p-[15px] px-[10px] text-[16px] text-black "
+                      onClick={() => {
+                        setIsSizeOptions(!isSizeOptions);
+                      }}
+                    >
+                      <span className="overflow-hidden text-ellipsis whitespace-nowrap font-semibold leading-3">
+                        <span>{chosenAmountItems}</span>
                       </span>
                       <span>
-                        <HiChevronDown />
+                        {isSizeOptions ? <HiChevronDown /> : <HiChevronUp />}
                       </span>
                     </button>
                     {/* dropdwon custom options */}
                     <div
-                      className=" border-t-[#767677]] visible absolute left-0 
+                      className={` border-t-[#767677]] ${
+                        isSizeOptions
+                          ? "visible opacity-100"
+                          : "invisible opacity-0"
+                      } absolute left-0 
                     
-                    right-0 top-[100%]   z-[20000000]
-                    max-h-[195px] overflow-y-scroll border
-                    border-[#000000] bg-white opacity-100
-                    transition-all   "
+                    right-0 top-[100%]   z-[2]
+                    max-h-[195px] overflow-y-scroll border border-t-0
+                    border-[#000000] bg-white 
+                    transition-all`}
                     >
                       <ul className="">
-                        <li>
-                          <button className="z-[2313131321]  m-0 block w-full  cursor-pointer border-b border-solid border-[#767677] bg-none p-[15px] text-left transition-colors">
-                            2
-                          </button>
-                        </li>
-                        <li>
-                          <button className="m-0  block w-full cursor-pointer  border-b border-solid border-[#767677] bg-none p-[15px] transition-colors ">
-                            3
-                          </button>
-                        </li>
-                        <li>
-                          <button className="m-0  block w-full cursor-pointer  border-b border-solid border-[#767677] bg-none p-[15px] transition-colors">
-                            4
-                          </button>
-                        </li>
-                        <li>
-                          <button className="m-0  block w-full cursor-pointer  border-b border-solid border-[#767677] bg-none p-[15px] transition-colors">
-                            5
-                          </button>
-                        </li>
-                        <li>
-                          <button className="m-0  block w-full cursor-pointer  border-b border-solid border-[#767677] bg-none p-[15px] transition-colors">
-                            6
-                          </button>
-                        </li>
+                        {Array.from({ length: 10 }, (_, i) => i + 1).map(
+                          (e, index) => (
+                            <li key={index}>
+                              <button
+                                className={` m-0 block w-full  cursor-pointer border-b border-solid border-[#767677] bg-none p-[15px] text-left leading-3 text-[#383854] transition-colors  ${
+                                  chosenAmountItems === index + 1 &&
+                                  "font-semibold"
+                                }`}
+                                onClick={() => {
+                                  setChosenAmountItems(index + 1);
+                                  handleChangeAmountItems(index + 1);
+                                }}
+                                ref={ref}
+                              >
+                                {e}
+                              </button>
+                            </li>
+                          )
+                        )}
                       </ul>
                     </div>
                     {/* select */}

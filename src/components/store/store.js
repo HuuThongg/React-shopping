@@ -56,14 +56,48 @@ export const useCart = create(
               itemInCart.id !== item.id ||
               (itemInCart.id === item.id && itemInCart.size !== item.size)
           );
-          
+
           return {
-            items:updatedItems,
+            items: updatedItems,
             totalAmount: updatedTotalAmount,
-            amountItems:updatedAmountItems
+            amountItems: updatedAmountItems,
           };
         }),
-      deleteAllItems: ()=>set({items:[], totalAmount:0, amountItems:0})
+      deleteAllItems: () => set({ items: [], totalAmount: 0, amountItems: 0 }),
+      changeAmountItems: ({ id, size, ammount }) =>
+        set((state) => {
+
+          const formattedNumber = (price) => {
+            return Number(price.slice(1));
+          };
+
+          const indexChange = get().items.findIndex(
+            (itemInCart) => itemInCart.id === id && itemInCart.size === size
+          );
+
+          const updatedTotalAmount =
+            get().totalAmount -
+            formattedNumber(get().items[indexChange].price) *
+            get().items[indexChange].amount +
+            formattedNumber(get().items[indexChange].price) * ammount;
+            
+          let updatedItems;
+          const updatedItem = {
+            ...get().items[indexChange],
+            amount: ammount,
+          };
+          updatedItems = [...state.items];
+          updatedItems[indexChange] = updatedItem;
+
+          const updatedAmountItems =
+            get().amountItems - get().items[indexChange].amount + ammount;
+
+          return {
+            items: updatedItems,
+            totalAmount: updatedTotalAmount,
+            amountItems: updatedAmountItems,
+          };
+        }),
     }),
     {
       name: "adidasStore", // unique name
@@ -80,23 +114,21 @@ export const useFavorite = create(
       addFav: (item) =>
         set((state) => {
           let updatedItems = state.favItems.concat(item);
-          
+
           return {
             favItems: updatedItems,
             amountItems: get().amountItems + 1,
           };
         }),
-      deleteFav: ({id}) =>
+      deleteFav: ({ id }) =>
         set((state) => {
-
-            let updatedItems = state.favItems.filter(e => e.id !==id)
+          let updatedItems = state.favItems.filter((e) => e.id !== id);
           return {
             favItems: updatedItems,
-            amountItems: get().amountItems - 1
+            amountItems: get().amountItems - 1,
           };
         }),
       deleteAllFav: () => set({ itemsFav: [], totalAmount: 0, amountItems: 0 }),
-      
     }),
     {
       name: "favoriteProducts",

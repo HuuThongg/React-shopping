@@ -15,7 +15,7 @@ const CheckoutPage = () => {
     <section
       className={`relative z-[1] ${
         pathname !== "/" ? "" : "pt-[95px]   md:pt-[100px] "
-      } mx-auto   max-w-[1280px]  px-4`}
+      } mx-auto   max-w-[1100px]  px-4`}
     >
       <div className="">
         {/* row */}

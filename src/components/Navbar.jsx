@@ -11,8 +11,8 @@ import { useCart } from "./store/store";
 import { useFavorite } from "./store/store";
 
 const Navbar = () => {
-  const storedItems = useCart((state) => state.items);
   const amountFav = useFavorite((state) => state.amountItems);
+  const storedItems = useCart((state) => state.items);
   const amountItems = storedItems.reduce(
     (accumulator, currentValue) => accumulator + currentValue.amount,
     0

@@ -9,8 +9,8 @@ import { toggle_filter } from "../store/jotai";
 import { useRef } from "react";
 import { useEffect, useState } from "react";
 const OverlayFilter = () => {
-  const ref = useRef();
   const [isToggleFilter, setIsToggleFilter] = useAtom(toggle_filter);
+  const ref = useRef();
   useEffect(() => {
     const checkIfLickedOutside = (e) => {
       // // If the menu is open and the clicked target is not within the menu, then close filter sidebar
