@@ -75,7 +75,7 @@ const SetGift = () => {
                 {data.content.map((product, index) => (
                   <div
                     key={product.id}
-                    className=" grow-0 shrink-0 basis-auto  snap-start w-[calc((100%-10px)/1.187)]  screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  "
+                    className=" grow-0 shrink-0 basis-auto  snap-align-none w-[calc((100%-10px)/1.187)]  screen600:w-[calc((100%-20px)/2.43)] screen960:w-[calc((100%-40px)/4)]  mr-[10px] scroll-mx-6  "
                   >
                     <div className="h-full relative w-full ">
                       <a href="#" className="w-full ">

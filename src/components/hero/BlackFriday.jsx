@@ -3,7 +3,7 @@ import { HiArrowRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 const BlackFriday = () => {
   return (
-    <section className="relative min-h-[30vh] bg-red-100">
+    <section className="relative min-h-[30vh] bg-white">
       <div className="object-contain">
         <picture>
           <source

@@ -1,24 +1,28 @@
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { HiArrowLongRight, HiOutlineBellAlert } from "react-icons/hi2";
-import React,{useState } from "react";
+import React, { useState } from "react";
 
 import { useCart } from "../store/store";
 
 const Sidebar = ({ product }) => {
-
   const storedItems = useCart((state) => state.items);
   const addItem = useCart((state) => state.addItem);
-  const [sizeItem, setSizeItem] = useState("")
-  const [idButtonSize, setIdButtonSize] = useState(null)
+  const [sizeItem, setSizeItem] = useState("");
+  const [idButtonSize, setIdButtonSize] = useState(null);
   // items: [id, amount, price];
-  const handleAddItem = () =>{
-    addItem({id:product._id.$oid, amount: 1, price: product.price,size: sizeItem})
-  }
+  const handleAddItem = () => {
+    addItem({
+      id: product._id.$oid,
+      amount: 1,
+      price: product.price,
+      size: sizeItem,
+    });
+  };
 
   return (
-    <div className="hidden max-w-[450px]  shrink-0   grow-0 basis-[450px] border-[1px] border-y-0 border-r-0 border-solid border-slate-300 bg-white screen960:block screen960:max-w-[320px] screen1280:max-w-[430px] screen1280:basis-[430px] screen1440:max-w-[450px] screen1440:basis-[450px]">
+    <div className="hidden max-w-[450px]  shrink-0   grow-0 basis-[450px] border-[1px] border-y-0 border-r-0 border-solid border-slate-300 bg-white screen960:block screen960:max-w-[320px] screen1280:max-w-[430px] screen1280:basis-[430px] screen1440:max-w-[400px] screen1440:basis-[400px] screen1600:max-w-[400px] screen1600:basis-[490px]">
       <div className=" h-0 w-full bg-fuchsia-500 "></div>
-      <div className="m-h-vh positionWebkit sticky top-0 pt-[30px] screen960:w-[320px] screen960:px-[20px] screen1280:w-[430px]  screen1280:px-[30px] screen1440:w-[450px] screen1440:px-[40px] ">
+      <div className="m-h-vh positionWebkit sticky top-0 pt-[30px] screen960:w-[320px] screen960:px-[20px] screen1280:w-[430px]  screen1280:px-[30px] screen1440:w-[400px] screen1440:px-[40px] ">
         {/* Product description  */}
         <div className="mb-0  flex flex-col flex-wrap p-0">
           {/* pre header */}
@@ -88,13 +92,17 @@ const Sidebar = ({ product }) => {
           </div>
           {/* sizes */}
           <div className="gridSize mt-[10px] grid rounded border-[1px] border-b-0 border-solid border-slate-300">
-            {product.sizes.map((size,index) => (
+            {product.sizes.map((size, index) => (
               <button
-                
                 key={index}
-                className={`relative h-[50px] border-[1px] border-t-0 border-l-0 border-solid  border-slate-300 line-through hover:bg-black hover:text-white ${sizeItem !=="" & idButtonSize===index  ? "bg-black text-white" : "bg-white text-black" } `}
-                onClick={()=>{setSizeItem(size)
-                  setIdButtonSize(index)
+                className={`relative h-[50px] border-[1px] border-t-0 border-l-0 border-solid  border-slate-300 line-through hover:bg-black hover:text-white ${
+                  (sizeItem !== "") & (idButtonSize === index)
+                    ? "bg-black text-white"
+                    : "bg-white text-black"
+                } `}
+                onClick={() => {
+                  setSizeItem(size);
+                  setIdButtonSize(index);
                 }}
               >
                 {/* text-slate-500 */}
@@ -132,4 +140,4 @@ const Sidebar = ({ product }) => {
 };
 
 export default Sidebar;
-  // note {product.saleoff?.price} need to add  salfeoff field to api later
+// note {product.saleoff?.price} need to add  salfeoff field to api later

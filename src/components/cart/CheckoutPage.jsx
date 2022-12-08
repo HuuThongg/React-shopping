@@ -13,8 +13,8 @@ const CheckoutPage = () => {
   const pathname = location.pathname;
   return (
     <section
-      className={`relative z-10 ${
-        pathname !== "/" ? "" : "pt-[105px]   md:pt-[120px] "
+      className={`relative z-[1] ${
+        pathname !== "/" ? "" : "pt-[95px]   md:pt-[100px] "
       } mx-auto   max-w-[1280px]  px-4`}
     >
       <div className="">

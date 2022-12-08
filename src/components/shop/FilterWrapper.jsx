@@ -10,11 +10,11 @@ const FilterWrapper = () => {
     // Align item flex end
     <div className="relative mx-auto flex w-full  items-end px-2  screen600:px-5 screen960:px-9 screen1280:w-[1280px] screen1600:w-[1600px]">
       {/* container */}
-      <div className="mx-auto w-full">
+      <div className="mx-auto mt-[10px] w-full">
         <div className="relative w-[calc(100%-30px)]  max-w-[800px] screen960:mt-[10px]">
           {/* truncation-box */}
           <div className=" w-full">
-            <p className="truncated z-0">
+            <p className="truncated z-0 text-[15px] text-slate-600">
               Save up to 70% off your favorite 3-Stripes styles when you shop
               the adidas Black Friday 2022 sale. Offer valid 11/22-11/26. Online
               only, while supplies last. Exclusions apply.

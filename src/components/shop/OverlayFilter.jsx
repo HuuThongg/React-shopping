@@ -4,43 +4,40 @@ import {
   HiOutlineChevronDown,
   HiArrowLongRight,
 } from "react-icons/hi2";
-import { useAtom,useSetAtom} from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import { toggle_filter } from "../store/jotai";
 import { useRef } from "react";
 import { useEffect, useState } from "react";
 const OverlayFilter = () => {
-  const ref= useRef();
+  const ref = useRef();
   const [isToggleFilter, setIsToggleFilter] = useAtom(toggle_filter);
-  useEffect(()=>{
-
-    const checkIfLickedOutside = e =>{
+  useEffect(() => {
+    const checkIfLickedOutside = (e) => {
       // // If the menu is open and the clicked target is not within the menu, then close filter sidebar
       if (isToggleFilter && ref.current && !ref.current.contains(e.target))
         setIsToggleFilter(false);
-    }
+    };
     document.addEventListener("mousedown", checkIfLickedOutside);
 
     return () => {
       // Cleanup the event listener
       document.removeEventListener("mousedown", checkIfLickedOutside);
     };
-  },[isToggleFilter])
-
+  }, [isToggleFilter]);
 
   return (
-    <div className="z-50 hidden screen960:block ">
+    <div className=" z-[150] hidden screen960:block">
       <div
         className={`opacityTransistion ${
           isToggleFilter ? "visible opacity-100" : "invisible opacity-0"
-        }  fixed inset-0  z-50 w-full cursor-pointer bg-[#00000033]  `}
+        }  fixed inset-0  z-[150] w-full cursor-pointer bg-[#0003]   `}
       >
         {/* filter panel desktop */}
         {/* unset */}
         <div
           className={`scrollbar-hide fixed top-0 ${
             isToggleFilter ? "right-0" : "-right-[30%]"
-          }  z-[111] h-full w-[30%] overflow-auto overscroll-contain bg-white py-0 text-black transition-all `}
-          
+          }  z-[150] h-full w-[30%] overflow-auto overscroll-contain bg-white py-0 text-black transition-all `}
           ref={ref}
         >
           {/* Filter Header */}

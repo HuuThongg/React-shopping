@@ -63,7 +63,7 @@ const WishList = ({ product }) => {
                   {/* <div className="mr-[4px] leading-4 text-gray-400 line-through">
                               $35
                             </div> */}
-                  <div className={`"text-black" leading-4`}>
+                  <div className={`text-[12px]  text-[#6f6262]`}>
                     {product.price}
                   </div>
                 </div>

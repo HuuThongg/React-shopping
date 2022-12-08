@@ -30,7 +30,7 @@ const CartItem = ({ item }) => {
     deleteItemFromCart(item);
   };
   return (
-    <div className="max-h[500px] w-full  opacity-100 transition-all ">
+    <div className=" max-h-[500px] w-full  opacity-100 transition-all ">
       <div className="relative mt-[40px]">
         <div className="relative flex  w-full   truncate border  border-[#767677] text-[16px]">
           <div className="w-[41.666667%] pl-0 screen600:w-[240px] screen600:min-w-[240px]">
@@ -93,13 +93,16 @@ const CartItem = ({ item }) => {
               {/* remove and add favorite item to cart */}
               <div className="">
                 <div className="mt-0 mr-0 flex flex-col items-end  text-[25px]">
-                  <button className="h-[50px] px-4 " onClick={handleDeleteItem}>
-                    <span className="h-[24px] w-[24px]">
+                  <button className="h-[50px] px-4 ">
+                    <span
+                      className="h-[24px] w-[24px]"
+                      onClick={handleDeleteItem}
+                    >
                       <HiXMark />
                     </span>
                   </button>
-                  <div className="px-4 text-[21px]">
-                    <span className="h-[24px] w-[24px]">
+                  <div className="px-4 py-3 text-[21px]">
+                    <span className="h-[21px] w-[21px]">
                       <FaRegHeart />
                     </span>
                   </div>
@@ -114,7 +117,7 @@ const CartItem = ({ item }) => {
               <div className="screen600:w-[100px]">
                 {/* gl form item */}
                 <div className="relative">
-                  <div className="relative block cursor-pointer ">
+                  <div className="relative block cursor-pointer  ">
                     {/* dropdown native select */}
                     <button className="relative flex w-full cursor-pointer items-center justify-between border border-[#767677] bg-white p-[15px] px-[10px] text-[16px] text-black ">
                       <span className="overflow-hidden text-ellipsis whitespace-nowrap">
@@ -128,14 +131,14 @@ const CartItem = ({ item }) => {
                     <div
                       className=" border-t-[#767677]] visible absolute left-0 
                     
-                    right-0 top-[100%]  max-h-[195px]
-                    overflow-y-scroll border border-[#000000]
-                    bg-white opacity-100 transition-all
-                    "
+                    right-0 top-[100%]   z-[20000000]
+                    max-h-[195px] overflow-y-scroll border
+                    border-[#000000] bg-white opacity-100
+                    transition-all   "
                     >
                       <ul className="">
                         <li>
-                          <button className="m-0  block w-full cursor-pointer  border-b border-solid border-[#767677] bg-none p-[15px] text-left transition-colors">
+                          <button className="z-[2313131321]  m-0 block w-full  cursor-pointer border-b border-solid border-[#767677] bg-none p-[15px] text-left transition-colors">
                             2
                           </button>
                         </li>

@@ -17,9 +17,11 @@ const productDetailQuery = (id) => ({
 
 const DetailItem = () => {
   const params = useParams();
+  const product = useLoaderData();
+
   // ⬇️ useQuery as per usual
-  const { data: product } = useQuery(productDetailQuery(params.productId));
-  // console.log(product);
+  // can use this this to get product data 
+  // const { data: product } = useQuery(productDetailQuery(params.productId));
 
   return (
     <div className="relative">

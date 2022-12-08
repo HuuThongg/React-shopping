@@ -24,14 +24,14 @@ const MainShop = () => {
   const pathname = location.pathname;
   return (
     <section
-      className={`relative z-10 ${
-        pathname !== "/" ? "" : "pt-[105px]   md:pt-[120px] "
+      className={`relative  ${
+        pathname !== "/" ? "pt-[95px]   md:pt-[100px] ":"" 
       }w-full `}
     >
       <div className="z- relative w-full screen960:pt-[39px] ">
         <HeaderShop data={data} />
         <FilterWrapper data={data} />
-        <ItemsContainer data={data} className="z-10" />
+        <ItemsContainer data={data} />
         {/* <OverlayFilter/> */}
         {/* Filter */}
 

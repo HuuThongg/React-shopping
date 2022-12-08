@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FaHeart } from "react-icons/fa";
-import { AiOutlineHeart } from "react-icons/ai";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useFavorite } from "../store/store";
 
@@ -27,7 +26,7 @@ const GridItem = ({ data }) => {
   const [isShown, setIsShown] = useState(false);
   return (
     <div
-      className="screeb960:hover hover:outline hover:outline-1 hover:outline-solid hover:outline-black"
+      className=" screen960Lhover:outline-solid screen960:hover:outline screen960:hover:outline-1 screen960:hover:outline-black"
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
     >
@@ -55,11 +54,7 @@ const GridItem = ({ data }) => {
               </Link>
               <div className="absolute right-5 top-5">
                 <button onClick={handleAddFave}>
-                  {isFavItem !== -1 ? 
-                  <FaHeart className=""></FaHeart>
-                  :
-                  <AiOutlineHeart className="text-[16px]" /> 
-                  }
+                  {isFavItem !== -1 ? <FaHeart/> : <FaRegHeart />}
                 </button>
               </div>
               <Link
@@ -92,9 +87,13 @@ const GridItem = ({ data }) => {
               <div className="min-h-[75px] p-[10px] ">
                 <p>Adilette Comfort Slides</p>
                 <p className="text-slate-700">Yoga</p>
-                <p className="text-slate-700">
-                  <span>{data.colors.length} colors</span>
-                </p>
+                {data.colors.length <= 0 ? (
+                  ""
+                ) : (
+                  <p className="text-slate-700">
+                    <span>{data.colors.length} colors</span>
+                  </p>
+                )}
               </div>
             </Link>
           </div>

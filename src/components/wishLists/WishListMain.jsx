@@ -7,7 +7,7 @@ const WishListMain = () => {
   return (
     <section
       className={`relative z-10 w-full ${
-        pathname !== "/" ? "" : "pt-[105px]   md:pt-[120px] "
+        pathname !== "/" ? "" : "pt-[95px]   md:pt-[100px] "
       }`}
     >
       <div className="maxvw relative flex w-full flex-auto overflow-visible">
