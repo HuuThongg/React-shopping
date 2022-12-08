@@ -64,7 +64,7 @@ const Navbar = () => {
         </div>
         <nav className="mx-0 flex h-[60px] w-full  flex-col items-center justify-between  border bg-white px-[10px] md:h-[70px] md:px-[30px] ">
           <div className="hidden w-full md:block">
-            <ul className=" flex list-none items-center justify-end pl-12">
+            <ul className=" flex list-none items-center justify-end pl-12 text-[13px]">
               {topInfo.map((nav, index) => (
                 <li
                   key={nav.id}
@@ -78,7 +78,7 @@ const Navbar = () => {
             </ul>
           </div>
           {/* desktop */}
-          <div className="flex h-full w-full items-center justify-between md:items-end lg:items-center ">
+          <div className="flex h-full w-full items-center justify-between md:items-end lg:items-center text-[1rem]">
             <div className="flex flex-1 md:hidden   ">
               <button
                 className="flex h-10 w-10  items-center justify-center "
@@ -95,7 +95,7 @@ const Navbar = () => {
                 >
                   <TiHeartOutline className="inline h-6 w-6"></TiHeartOutline>
                   {amountFav > 0 && (
-                    <span className="absolute top-[2px] right-[2px] block h-5 w-5 rounded-full bg-[#0071ae] text-[12px] font-bold text-white opacity-90">
+                    <span className="absolute top-[2px] right-[2px] block h-6 w-6 rounded-full bg-[#0071ae] text-[12px] font-bold text-white opacity-90">
                       {amountFav}
                     </span>
                   )}
@@ -128,19 +128,19 @@ const Navbar = () => {
             </ul>
             <div className="flex flex-1 items-center  justify-end">
               <div className="  relative h-12  w-12 ">
-                <button className=" grid h-full w-full place-items-center ">
-                  <FaRegUser className="inline h-5 w-5 "></FaRegUser>
+                <Link to="/my-account" className=" grid h-full w-full place-items-center ">
+                  <FaRegUser className="inline h-6 w-6 "></FaRegUser>
                   <span className="text-xxl  absolute top-0 right-0 h-5 w-5 rounded-full bg-yellow-400 text-center">
                     1
                   </span>
-                </button>
+                </Link>
               </div>
               <div className=" h-12  w-12">
                 <Link
                   to="/wishlists"
                   className="relative grid  h-full w-full place-items-center "
                 >
-                  <TiHeartOutline className="h-5 w-5"></TiHeartOutline>
+                  <TiHeartOutline className="h-6 w-6"></TiHeartOutline>
                   {amountFav > 0 && (
                     <span className="absolute top-[2px] right-[2px] block h-5 w-5 rounded-full bg-[#0071ae] text-center text-[12px] font-bold text-white opacity-90">
                       {amountFav}

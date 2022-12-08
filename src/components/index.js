@@ -7,7 +7,7 @@ import MainShop from "./shop/MainShop";
 import ProductDetail from "./ProductDetail/ProductDetail";
 import NewArrivals from "./Hompage/NewArrivals";
 import CheckoutPage from "./cart/CheckoutPage";
-
+import AccountMain from "./account/AccountMain";
 export {
   Navbar,
   BlackFriday,
@@ -18,5 +18,5 @@ export {
   ProductDetail,
   NewArrivals,
   CheckoutPage,
-
+  AccountMain,
 };

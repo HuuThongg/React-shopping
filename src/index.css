@@ -27,11 +27,11 @@
   -ms-overflow-style: none; /* IE and Edge */
   /* scrollbar-width: none; Firefox */
 }
-.m-h-vh{
+.m-h-vh {
   min-height: 100vh;
 }
 .positionWebkit {
-  position:-webkit-sticky;
+  position: -webkit-sticky;
   position: sticky;
 }
 .truncated {
@@ -46,16 +46,17 @@
 }
 
 .opacityTransistion {
-  transition: opacity .3s cubic-bezier(0, 0.5, 0.2, 1),visibility .3s cubic-bezier(0, 0.5, 0.2, 1);
+  transition: opacity 0.3s cubic-bezier(0, 0.5, 0.2, 1),
+    visibility 0.3s cubic-bezier(0, 0.5, 0.2, 1);
 }
-.maxvw{
+.maxvw {
   max-width: 100vw;
 }
-.fade{
+.fade {
   background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
 }
 .filterTransistion {
-  transition: right .2s ease-out;
+  transition: right 0.2s ease-out;
 }
 .text-gradient {
   background: radial-gradient(
@@ -146,8 +147,8 @@
   }
 }
 
-.gridSize{
-  grid-template-columns: repeat(auto-fill, minmax(65px,1fr));
+.gridSize {
+  grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
 }
 .feature-card:hover {
   background: var(--black-gradient);
@@ -180,45 +181,57 @@
   background: rgba(255, 255, 255, 0.6);
   filter: blur(750px);
 }
-.header_logo_bg{
+.header_logo_bg {
   position: absolute;
   background-image: url(https://www.adidas.com/glass/react/fabca50/assets/img/icon-adidas-logo.svg);
-  left:0;
-  right:0;
+  left: 0;
+  right: 0;
   margin: auto;
   width: 50px;
   height: 50px;
 }
-.heightMaxCalc{
+.heightMaxCalc {
   height: max(calc(100vh - 300px, 600px));
 }
-.outlineBox{
-  outline :#11101d;
+.outlineBox {
+  outline: #11101d;
   outline: solid;
   outline-offset: 1px;
 }
 .checkoutShadow::before,
-.checkoutShadow::after
-
-{
+.checkoutShadow::after {
   content: "";
   display: block;
   position: absolute;
-  transition:  all;
-  
+  transition: all;
 }
 
-.checkoutShadow::before{
+.checkoutShadow::before {
   bottom: -5px;
   left: 3px;
   width: 100%;
   height: 3px;
-  border-bottom: 2px solid #1385ae;
+  border-bottom: 2px solid #222729;
 }
-.checkoutShadow::after{
+
+.checkoutShadow:active::before {
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  border-bottom: 2px solid #222729;
+}
+.checkoutShadow::after {
   bottom: -4px;
   right: -4px;
   height: 100%;
   width: 3px;
-  border-right: 2px solid #1385ae;
+  border-right: 2px solid #222729;
+}
+.checkoutShadow:active:after {
+  bottom: 0px;
+  right: 0px;
+  height: 100%;
+  width: 0px;
+  border-right: 2px solid #222729;
 }

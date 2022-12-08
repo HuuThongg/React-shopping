@@ -2,10 +2,17 @@ import {
   HiArrowLongRight,
   HiOutlineArrowUpOnSquareStack,
 } from "react-icons/hi2";
+import { useOrder } from "../store/store";
+
+
 
 const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
-  
-  const handleDeleteAllItems = () =>{
+  const orders = useOrder((state) => state.orders);
+  // console.log(orders);
+  // console.log(storedItems)
+  const addOrder = useOrder((state) => state.addOrder)
+  const handleDeleteAllItemsAndAddOrder = () =>{
+    addOrder({totalAmount, storedItems});
     deleteAll();
   }
   const isEmpty = amountItems !== 0;
@@ -64,12 +71,13 @@ const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
             </div>
 
             {/* Checkout or pay with paypal */}
-            <div className="  flex flex-auto flex-col screen960:mt-0">
-              <div className="flex-auto translate-x-0 translate-y-0 bg-black font-semibold text-white">
-                <button className=" checkoutShadow  relative inline-flex min-h-[50px] w-full cursor-pointer  items-center justify-between whitespace-nowrap border-none  px-[15px] text-left"
-                onClick={handleDeleteAllItems}
+            <div className="  flex flex-auto flex-col text-[14px] screen960:mt-0">
+              <div className="flex-auto translate-x-0 translate-y-0 bg-black font-semibold text-white active:translate-x-[3px] active:translate-y-[3px]">
+                <button
+                  className=" checkoutShadow  relative inline-flex min-h-[50px] w-full cursor-pointer  items-center justify-between whitespace-nowrap border-none  px-[15px] text-left hover:text-[#767677] active:text-[#c1c1c8] "
+                  onClick={handleDeleteAllItemsAndAddOrder}
                 >
-                  <span className="uppercase">Checkout</span>
+                  <span className="uppercase tracking-widest">Checkout</span>
                   <span className="text-[30px]">
                     <HiArrowLongRight />
                   </span>
@@ -78,8 +86,8 @@ const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
               <p className="mx-[10px] text-center font-light leading-[50px]">
                 OR
               </p>
-              <div className="flex-auto translate-x-0 translate-y-0 border-2 border-black bg-white">
-                <button className=" checkoutShadow  relative inline-flex min-h-[50px] w-full cursor-pointer  items-center justify-between whitespace-nowrap border-none  px-[15px] text-left">
+              <div className="flex-auto translate-x-0 translate-y-0 border-2 border-black bg-white active:translate-x-[3px] active:translate-y-[3px]">
+                <button className="   relative inline-flex min-h-[50px] w-full cursor-pointer  items-center justify-between whitespace-nowrap border-none  px-[15px] text-left">
                   <span className="font-bold uppercase">
                     <img
                       src="https://www.adidas.com/static/checkout/react/d15ae68/assets/img/img-paypal-logo.svg"
@@ -97,7 +105,7 @@ const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
         </div>
       )}
       {/* Accepted payment methods */}
-      <div className="mt-[40px]">
+      <div className="my-[40px]">
         <div>
           <h4>accpeted payment methods</h4>
           <img

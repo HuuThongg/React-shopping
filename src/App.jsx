@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
+import { AccountMain } from "./components";
 import RootLayout from "./routes/RootLayout";
 import Products from "./routes/Products";
 import DetailItem, { loader as DetailLoader } from "./routes/DetailItem";
@@ -58,6 +58,16 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/my-account",
+    element: < RootLayout/>,
+    children:[
+      {
+        index:true,
+        element: <AccountMain/>
+      }
+    ]
+  }
 ]);
 
 function App() {
