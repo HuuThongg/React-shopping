@@ -138,17 +138,22 @@ export const useFavorite = create(
 );
 
 export const useOrder = create(
-  persist(
-    (set,get) => ({
-      orders:[],
-      addOrder: ({totalAmount, storedItems}) => set(state =>{
+  persist((set, get) => ({
+    orders: [],
+    amountItems: 0,
+    totalAmount: 0,
+    addOrder: ({ totalAmount, amountItems, storedItems, orderID }) =>
+      set((state) => {
         console.log(totalAmount);
         console.log(storedItems);
-        return {}
-      } )
-    })
-  )
-)
+        return {
+          orders: storedItems,
+          amountItems: amountItems,
+          totalAmount: totalAmount,
+        };
+      }),
+  }))
+);
 
 // export const useBearStore = create(
 //   persist(

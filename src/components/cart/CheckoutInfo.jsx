@@ -8,11 +8,12 @@ import { useOrder } from "../store/store";
 
 const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
   const orders = useOrder((state) => state.orders);
-  // console.log(orders);
-  // console.log(storedItems)
   const addOrder = useOrder((state) => state.addOrder)
+
+  const orderID = (Math.random() + 1).toString(36).substring(10).toUpperCase() + Math.floor(Math.random() * 1000000000);
+
   const handleDeleteAllItemsAndAddOrder = () =>{
-    addOrder({totalAmount, storedItems});
+    addOrder({ totalAmount, amountItems, storedItems, orderID });
     deleteAll();
   }
   const isEmpty = amountItems !== 0;
