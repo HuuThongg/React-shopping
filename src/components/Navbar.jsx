@@ -64,11 +64,11 @@ const Navbar = () => {
         </div>
         <nav className="mx-0 flex h-[60px] w-full  flex-col items-center justify-between  border bg-white px-[10px] md:h-[70px] md:px-[30px] ">
           <div className="hidden w-full md:block">
-            <ul className=" flex list-none items-center justify-end pl-12 text-[13px]">
+            <ul className=" flex list-none items-center justify-end pl-12 text-[14px]">
               {topInfo.map((nav, index) => (
                 <li
                   key={nav.id}
-                  className={` cursor-pointer text-[11px] font-normal   ${
+                  className={` cursor-pointer text-[14px] font-normal   ${
                     index === topInfo.length - 1 ? "mr-0" : "mr-4"
                   } `}
                 >
@@ -88,7 +88,7 @@ const Navbar = () => {
               >
                 <HiBars4 className="h-7 w-7"></HiBars4>
               </button>
-              <div className="  h-12 w-12 ">
+              {/* <div className="  h-12 w-12 ">
                 <Link
                   href="#"
                   className="relative grid  h-full  w-full place-items-center justify-center text-center"
@@ -100,7 +100,7 @@ const Navbar = () => {
                     </span>
                   )}
                 </Link>
-              </div>
+              </div> */}
             </div>
             <NavLink to="/" className="">
               <img
@@ -130,9 +130,9 @@ const Navbar = () => {
               <div className="  relative h-12  w-12 ">
                 <Link to="/my-account" className=" grid h-full w-full place-items-center ">
                   <FaRegUser className="inline h-6 w-6 "></FaRegUser>
-                  <span className="text-xxl  absolute top-0 right-0 h-5 w-5 rounded-full bg-yellow-400 text-center">
+                  {/* <span className="text-xxl  absolute top-0 right-0 h-5 w-5 rounded-full bg-yellow-400 text-center">
                     1
-                  </span>
+                  </span> */}
                 </Link>
               </div>
               <div className=" h-12  w-12">
@@ -184,12 +184,15 @@ const Navbar = () => {
               <HiXMark className="h-full w-full" />
             </button>
           </div>
+          {/* mobile */}
           <ul className="flex  flex-1 list-none flex-col   items-center justify-start p-10">
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
                 className={`cursor-pointer py-5 font-poppins text-[16px]  font-semibold`}
-                onClick={() => setActive(nav.title)}
+                onClick={() => {setActive(nav.title)
+                  setTransform("full");
+                }}
               >
                 <NavLink to="/products">{nav.title}</NavLink>
               </li>

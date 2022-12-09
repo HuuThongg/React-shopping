@@ -44,8 +44,15 @@ const CartItem = ({ item }) => {
       document.removeEventListener("mousedown", checkIfLickedOutside);
     };
   }, [isSizeOptions]);
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error</div>;
+  if (isLoading) {
+    // will need to return a lazy loading like 
+    //  const content = <nameComponent></nameComponent>
+    // return content;
+    return <p></p>;
+  }
+  if (error) 
+  
+  return <div>Error</div>;
 
   const { imgs, name } = data;
   const img = imgs[0];

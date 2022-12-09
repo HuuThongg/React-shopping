@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { AccountMain } from "./components";
+import { Feed, OrderHisotry, Profile } from "./components";
 import RootLayout from "./routes/RootLayout";
 import Products from "./routes/Products";
 import DetailItem, { loader as DetailLoader } from "./routes/DetailItem";
@@ -10,6 +10,7 @@ import RootLayout_Cart from "./routes/RootLayout_Cart";
 import CartRoot from "./routes/CartRoot";
 import RootLayout_wishLists from "./routes/RootLayout_wishLists";
 import WishListsPage from "./routes/WishListsPage";
+
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -60,14 +61,22 @@ const router = createBrowserRouter([
   },
   {
     path: "/my-account",
-    element: < RootLayout/>,
-    children:[
+    element: <RootLayout />,
+    children: [
       {
-        index:true,
-        element: <AccountMain/>
-      }
-    ]
-  }
+        index: true,
+        element: <Feed />,
+      },
+      {
+        path: "order-history",
+        element: <OrderHisotry></OrderHisotry>,
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>,
+      },
+    ],
+  },
 ]);
 
 function App() {

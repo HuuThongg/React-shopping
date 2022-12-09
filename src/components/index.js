@@ -8,6 +8,9 @@ import ProductDetail from "./ProductDetail/ProductDetail";
 import NewArrivals from "./Hompage/NewArrivals";
 import CheckoutPage from "./cart/CheckoutPage";
 import AccountMain from "./account/AccountMain";
+import Feed from "./account/Feed";
+import OrderHisotry from "./account/OrderHisotry";
+import Profile from "./account/Profile";
 export {
   Navbar,
   BlackFriday,
@@ -19,4 +22,7 @@ export {
   NewArrivals,
   CheckoutPage,
   AccountMain,
-};
+  Feed,
+  OrderHisotry,
+  Profile
+}

@@ -10,12 +10,15 @@ const Sidebar = ({ product }) => {
   const [sizeItem, setSizeItem] = useState("");
   const [idButtonSize, setIdButtonSize] = useState(null);
   // items: [id, amount, price];
+  const img = product.imgs[0];
+
   const handleAddItem = () => {
     addItem({
       id: product._id.$oid,
       amount: 1,
       price: product.price,
       size: sizeItem,
+      img: img
     });
   };
 

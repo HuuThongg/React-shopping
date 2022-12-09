@@ -3,6 +3,7 @@ import { useFavorite } from "../store/store";
 const WishLists = () => {
   const favItems = useFavorite((state) => state.favItems);
   const amount = useFavorite((state) => state.amountItems);
+  
 
   return (
     <section className="w-full bg-[#f8f8f9] pt-[15px]">

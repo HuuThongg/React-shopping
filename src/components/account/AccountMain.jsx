@@ -1,15 +1,14 @@
 import { useState } from "react";
 
 import { useLocation } from "react-router";
-import Account from "./Account";
+import Account from "./Profile";
 import Feed from "./Feed";
-import Order from "./Order";
+import Order from "./OrderHisotry";
 const AccountMain = () => {
-  const [tab,setTab] = useState(1);
+  const [tab, setTab] = useState(1);
   const location = useLocation();
   const pathname = location.pathname;
 
-  
   return (
     <section>
       <div
@@ -88,7 +87,7 @@ const AccountMain = () => {
       </div>
 
       {tab === 1 && <Feed />}
-      {tab === 2 && <Order />}
+      {tab === 2 && <OrderHisotry />}
       {tab === 3 && <Account />}
     </section>
   );

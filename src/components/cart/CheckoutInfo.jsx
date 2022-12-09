@@ -3,19 +3,21 @@ import {
   HiOutlineArrowUpOnSquareStack,
 } from "react-icons/hi2";
 import { useOrder } from "../store/store";
-
+import { useNavigate } from "react-router";
 
 
 const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
   const orders = useOrder((state) => state.orders);
   const addOrder = useOrder((state) => state.addOrder)
 
-  const orderID = (Math.random() + 1).toString(36).substring(10).toUpperCase() + Math.floor(Math.random() * 1000000000);
+ 
 
   const handleDeleteAllItemsAndAddOrder = () =>{
-    addOrder({ totalAmount, amountItems, storedItems, orderID });
+    addOrder({ totalAmount, amountItems, storedItems });
     deleteAll();
+    navigage("/my-account")
   }
+  const navigage = useNavigate();
   const isEmpty = amountItems !== 0;
   return (
     <aside className="ml-0 px-0 screen960:ml-[4.16667%] screen960:w-[37.5%] screen1280:w-[29.1666667%]">

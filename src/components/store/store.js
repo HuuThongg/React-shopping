@@ -10,7 +10,6 @@ export const useCart = create(
       amountItems: 0,
       addItem: (item) =>
         set((state) => {
-          // console.log(item);
           const updatedTotalAmount =
             state.totalAmount + item.amount * Number(item.price.slice(1));
 
@@ -25,6 +24,7 @@ export const useCart = create(
             const updatedItem = {
               ...exisitingCartItem,
               amount: exisitingCartItem.amount + item.amount,
+              img: item.img
             };
             updatedItems = [...state.items];
             updatedItems[exisitingCartItemIndex] = updatedItem;
@@ -113,6 +113,7 @@ export const useFavorite = create(
       amountItems: 0,
       addFav: (item) =>
         set((state) => {
+          
           let updatedItems = state.favItems.concat(item);
 
           return {
@@ -138,21 +139,54 @@ export const useFavorite = create(
 );
 
 export const useOrder = create(
-  persist((set, get) => ({
-    orders: [],
-    amountItems: 0,
-    totalAmount: 0,
-    addOrder: ({ totalAmount, amountItems, storedItems, orderID }) =>
-      set((state) => {
-        console.log(totalAmount);
-        console.log(storedItems);
-        return {
-          orders: storedItems,
-          amountItems: amountItems,
-          totalAmount: totalAmount,
-        };
-      }),
-  }))
+  persist(
+    (set, get) => ({
+      orders: [],
+      amountItems: 0,
+      totalAmount: 0,
+      orderTime: [],
+      orderID:"",
+      addOrder: ({ totalAmount, amountItems, storedItems }) =>
+        set((state) => {
+
+          const order_id =
+            (Math.random() + 1).toString(36).substring(10).toUpperCase() +
+             Math.floor(Math.random() * 1000000000);
+
+          const mL = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+          const today = new Date();
+          const month = mL[today.getMonth() - 1];
+          const year = today.getFullYear();
+          const date = today.getDate();
+          const updatedOrderTime = {year ,month,  date };
+
+          return {
+            orders: storedItems,
+            amountItems: amountItems,
+            totalAmount: totalAmount,
+            orderTime: updatedOrderTime,
+            orderID: order_id,
+          };
+        }),
+    }),
+    {
+      name: "order", // unique name
+      getStorage: () => localStorage, // (optional) by default, 'localStorage' is used
+    }
+  )
 );
 
 // export const useBearStore = create(

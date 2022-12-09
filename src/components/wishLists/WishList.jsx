@@ -6,25 +6,28 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
 const WishList = ({ product }) => {
+
   const [isShown, setIsShown] = useState(false);
-  const { price, id } = product;
-  const { status, data, error, isFetching, isSuccess, isLoading } = useQuery({
-    queryKey: ["singleFav", id],
-    queryFn: async () => {
-      const { data } = await axios.get(
-        "https://api.npoint.io/412448615c4faa493df3/" + (id - 1)
-      );
-      return data;
-    },
-    enabled: !!id,
-  });
+  const { id } = product;
+  // we dont  need to get data via data fetching, we can get it from internal store
+  // const { status, data, error, isFetching, isSuccess, isLoading } = useQuery({
+  //   queryKey: ["singleFav", id],
+  //   queryFn: async () => {
+  //     const { data } = await axios.get(
+  //       "https://api.npoint.io/412448615c4faa493df3/" + (id - 1)
+  //     );
+  //     return data;
+  //   },
+  //   enabled: !!id,
+  // });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error</div>;
+  // if (isLoading) return <div>Loading...</div>;
+  // if (error) return <div>Error</div>;
 
-  const { imgs, name } = data;
-  const img = imgs[0];
-
+  // const { imgs, name } = data;
+  // const img = imgs[0];
+  const img = product.img
+  
   return (
     <div className="mb-[15px] grid w-[100%] px-0 screen600:w-[25%] screen600:pr-[15px]">
       {/* wishlist card */}

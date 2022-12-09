@@ -7,8 +7,9 @@ const GridItem = ({ data }) => {
   const favoriteItems = useFavorite((state) => state.favItems);
   const addFav = useFavorite((state) => state.addFav);
   const deleteFav = useFavorite((state) => state.deleteFav)
-  // console.log(data);
-  const { _id: fakeId, price } = data;
+  
+  const { _id: fakeId, price,imgs } = data;
+  const img = imgs[0];
   const id = fakeId.$oid;
   const isFavItem = favoriteItems.findIndex((e) => e.id === id);
   // console.log(isFavItem);
@@ -19,7 +20,7 @@ const GridItem = ({ data }) => {
       console.log("delete")
       deleteFav({id})
     }else{
-      addFav({ id, price });
+      addFav({ id, price, img });
     }
   };
 
