@@ -112,9 +112,9 @@ const Profile = () => {
                           {errors?.email?.type === "pattern" && (
                             <p>Alphabetical characters only</p>
                           )}
-                          {/* <label className="absolute left-2 top-4 scale-100 px-1 text-base leading-6 transition-all delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)] active:origin-center active:-translate-y-[32px]  active:scale-75 active:text-[#d43f21]">
+                          <label className="absolute left-2 top-4 scale-100 px-1 text-base leading-6 transition-all delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)] active:origin-center active:-translate-y-[32px]  active:scale-75 active:text-[#d43f21]">
                             <span>Email</span>
-                          </label> */}
+                          </label>
                           <fieldset className="pointer-events-none absolute left-0 bottom-0 m-0 h-full  w-full rounded-lg border border-solid border-[#757575]  p-0">
                             <legend className="ml-[7px]transition-all invisible h-[1px] px-1 py-0 text-[12px] delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)]  active:origin-center active:-translate-y-[32px] active:scale-75 active:text-[#d43f21]">
                               Email
