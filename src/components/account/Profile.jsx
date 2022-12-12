@@ -8,17 +8,29 @@ import {
 } from "react-icons/hi2";
 import { useState } from "react";
 
-
 const Profile = () => {
   const location = useLocation();
   const pathname = location.pathname;
+  const [isTouched, setIsTouched] = useState(false);
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
-  } = useForm();
+    formState: { errors, isDirty, isValid, touchedFields },
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      email: "",
+    },
+  });
+  console.log("touchedFields", touchedFields);
   const onSubmitA = (data) => console.log(data);
+  const handleBlur = () => {
+    setIsTouched(!isTouched);
+    console.log("set touch");
+  };
+  console.log("isTouched", isTouched);
+  console.log("isValid", isValid);
   return (
     <section
       className={`relative z-[1] ${
@@ -94,6 +106,8 @@ const Profile = () => {
                         {/* input layout */}
                         <div className="relative flex h-[56px] w-full items-center justify-start rounded-lg border-orange-600 bg-transparent bg-red-100 ">
                           <input
+                            onBlur={handleBlur}
+                            
                             {...register("email", {
                               required: true,
                               maxLength: 20,
@@ -112,11 +126,20 @@ const Profile = () => {
                           {errors?.email?.type === "pattern" && (
                             <p>Alphabetical characters only</p>
                           )}
-                          <label className="absolute left-2 top-4 scale-100 px-1 text-base leading-6 transition-all delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)] active:origin-center active:-translate-y-[32px]  active:scale-75 active:text-[#d43f21]">
-                            <span>Email</span>
+                          <label
+                            className={`absolute left-2 top-4 scale-100 px-1 text-base leading-6 transition-all delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)] ${
+                              isTouched
+                                ? "origin-center -translate-y-[32px] scale-75 text-[#d43f21]"
+                                : ""
+                            } `}
+                          >
+                            <span>Emaia</span>
                           </label>
                           <fieldset className="pointer-events-none absolute left-0 bottom-0 m-0 h-full  w-full rounded-lg border border-solid border-[#757575]  p-0">
-                            <legend className="ml-[7px]transition-all invisible h-[1px] px-1 py-0 text-[12px] delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)]  active:origin-center active:-translate-y-[32px] active:scale-75 active:text-[#d43f21]">
+                            <legend
+                              className={`ml-[7px]transition-all invisible h-[1px] px-1 py-0 text-[12px] delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)]
+                              active:origin-center active:-translate-y-[32px] active:scale-75 active:text-[#d43f21]`}
+                            >
                               Email
                             </legend>
                           </fieldset>

@@ -5,7 +5,6 @@ import { useLocation } from "react-router";
 const Tab = () => {
   const location = useLocation();
   const pathname = location.pathname;
-  console.log(pathname)
 
   const navigate = useNavigate();
   return (
