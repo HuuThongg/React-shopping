@@ -18,9 +18,9 @@ const Profile = () => {
   const [isTouchedRegion, setIsTouchedRegion] = useState(false);
   const [isMouseEnterRegion, setIsMouseEnterRegion] = useState(false);
   const [country, setCountry] = useState("United States");
-  const [isTouchedProvince, setIsTouchedProvince] = useState(false)
-  const [isTouchedCity, setIsTouchedCity ] = useState(false)
-  const [isTouchedPostCode, setIsTouchedPostCode] = useState(false)
+  const [isTouchedProvince, setIsTouchedProvince] = useState(false);
+  const [isTouchedCity, setIsTouchedCity] = useState(false);
+  const [isTouchedPostCode, setIsTouchedPostCode] = useState(false);
   const {
     register,
     handleSubmit,
@@ -30,11 +30,14 @@ const Profile = () => {
     defaultValues: {
       email: "",
       password: "",
-      province:"",
-      city:"",
+      province: "",
+      city: "",
+      postcode: "",
     },
   });
+
   const onSubmit = (data) => console.log(data);
+  console.log(isDirty);
   return (
     <section
       className={`relative z-[1] ${
@@ -45,7 +48,7 @@ const Profile = () => {
         <Tab />
       </div>
       <div className=" mx-auto min-h-[690px] max-w-[1280px]   p-[50px]">
-        <div className="bg-red-100">
+        <div className="bg-[#f7f7f7]">
           {/* header */}
           <div className="mb-[24px]">
             <h1 className="w-full text-2xl font-medium leading-7">Settings</h1>
@@ -54,7 +57,7 @@ const Profile = () => {
 
           {/* profile detail */}
           <div className="min-h-[calc(100vh-570px)]">
-            <div className=" inline-block bg-red-300 pr-6 pb-8 pl-0 align-top screen960:max-w-[290px]">
+            <div className=" inline-block bg-[#f7f7f7] pr-6 pb-8 pl-0 align-top screen960:max-w-[290px]">
               <div className="">
                 <div className="relative flex h-[44px] cursor-pointer items-center">
                   <div className="w-[46px] min-w-[46px] pr-5 leading-[44px]">
@@ -92,11 +95,11 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <div className="screen960 relative ml-[140px] mt-0  inline-block min-h-[1px] w-[33.333333%] max-w-[768px] bg-slate-200 px-2 pt-[48px] pb-[36px] align-top text-base leading-7">
+            <div className="screen960 relative ml-[140px] mt-0  inline-block min-h-[1px] w-[33.333333%] max-w-[768px]  px-2 pt-[48px] pb-[36px] align-top text-base leading-7">
               <main>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   {/* wrapper */}
-                  <div className="bg-white">
+                  <div className="">
                     <div>
                       <h2 className=" mb-3 text-base font-medium leading-7 screen960:mb-[36px]">
                         Account Details
@@ -108,7 +111,7 @@ const Profile = () => {
                       <div className="relative min-h-[84px] w-full overflow-visible">
                         {/* input layout */}
 
-                        <div className="relative flex h-[56px] w-full flex-col items-center justify-start rounded-lg border-orange-600 bg-transparent bg-red-100 ">
+                        <div className="relative flex h-[56px] w-full flex-col items-center justify-start rounded-lg border-orange-600 bg-transparent  ">
                           <input
                             type="email"
                             {...register("email", {
@@ -125,9 +128,10 @@ const Profile = () => {
                               if (isDirty) setIsTouchedEmail(true);
                               else setIsTouchedEmail(false);
                             }}
-                            className="m-0 flex h-[56px] w-full rounded-lg   border-0 border-[#111111] py-4  px-3  text-base
+                            className={`m-0 flex h-[56px] w-full rounded-lg   border-0 border-[#111111] py-4  px-3  text-base
                             leading-6 text-[#504141] outline-0 
-                            "
+                            
+                            `}
                           />
                           {errors.email && (
                             <p className="text-[14px] text-[#d43f21]">
@@ -146,9 +150,13 @@ const Profile = () => {
                                 ? "origin-center -translate-y-[28px] -translate-x-[10px] scale-75 text-[#131313] "
                                 : "text-[#979494]"
                             }
-                            `}
+                            pointer-events-none`}
                           >
-                            <span>Email*</span>
+                            <span
+                              className={`${errors.email && "text-[#d43f21]"}`}
+                            >
+                              Email*
+                            </span>
                           </label>
                           <fieldset
                             className={`pointer-events-none absolute left-0 bottom-0 m-0 h-full  w-full rounded-lg border border-solid  ${
@@ -174,7 +182,7 @@ const Profile = () => {
                       <div className="relative min-h-[84px] w-full overflow-visible">
                         {/* input layout */}
 
-                        <div className="relative flex h-[56px] w-full flex-col items-center justify-start rounded-lg border-orange-600 bg-transparent bg-red-100 ">
+                        <div className="relative flex h-[56px] w-full flex-col items-center justify-start rounded-lg border-orange-600 bg-transparent bg-[#f7f7f7] ">
                           <input
                             type="password"
                             {...register("password", {
@@ -211,9 +219,15 @@ const Profile = () => {
                               isTouchedPW
                                 ? "origin-center -translate-y-[28px] -translate-x-[10px] scale-75 text-[#131313] "
                                 : "text-[#979494]"
-                            } `}
+                            } pointer-events-none`}
                           >
-                            <span>Password*</span>
+                            <span
+                              className={`${
+                                errors.password && "text-[#d43f21]"
+                              } `}
+                            >
+                              Password*
+                            </span>
                           </label>
                           <fieldset
                             className={`pointer-events-none absolute left-0 bottom-0 m-0 h-full  w-full rounded-lg border border-solid  ${
@@ -221,9 +235,7 @@ const Profile = () => {
                                 ? "border-[#757575]"
                                 : "border-[#dcdcdc]"
                             }  p-0 ${
-                              !isValid && isTouchedPW && isDirty
-                                ? "border-[#d43f21]"
-                                : ""
+                              errors.password ? "border-[#d43f21]" : ""
                             }`}
                           >
                             <legend
@@ -244,7 +256,7 @@ const Profile = () => {
                         <div className="relative min-h-[84px] w-full overflow-visible  ">
                           {/* selection layout */}
                           <div
-                            className="relative inline-flex h-[56px] w-full  items-center justify-start rounded-lg border-orange-600 bg-transparent bg-red-100 align-bottom"
+                            className="relative inline-flex h-[56px] w-full  items-center justify-start rounded-lg border-orange-600 bg-transparent bg-[#fff] align-bottom"
                             onMouseEnter={() => {
                               setIsMouseEnterRegion(true);
                             }}
@@ -252,13 +264,13 @@ const Profile = () => {
                               setIsMouseEnterRegion(false);
                             }}
                           >
-                            <label className="absolute left-2 top-4 origin-center -translate-y-[28px] -translate-x-[10px] scale-75 px-1 text-base leading-4 text-[#131313] ">
+                            <label className="pointer-events-none absolute left-2 top-4 origin-center -translate-y-[28px] -translate-x-[10px] scale-75 px-1 text-base leading-4 text-[#131313]">
                               <span
                                 className={`${
                                   isMouseEnterRegion
                                     ? "text-[#11111]"
                                     : "text-[#757575]"
-                                } `}
+                                }  `}
                               >
                                 Country/Region*
                               </span>
@@ -618,20 +630,21 @@ const Profile = () => {
                                 Please enter a valid province
                               </p>
                             )}
-                            {/* {errors.password?.type === "required" && (
-                            <div className="block">
-                              <span>Please enter a valid password</span>
-                            </div>
-                          )} */}
 
                             <label
                               className={`absolute left-2 top-4 scale-100 px-1 text-base leading-6 transition-all delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)] ${
                                 isTouchedProvince
                                   ? "origin-center -translate-y-[28px] -translate-x-[10px] scale-75 text-[#131313] "
                                   : "text-[#979494]"
-                              } `}
+                              } pointer-events-none`}
                             >
-                              <span>Province</span>
+                              <span
+                                className={`${
+                                  errors.province ? "text-[#d43f21]" : ""
+                                }`}
+                              >
+                                Province
+                              </span>
                             </label>
                             <fieldset
                               className={`pointer-events-none absolute left-0 bottom-0 m-0 h-full  w-full rounded-lg border border-solid  ${
@@ -639,9 +652,7 @@ const Profile = () => {
                                   ? "border-[#757575]"
                                   : "border-[#dcdcdc]"
                               }  p-0 ${
-                                !isValid && isTouchedProvince && isDirty
-                                  ? "border-[#d43f21]"
-                                  : ""
+                                errors.province ? "border-[#d43f21]" : ""
                               }`}
                             >
                               <legend
@@ -663,7 +674,7 @@ const Profile = () => {
 
                           <div className="relative flex h-[56px] w-full flex-col items-center justify-start rounded-lg border-orange-600 bg-transparent bg-red-100 ">
                             <input
-                              {...register("province]", {
+                              {...register("city", {
                                 required: true,
                                 minLength: 2,
                                 maxLength: 30,
@@ -682,31 +693,28 @@ const Profile = () => {
                                 Please enter a valid city
                               </p>
                             )}
-                            {/* {errors.password?.type === "required" && (
-                            <div className="block">
-                              <span>Please enter a valid password</span>
-                            </div>
-                          )} */}
 
                             <label
                               className={`absolute left-2 top-4 scale-100 px-1 text-base leading-6 transition-all delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)] ${
                                 isTouchedCity
                                   ? "origin-center -translate-y-[28px] -translate-x-[10px] scale-75 text-[#131313] "
                                   : "text-[#979494]"
-                              } `}
+                              } pointer-events-none`}
                             >
-                              <span>City</span>
+                              <span
+                                className={`${
+                                  errors.city ? "text-[#d43f21]" : ""
+                                }`}
+                              >
+                                City
+                              </span>
                             </label>
                             <fieldset
                               className={`pointer-events-none absolute left-0 bottom-0 m-0 h-full  w-full rounded-lg border border-solid  ${
                                 isTouchedCity
                                   ? "border-[#757575]"
                                   : "border-[#dcdcdc]"
-                              }  p-0 ${
-                                !isValid && isTouchedCity && isDirty
-                                  ? "border-[#d43f21]"
-                                  : ""
-                              }`}
+                              }  p-0 ${errors.city ? "border-[#d43f21]" : ""}`}
                             >
                               <legend
                                 className={`invisible ml-[7px] h-[1px] px-1 py-0 text-[12px] transition-all delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)]
@@ -729,16 +737,15 @@ const Profile = () => {
                             <input
                               {...register("postcode", {
                                 required: true,
-                                minLength: 4,
+                                minLength: 3,
                                 maxLength: 5,
-                                valueAsNumber: true,
                               })}
                               onFocus={() => setIsTouchedPostCode(true)}
                               onBlur={() => {
                                 if (isDirty) setIsTouchedPostCode(true);
                                 else setIsTouchedPostCode(false);
                               }}
-                              className="m-0 flex h-[56px] w-full rounded-lg   border-0 border-[#111111] py-4  px-3  text-base
+                              className="m-0 flex h-[56px] w-full rounded-lg   border-0 border-[#111111] py-4  px-3  text-base 
                             leading-6 text-[#504141] outline-0 
                             "
                             />
@@ -747,20 +754,21 @@ const Profile = () => {
                                 Please enter a valid post code
                               </p>
                             )}
-                            {/* {errors.password?.type === "required" && (
-                            <div className="block">
-                              <span>Please enter a valid password</span>
-                            </div>
-                          )} */}
 
                             <label
                               className={`absolute left-2 top-4 scale-100 px-1 text-base leading-6 transition-all delay-[250] ease-[cubic-bezier(0.25,0.1,0.25,0.1)] ${
                                 isTouchedPostCode
                                   ? "origin-center -translate-y-[28px] -translate-x-[10px] scale-75 text-[#131313] "
                                   : "text-[#979494]"
-                              } `}
+                              } pointer-events-none`}
                             >
-                              <span>Postcode*</span>
+                              <span
+                                className={`${
+                                  errors.postcode && "text-[#d43f21]"
+                                }`}
+                              >
+                                Postcode*
+                              </span>
                             </label>
                             <fieldset
                               className={`pointer-events-none absolute left-0 bottom-0 m-0 h-full  w-full rounded-lg border border-solid  ${
@@ -768,9 +776,7 @@ const Profile = () => {
                                   ? "border-[#757575]"
                                   : "border-[#dcdcdc]"
                               }  p-0 ${
-                                !isValid && isTouchedPostCode && isDirty
-                                  ? "border-[#d43f21]"
-                                  : ""
+                                errors.postcode ? "border-[#d43f21]" : ""
                               }`}
                             >
                               <legend
@@ -782,7 +788,6 @@ const Profile = () => {
                                 Postcode*
                               </legend>
                             </fieldset>
-                            {/* <input type="submit" /> */}
                           </div>
                         </div>
                       </div>
