@@ -385,3 +385,21 @@ export const followUs = [
     ],
   },
 ];
+export const countryName = [
+  {
+    id: "United States",
+    name: "United States",
+  },
+  {
+    id: "Afghanistan",
+    name: "Afghanistan",
+  },
+  {
+    id: "Albania",
+    name: "Albania",
+  },
+  {
+    id: "Algeria",
+    name: "Algeria",
+  },
+];
