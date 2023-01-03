@@ -3,13 +3,11 @@ import { HiArrowLongRight, HiOutlineBellAlert } from "react-icons/hi2";
 import React, { useState } from "react";
 
 import { useCart } from "../store/store";
-
 const Sidebar = ({ product }) => {
   const storedItems = useCart((state) => state.items);
   const addItem = useCart((state) => state.addItem);
   const [sizeItem, setSizeItem] = useState("");
   const [idButtonSize, setIdButtonSize] = useState(null);
-  // items: [id, amount, price];
   const img = product.imgs[0];
 
   const handleAddItem = () => {
@@ -18,7 +16,7 @@ const Sidebar = ({ product }) => {
       amount: 1,
       price: product.price,
       size: sizeItem,
-      img: img
+      img: img,
     });
   };
 
