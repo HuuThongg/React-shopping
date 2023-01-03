@@ -128,7 +128,7 @@ const Profile = () => {
                               if (isDirty) setIsTouchedEmail(true);
                               else setIsTouchedEmail(false);
                             }}
-                            className={`a m-0 flex h-[56px] w-full   rounded-lg border-0 border-[#111111]  py-4  px-3
+                            className={`m-0 flex h-[56px] w-full   rounded-lg border-0 border-[#111111]  py-4  px-3
                             text-base leading-6 text-[#504141] 
                             outline-0
                             `}
