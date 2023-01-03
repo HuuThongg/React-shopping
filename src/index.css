@@ -235,11 +235,3 @@
   width: 0px;
   border-right: 2px solid #222729;
 }
-
-/* .form input:focus ~ label{
-transform-origin: left center;
-transform: translateY(-32px);
-transform: scale(.75);
-color : #d43f21;
-background: red;
-} */

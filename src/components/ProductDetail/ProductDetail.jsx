@@ -10,7 +10,7 @@ const ProductDetail = ({ product }) => {
         pathname !== "/" ? "" : "pt-[95px]   md:pt-[100px] "
       }`}
     >
-      <div className="maxvw relative flex w-full flex-auto overflow-visible">
+      <div className="maxvw relative flex w-full flex-auto overflow-visible flex-col screen960:flex-row" >
         <Content product={product} />
         <Sidebar product={product} />
       </div>
