@@ -4,6 +4,7 @@ import {
 } from "react-icons/hi2";
 import { useOrder } from "../store/store";
 import { useNavigate } from "react-router";
+import OrderSummary from "./OrderSummary";
 
 const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
   const orders = useOrder((state) => state.orders);
@@ -32,43 +33,7 @@ const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
             {/* // Tap to apply  */}
 
             {/* // ORDER SUMMARY */}
-            <div className="mt-[40px] bg-white">
-              <div className="relative border border-solid border-[#eceff1] px-[15px] screen960:py-[24px]">
-                {/* Order summary */}
-                <div>
-                  <h5 className="mb-[10px] text-[20px] font-bold uppercase">
-                    order summary
-                  </h5>
-                  <div>
-                    <div className="mb-[10px] flex justify-between">
-                      <span>Original price</span>
-                      <span>${totalAmount}</span>
-                    </div>
-                    <div className="mb-[10px] flex justify-between">
-                      <span>Sale</span>
-                      <span>{storedItems.salePrice?.price}</span>
-                      {/* <span>-$200.00</span> */}
-                    </div>
-                    <div className="mb-[10px] flex justify-between">
-                      <span className="uppercase">{amountItems} items</span>
-                      <span>${totalAmount.toFixed(2)}</span>
-                    </div>
-                    <div className="mb-[10px] flex justify-between">
-                      <span className="uppercase">delivery</span>
-                      <span className="uppercase">free</span>
-                    </div>
-                    <div className="mb-[10px] flex justify-between">
-                      <span className="capitalize">sale tax</span>
-                      <span className="">-</span>
-                    </div>
-                    <div className=" flex justify-between">
-                      <span className="uppercase">Total</span>
-                      <span className="">${totalAmount}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <OrderSummary />
 
             {/* Checkout or pay with paypal */}
             <div className="  flex flex-auto flex-col text-[14px] screen960:mt-0">

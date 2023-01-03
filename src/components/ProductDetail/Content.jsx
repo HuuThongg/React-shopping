@@ -52,9 +52,10 @@ const Content = ({ product }) => {
             {/* image gird container  */}
             <div className="grid grid-cols-1  gap-[1px] overflow-hidden screen960:grid-cols-2 ">
               <div className=" relative col-span-2">
-                <div className="relative pt-[100%]">
-                  <div className="absolute inset-0 mx-auto flex h-full w-full cursor-pointer justify-center bg-red-100 screen960:max-w-[calc(100vw-300px)]">
+                <div className="relative bg-[#eceff0] pt-[50%] ">
+                  <div className="absolute inset-0 mx-auto flex h-full w-full cursor-pointer justify-center screen960:max-w-[calc(100vw-300px)]  ">
                     <img
+                      className="absolute inset-0 mx-auto h-full w-1/2 object-contain"
                       src={product.imgs[0]}
                       // src="https://assets.adidas.com/images/w_600,f_auto,q_auto/0e8b4b879e4447268c8fae9801521e61_9366/Ultraboost_22_Shoes_Beige_GX6643_01_standard.jpg"
                       // sizes="(max-width: 320px) 320px, (max-width: 420px) 420px, (max-width: 600px) 600px, (max-width: 640px) 640px, (max-width: 840px) 840px"
@@ -65,7 +66,7 @@ const Content = ({ product }) => {
                   </div>
                 </div>
               </div>
-              {product.imgs.map((img) => (
+              {product.imgs.slice(1).map((img) => (
                 <div key={Math.random().toString()} className="relative">
                   <div className="relative pt-[100%]">
                     <div className="absolute top-0 flex h-full w-full cursor-pointer justify-center bg-red-100">
@@ -112,15 +113,14 @@ const Content = ({ product }) => {
           {/* none or flex  */}
           {/* becarefull with pointer-events-none */}
 
-          {product.colors?.length > 0 &&
-          
+          {product.colors?.length > 0 && (
             <div className="sticky  bottom-12 z-[100000000] mb-[40px] flex  w-full justify-center ">
               {/* sticky container */}
               <div className="flex max-w-full  flex-col  px-[20px] ">
                 {/* background container */}
                 <div className="bg-white p-[10px]">
                   <div className="ml-3 font-bold">
-                    {product.colors?.length } colors available
+                    {product.colors?.length} colors available
                   </div>
                   <nav className="relative mt-[10px] flex max-w-full overflow-hidden ">
                     {/* <div className="fade absolute left-0 z-[1] h-full w-[60px]"></div>
@@ -158,7 +158,7 @@ const Content = ({ product }) => {
                 </div>
               </div>
             </div>
-          }
+          )}
           {/* description view : Running sopportive dsada */}
         </div>
       </div>

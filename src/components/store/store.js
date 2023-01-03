@@ -4,7 +4,6 @@ import { persist } from "zustand/middleware";
 export const useCart = create(
   persist(
     (set, get) => ({
-      // items: [id, amount, price,size]
       items: [],
       totalAmount: 0,
       amountItems: 0,
@@ -105,6 +104,8 @@ export const useCart = create(
     }
   )
 );
+
+
 
 export const useFavorite = create(
   persist(

@@ -9,8 +9,10 @@ import { debounce } from "../utilities/helper";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { useCart } from "./store/store";
 import { useFavorite } from "./store/store";
+import {motion,useScroll} from "framer-motion";
 
 const Navbar = () => {
+  
   const amountFav = useFavorite((state) => state.amountItems);
   const storedItems = useCart((state) => state.items);
   const amountItems = storedItems.reduce(
@@ -45,7 +47,7 @@ const Navbar = () => {
   const toggleHandler = () => {
     setToggle(!toggle);
   };
-
+  
   return (
     <>
       <div
@@ -78,7 +80,7 @@ const Navbar = () => {
             </ul>
           </div>
           {/* desktop */}
-          <div className="flex h-full w-full items-center justify-between md:items-end lg:items-center text-[1rem]">
+          <div className="flex h-full w-full items-center justify-between text-[1rem] md:items-end lg:items-center">
             <div className="flex flex-1 md:hidden   ">
               <button
                 className="flex h-10 w-10  items-center justify-center "
@@ -128,7 +130,10 @@ const Navbar = () => {
             </ul>
             <div className="flex flex-1 items-center  justify-end">
               <div className="  relative h-12  w-12 ">
-                <Link to="/my-account" className=" grid h-full w-full place-items-center ">
+                <Link
+                  to="/my-account"
+                  className=" grid h-full w-full place-items-center "
+                >
                   <FaRegUser className="inline h-6 w-6 "></FaRegUser>
                   {/* <span className="text-xxl  absolute top-0 right-0 h-5 w-5 rounded-full bg-yellow-400 text-center">
                     1
@@ -190,7 +195,8 @@ const Navbar = () => {
               <li
                 key={nav.id}
                 className={`cursor-pointer py-5 font-poppins text-[16px]  font-semibold`}
-                onClick={() => {setActive(nav.title)
+                onClick={() => {
+                  setActive(nav.title);
                   setTransform("full");
                 }}
               >

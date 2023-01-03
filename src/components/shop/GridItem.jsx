@@ -33,7 +33,7 @@ const GridItem = ({ data }) => {
     >
       <div className="relative">
         {/* Product card container */}
-        <div className="m-[2px] w-full p-[2px] sm:p-1">
+        <div className="w-full p-[2px] sm:p-1">
           <div className="relative w-full cursor-pointer bg-white text-sm font-normal text-black">
             {/* Assets ( images) */}
             <div className="relative pb-[100%]">
