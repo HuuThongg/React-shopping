@@ -5,18 +5,15 @@ import {
 import { useOrder } from "../store/store";
 import { useNavigate } from "react-router";
 
-
 const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
   const orders = useOrder((state) => state.orders);
-  const addOrder = useOrder((state) => state.addOrder)
+  const addOrder = useOrder((state) => state.addOrder);
 
- 
-
-  const handleDeleteAllItemsAndAddOrder = () =>{
+  const handleDeleteAllItemsAndAddOrder = () => {
     addOrder({ totalAmount, amountItems, storedItems });
     deleteAll();
-    navigage("/my-account")
-  }
+    navigage("/delivery");
+  };
   const navigage = useNavigate();
   const isEmpty = amountItems !== 0;
   return (
@@ -24,7 +21,7 @@ const CheckoutInfo = ({ amountItems, totalAmount, storedItems, deleteAll }) => {
       {isEmpty && (
         <div className="flex w-full flex-col  pt-[40px]">
           <div className="flex w-full flex-col justify-end screen960:flex-col-reverse">
-            {/* promo code */}
+            {/* pro``mo code */}
             <div className=" mt-[15px]  w-full ">
               <div className="h-[100px] w-full">
                 <form className="flex h-full items-center justify-start">

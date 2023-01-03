@@ -11,6 +11,7 @@ import AccountMain from "./account/AccountMain";
 import Feed from "./account/Feed";
 import OrderHisotry from "./account/OrderHisotry";
 import Profile from "./account/Profile";
+import MainDelivery from "./delivery/MainDelivery";
 export {
   Navbar,
   BlackFriday,
@@ -24,5 +25,6 @@ export {
   AccountMain,
   Feed,
   OrderHisotry,
-  Profile
-}
+  Profile,
+  MainDelivery,
+};
