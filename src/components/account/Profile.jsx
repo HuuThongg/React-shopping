@@ -128,9 +128,7 @@ const Profile = () => {
                               if (isDirty) setIsTouchedEmail(true);
                               else setIsTouchedEmail(false);
                             }}
-                            className={`m-0 flex h-[56px] w-full rounded-lg border-0 border-[#111111] py-4 px-3 text-base leading-6 text-[#504141] outline-0 
-                            
-                            `}
+                            className={`m-0 flex h-[56px] w-full rounded-lg border-0 border-[#111111]  py-4 px-3 text-base leading-6 text-[#504141] outline-0`}
                           />
                           {errors.email && (
                             <p className="text-[14px] text-[#d43f21]">
