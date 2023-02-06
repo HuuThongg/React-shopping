@@ -24,6 +24,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "stores/useCart.js", "stores/useFavorite.js", "stores/useOrder.js", "utils/debounce.js", "app/products/components/MainShop", "app/products/components/HeaderShop"],
   "exclude": ["node_modules"]
 }
