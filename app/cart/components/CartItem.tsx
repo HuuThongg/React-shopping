@@ -41,7 +41,7 @@ const CartItem = ({ item }: { item: Item }) => {
   useEffect(() => {
     const checkIfLickedOutside = (e: MouseEvent ) => {
       // // If the menu is open and the clicked target is not within the menu, then close filter sidebar
-      if (isSizeOptions && ref.current && !ref.current.contains(e.target))
+      if (isSizeOptions && ref.current && !ref.current.contains(e.target as Node))
         setIsSizeOptions(false);
     };
     document.addEventListener("mousedown", checkIfLickedOutside);
