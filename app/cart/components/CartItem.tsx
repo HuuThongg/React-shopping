@@ -19,11 +19,12 @@ interface Item{
   size:string
   id:string
   image:string
+
 }
 
 const CartItem = ({ item }: { item: Item }) => {
   const [isSizeOptions, setIsSizeOptions] = useState(false)
-  const ref = useRef();
+  const ref = useRef<HTMLButtonElement>(null);
   const { amount, price, size, id } = item;
   const [chosenAmountItems, setChosenAmountItems] = useState(amount)
 
@@ -38,7 +39,7 @@ const CartItem = ({ item }: { item: Item }) => {
   const addFav = useFavoriteStore((state) => state.addFav);
   const deleteFav = useFavoriteStore((state) => state.deleteFav);
   useEffect(() => {
-    const checkIfLickedOutside = (e) => {
+    const checkIfLickedOutside = (e: MouseEvent ) => {
       // // If the menu is open and the clicked target is not within the menu, then close filter sidebar
       if (isSizeOptions && ref.current && !ref.current.contains(e.target))
         setIsSizeOptions(false);
@@ -72,6 +73,9 @@ const CartItem = ({ item }: { item: Item }) => {
   const handleDeleteItem = () => {
     deleteItemFromCart(item);
   };
+
+  console.log(item)
+
   return (
     <div className=" max-h-[500px] w-full  opacity-100 transition-all ">
       <div className="relative mt-[40px] ">
@@ -102,14 +106,18 @@ const CartItem = ({ item }: { item: Item }) => {
                     {/* price */}
                     <div className="flex flex-col space-x-5 whitespace-nowrap">
                       <div className="flex flex-wrap items-center">
-                        {item.saleoff?.price && (
+                        {/* {item.saleoff?.price && (
                           <div className="mr-1 text-[#767677] line-through">
                             $100
                           </div>
-                        )}
-                        <div
+                        )} */}
+                        {/* <div
                           className={` ${item.saleoff?.price && "text-red-500"
                             }`}
+                        >
+                          {price}
+                        </div> */}
+                        <div
                         >
                           {price}
                         </div>
