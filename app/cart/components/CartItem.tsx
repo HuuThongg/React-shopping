@@ -56,7 +56,7 @@ const CartItem = ({ item }: { item: Item }) => {
 
   const { imgs, name } = data;
   const img = imgs[0];
-  const isFavItem = favoriteItems.findIndex((e) => e.id === id);
+  const isFavItem = favoriteItems.findIndex((e: { id: string; }) => e.id === id);
   const handleAddDelelteFave = () => {
     console.log("handleAddDelelteFave")
     if (isFavItem !== -1) {
