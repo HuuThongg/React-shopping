@@ -3,7 +3,7 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiArrowLongRight, HiArrowLongLeft } from "react-icons/hi2";
-
+import Link from "next/link";
 const NewArrivals = () => {
   const handleNextButton = () => {
     console.log("next  button");
@@ -68,12 +68,12 @@ const NewArrivals = () => {
                               {/* img */}
                               <div className="relative bg-white">
                                 {/* assets */}
-                                <a href="#">
+                                <Link href="/">
                                   <img
                                     src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
-                                    alt=""
+                                    alt="a"
                                   />
-                                </a>
+                                </Link>
 
                                 {/*heart  */}
                                 <div className="absolute top-4 right-4">
@@ -115,12 +115,12 @@ const NewArrivals = () => {
                               {/* img */}
                               <div className="relative bg-white">
                                 {/* assets */}
-                                <a href="#">
+                                <Link href="#">
                                   <img
                                     src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
                                     alt=""
                                   />
-                                </a>
+                                </Link>
 
                                 {/*heart  */}
                                 <div className="absolute top-4 right-4">
@@ -162,12 +162,12 @@ const NewArrivals = () => {
                               {/* img */}
                               <div className="relative bg-white">
                                 {/* assets */}
-                                <a href="#">
+                                <Link href="#">
                                   <img
                                     src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
                                     alt=""
                                   />
-                                </a>
+                                </Link>
 
                                 {/*heart  */}
                                 <div className="absolute top-4 right-4">
@@ -209,12 +209,12 @@ const NewArrivals = () => {
                               {/* img */}
                               <div className="relative bg-white">
                                 {/* assets */}
-                                <a href="#">
+                                <Link href="#">
                                   <img
                                     src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
                                     alt=""
                                   />
-                                </a>
+                                </Link>
 
                                 {/*heart  */}
                                 <div className="absolute top-4 right-4">
@@ -256,12 +256,12 @@ const NewArrivals = () => {
                               {/* img */}
                               <div className="relative bg-white">
                                 {/* assets */}
-                                <a href="#">
+                                <Link href="#">
                                   <img
                                     src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
                                     alt=""
                                   />
-                                </a>
+                                </Link>
 
                                 {/*heart  */}
                                 <div className="absolute top-4 right-4">
@@ -303,12 +303,12 @@ const NewArrivals = () => {
                               {/* img */}
                               <div className="relative bg-white">
                                 {/* assets */}
-                                <a href="#">
+                                <Link href="#">
                                   <img
                                     src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
                                     alt=""
                                   />
-                                </a>
+                                </Link>
 
                                 {/*heart  */}
                                 <div className="absolute top-4 right-4">
@@ -350,12 +350,12 @@ const NewArrivals = () => {
                               {/* img */}
                               <div className="relative bg-white">
                                 {/* assets */}
-                                <a href="#">
+                                <Link href="#">
                                   <img
                                     src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
                                     alt=""
                                   />
-                                </a>
+                                </Link>
 
                                 {/*heart  */}
                                 <div className="absolute top-4 right-4">

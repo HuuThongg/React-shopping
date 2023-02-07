@@ -65,7 +65,7 @@ const CartItem = ({ item }: { item: Item }) => {
       addFav({ id, price });
     }
   };
-  const handleChangeAmountItems = (ammount) => {
+  const handleChangeAmountItems = (ammount : number) => {
     console.log("ammount")
     changeAmountItems({ id, size, ammount })
   }
