@@ -8,7 +8,7 @@ import useSWR from 'swr'
 const fetcher = (url: string)  => axios.get(url).then(res => res.data)
 const SetGift = () => {
   const {data, error, isLoading} = useSWR('https://my-json-server.typicode.com/HuuThongg/mockjson/db', fetcher)
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div>Loading... in sentGift</div>;
   if (error) return <div>Error</div>;
   // let a = data.backgrounds;
   // const { isLoading, error, data, isFetching } = useQuery(

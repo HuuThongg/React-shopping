@@ -2,37 +2,10 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import schema from "@/graphql/schema/schema";
+// import schema from "@/graphql/schema/schema";
 import prisma from "@/lib/prisma";
+import { typeDefs } from "@/graphql/schema/schema";
 
-const typeDefs = `#graphql
-
-  type Book {
-    title: String
-    author: String
-  }
-
-  type Product {
-    id: ID!
-    name: String!
-    price: String!
-    description: String!
-    imgs : [String]
-  }
-
-  type Colors {
-    alt: String?
-    img: String?
-    url: String?
-  }
-  type Query {
-    books: [Book]
-    products: [Product]
-    colors: [Colors]
-  }
-
-  
-`;
 const books = [
   {
     title: "The Awakening",
@@ -75,5 +48,5 @@ export const config = {
     bodyParser: false,
   },
 };
-// export default startServerAndCreateNextHandler(server);
+export default startServerAndCreateNextHandler(server);
 

@@ -1,19 +1,37 @@
 'use client'
-import React from 'react'
 import Link from 'next/link';
 import { navLinks, topInfo } from '@/constants/uiData';
 import { HiHeart, HiBars4, HiXMark, HiOutlineBriefcase } from "react-icons/hi2";
 import { TiHeartOutline } from "react-icons/ti";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { debounce } from '@/utils/debounce';
 import { useFavAmountItems, useFavoriteStore } from '@/stores/useFavorite';
 import { useCartItems, useCartStore } from '@/stores/useCart';
 import { FaRegUser } from "react-icons/fa";
 import Image from 'next/image';
 import {v4 as uuidv4} from 'uuid'
-
+import SignIn from '../SignIn/SignInSignUp';
+import { useSession } from 'next-auth/react';
+import { useQuery ,gql} from '@apollo/client';
+import { GetBooksDocument } from '@/generated/graphql/graphql';
 let firstRender = true;
+
+const getCoolr = gql`
+query Products {
+  colors {
+    url
+  }
+}`;
+const getgetBooks =gql`
+query getBooks {
+  books {
+    title
+  }
+}
+  `
 const NavBar = () => {
+  const results = useQuery(getgetBooks)
+  console.log(results);
 
   // const { items: storedItems } = useCartItems();
   // const { amountItems: amountFav } = useFavAmountItems();
@@ -24,7 +42,7 @@ const NavBar = () => {
   //     0
   //   );
   // }
-  
+  const { data: session, status } = useSession();
   const amountFav = useFavoriteStore((state) => state.amountItems);
   const storedItems = useCartStore((state) => state.items);
   
@@ -34,11 +52,20 @@ const NavBar = () => {
   );
   // console.log(amountItems);
   // console.log(storedItems)
+  const [tab, setTab] = useState(0);
+
   const [transform, setTransform] = useState("full");
   const [active, setActive] = useState("men");
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
+  const [isFocusedNavLink, setIsFocusedNavLink] = useState(false);
+  const [isFocusedBigNav, setIsFocusedBigNav] = useState(false);
+  let isOpenDropdown = false;
+  if (isFocusedBigNav || ( isFocusedNavLink))
+    isOpenDropdown = true;
+  if (!setIsFocusedBigNav && !setIsFocusedNavLink)
+    isOpenDropdown = false;
   const handleScroll = debounce(() => {
     // find current scroll position
     const currentScrollPos = window.scrollY;
@@ -58,10 +85,18 @@ const NavBar = () => {
   useEffect(() => {
     firstRender = false
   }, [])
+  const handleMouseEnter = (index : number) => {
+    setTimeout(() => {
+      setTab(index);
+      
+    }, 300);
+  };
+
+
   return (
-    <>
+    <nav>
       <div
-        className={`fixed  transition-all duration-500  ease-in-out top-0 left-0  z-40 w-full justify-items-center   ${!visible ? "-translate-y-full" : ""
+        className={`fixed  transition-all duration-500  ease-in-out top-0 left-0  z-20 w-full justify-items-center   ${!visible ? "-translate-y-full" : ""
           } `}
       >
         <div className="grid h-[35px] w-full  place-items-center bg-[#18181b] md:h-[30px]">
@@ -74,7 +109,8 @@ const NavBar = () => {
             <ul className=" flex list-none items-center justify-end pl-12 text-[14px]">
               {topInfo.map((nav, index) => (
                 <li
-                  key={uuidv4()}
+                  // key={uuidv4()}
+                  key={nav.id}
                   className={` cursor-pointer text-[14px] font-normal   ${index === topInfo.length - 1 ? "mr-0" : "mr-4"
                     } `}
                 >
@@ -89,6 +125,7 @@ const NavBar = () => {
               <button
                 className="flex h-10 w-10  items-center justify-center "
                 onClick={() => {
+                  console.log("click ")
                   setTransform("0");
                 }}
               >{ }
@@ -118,22 +155,73 @@ const NavBar = () => {
                 priority
               ></Image>
             </Link>
-            <ul className="hidden flex-1 list-none items-center justify-start  pl-12 pb-3 md:flex  lg:justify-center lg:pb-0">
+            <div className="hidden flex-1 list-none items-center justify-start  pl-12  md:flex  lg:justify-center lg:pb-0">
               {navLinks.map((nav, index) => (
-                <li
-                  key={uuidv4()}
-                  className={`cursor-pointer font-poppins text-[13px] font-normal ${active === nav.title ? "text-black-100" : "text-neutral-400"
-                    }  ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}  ${index === 0 || index === 1 || index == 2
-                      ? "font-bold text-black"
-                      : ""
-                    } `}
-                  onClick={() => setActive(nav.title)}
-                >
-                  <Link href="/products">{nav.title}</Link>
-                </li>
+                <>
+                  <div
+                    // key={uuidv4()}
+                    key={nav.id}
+
+                    className={`w-[5rem] cursor-pointer font-poppins text-[13px] font-normal ${active === nav.title ? "text-black-100" : "text-neutral-600 "
+                      }   ${index === 0 || index === 1 || index == 2
+                        ? "font-bold text-black"
+                        : ""
+                      } pb-3 px-1 pt-2  w-full h-full flex items-center justify-center ${(isFocusedNavLink && tab === index   ) ? "border-b-4 border-black" : "border-b-2 border-transparent"}  `}
+                    onMouseEnter={() => {
+                      handleMouseEnter(index)
+                      
+                      setIsFocusedNavLink(true);
+                    }}
+                    onMouseLeave={() => {
+                      setIsFocusedNavLink(false);
+                    }}
+                  
+                    onClick={() => setActive(nav.title)}
+                  >
+                    <Link className='' href="/products">{nav.title}</Link>
+                  </div>
+                  
+                      {tab === index && (
+                        <div 
+                          onMouseEnter={() => { setIsFocusedBigNav(true) }}
+                          onMouseLeave={() => { setIsFocusedBigNav(false) }}
+                          className={`${isOpenDropdown ? "fixed visible opacity-100" : " hidden opacity-0 invisible"}   top-[100px] max-h-[50rem] left-0 right-0 transition-all delay-700  w-full bg-white  p-[2.5rem] pt-5  text-black`}>
+                          
+                            <div className='max-w-[80rem] mx-auto  flex justify-center items-start ' >
+                              {
+                                nav.metaCatogry && nav.metaCatogry.map((item,index) =>(
+                                  <div key={index} className='flex flex-col flex-1 opacity-100 align-top text-left pt-4'>
+                                    {item.categories?.map((item,index) =>(
+    
+                                      <Link key={uuidv4()} href={item.href} className={`  font-medium leading-6 ${index === 0 ? "text-[1.5rem] mb-3" :"text-gray-500 mb-2 hover:underline"}`}>{item.category}</Link>
+                                    ))}
+                                    
+                                  </div>
+                                ))
+                              }
+                            </div>
+                        </div>
+                      )}
+                  
+                </>
+                
               ))}
-            </ul>
+            </div>
             <div className="flex flex-1 items-center  justify-end">
+              
+
+                <div className="  relative ">
+                  <button
+                    className=" grid h-full w-full place-items-center "
+                  >
+                    <SignIn/>
+                    
+                    {/* <span className="text-xxl  absolute top-0 right-0 h-5 w-5 rounded-full bg-yellow-400 text-center">
+                      1
+                    </span> */}
+                  </button>
+                </div>
+              
               <div className="  relative h-12  w-12 ">
                 <Link
                   href="/my-account"
@@ -173,20 +261,21 @@ const NavBar = () => {
               </div>
             </div>
           </div>
+
         </nav>
       </div>
 
       <div
-        className={` fixed inset-0 h-full w-full overflow-hidden bg-white -translate-x-${transform} ${firstRender ? "-translate-x-full" :""}  z-[100] transition-all duration-500  ease-in-out`}
+        className={` fixed inset-0 h-full w-full overflow-hidden bg-white -translate-x-${transform} ${firstRender ? "-translate-x-full" :""}  z-[20] transition-all duration-500  ease-in-out`}
       >
         <div
-          className={` fixed inset-0 z-[100] h-full w-full overflow-hidden    bg-white   opacity-100`}
+          className={` fixed inset-0 z-[20] h-full w-full overflow-hidden    bg-white   opacity-100`}
         >
           {/* header */}
           <div className=" flex min-h-[60px] w-full items-center  justify-center  border-b-2 border-solid border-slate-400 bg-white">
             <Image src="/logoAdidas.svg" alt="adidas logo" width={50} height={50} priority />
             <button
-              className=" absolute right-0 top-1  z-[110]  h-[50px] w-[50px] text-[40px] "
+              className=" absolute right-0 top-1  z-[20]  h-[50px] w-[50px] text-[40px] "
               onClick={() => {
                 console.log("hello");
                 setTransform("full");
@@ -199,7 +288,8 @@ const NavBar = () => {
           <ul className="flex  flex-1 list-none flex-col   items-center justify-start p-10">
             {navLinks.map((nav, index) => (
               <li
-                key={uuidv4()}
+                // key={uuidv4()}
+                key={nav.id}
                 className={`cursor-pointer py-5 font-poppins text-[16px]  font-semibold`}
                 onClick={() => {
                   setActive(nav.title);
@@ -212,7 +302,7 @@ const NavBar = () => {
           </ul>
         </div>
       </div>
-    </>
+    </nav>
   )
 }
 

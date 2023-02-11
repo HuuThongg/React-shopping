@@ -2,22 +2,992 @@ export const navLinks = [
   {
     id: "men",
     title: "MEN",
+    metaCatogry: [
+      {
+        categories: [
+          {
+            category: "New & Featured",
+            href: "#",
+          },
+          {
+            category: "New Arrivals",
+            href: "#",
+          },
+          {
+            category: "New in Running",
+            href: "#",
+          },
+          {
+            category: "Best Sellers",
+            href: "#",
+          },
+          {
+            category: "Best of Air Max",
+            href: "#",
+          },
+          {
+            category: "Best of Fleece",
+            href: "#",
+          },
+          {
+            category: "Gear up for Sport",
+            href: "#",
+          },
+          {
+            category: "Valentine's Day Shop",
+            href: "#",
+          },
+          {
+            category: "Sale - up to 40% off",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "Shoes",
+            href: "#",
+          },
+          {
+            category: "All Shoes",
+            href: "#",
+          },
+          {
+            category: "Lifestyles",
+            href: "#",
+          },
+          {
+            category: "Running",
+            href: "#",
+          },
+          {
+            category: "Basketball",
+            href: "#",
+          },
+          {
+            category: "Jordan",
+            href: "#",
+          },
+          {
+            category: "Customize with Nike By You",
+            href: "#",
+          },
+          {
+            category: "Training & Gym",
+            href: "#",
+          },
+          {
+            category: "Soccer",
+            href: "#",
+          },
+          {
+            category: "Golf",
+            href: "#",
+          },
+          {
+            category: "Tennis",
+            href: "#",
+          },
+          {
+            category: "Walking",
+            href: "#",
+          },
+          {
+            category: "Nike SB",
+            href: "#",
+          },
+          {
+            category: "Shoes $100 & Under",
+            href: "#",
+          },
+          {
+            category: "Baseball",
+            href: "#",
+          },
+          {
+            category: "Sandals & Slides",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "Clothing",
+            href: "#",
+          },
+          {
+            category: "All Clothing",
+            href: "#",
+          },
+          {
+            category: "Tops & T-Shirts",
+            href: "#",
+          },
+          {
+            category: "Hoodies & Sweatshirts",
+            href: "#",
+          },
+          {
+            category: "Pants & Tights",
+            href: "#",
+          },
+          {
+            category: "Shorts",
+            href: "#",
+          },
+          {
+            category: "Jackets & Vests",
+            href: "#",
+          },
+          {
+            category: "Swimwear",
+            href: "#",
+          },
+          {
+            category: "Nike Pro & Compression",
+            href: "#",
+          },
+          {
+            category: "Plus Size",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "New & Featured",
+            href: "#",
+          },
+          {
+            category: "New Arrivals",
+            href: "#",
+          },
+          {
+            category: "New in Running",
+            href: "#",
+          },
+          {
+            category: "Best Sellers",
+            href: "#",
+          },
+          {
+            category: "Best of Air Max",
+            href: "#",
+          },
+          {
+            category: "Best of Fleece",
+            href: "#",
+          },
+          {
+            category: "Gear up for Sport",
+            href: "#",
+          },
+          {
+            category: "Valentine's Day Shop",
+            href: "#",
+          },
+          {
+            category: "Sale - up to 40% off",
+            href: "#",
+          },
+        ],
+      },
+    ],
   },
   {
     id: "women",
     title: "WOMEN",
+    metaCatogry: [
+      {
+        categories: [
+          {
+            category: "Women New & Featured",
+            href: "#",
+          },
+          {
+            category: "New Arrivals",
+            href: "#",
+          },
+          {
+            category: "New in Running",
+            href: "#",
+          },
+          {
+            category: "Best Sellers",
+            href: "#",
+          },
+          {
+            category: "Best of Air Max",
+            href: "#",
+          },
+          {
+            category: "Best of Fleece",
+            href: "#",
+          },
+          {
+            category: "Gear up for Sport",
+            href: "#",
+          },
+          {
+            category: "Valentine's Day Shop",
+            href: "#",
+          },
+          {
+            category: "Sale - up to 40% off",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "Shoes",
+            href: "#",
+          },
+          {
+            category: "All Shoes",
+            href: "#",
+          },
+          {
+            category: "Lifestyles",
+            href: "#",
+          },
+          {
+            category: "Running",
+            href: "#",
+          },
+          {
+            category: "Basketball",
+            href: "#",
+          },
+          {
+            category: "Jordan",
+            href: "#",
+          },
+          {
+            category: "Customize with Nike By You",
+            href: "#",
+          },
+          {
+            category: "Training & Gym",
+            href: "#",
+          },
+          {
+            category: "Soccer",
+            href: "#",
+          },
+          {
+            category: "Golf",
+            href: "#",
+          },
+          {
+            category: "Tennis",
+            href: "#",
+          },
+          {
+            category: "Walking",
+            href: "#",
+          },
+          {
+            category: "Nike SB",
+            href: "#",
+          },
+          {
+            category: "Shoes $100 & Under",
+            href: "#",
+          },
+          {
+            category: "Baseball",
+            href: "#",
+          },
+          {
+            category: "Sandals & Slides",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "Clothing",
+            href: "#",
+          },
+          {
+            category: "All Clothing",
+            href: "#",
+          },
+          {
+            category: "Tops & T-Shirts",
+            href: "#",
+          },
+          {
+            category: "Hoodies & Sweatshirts",
+            href: "#",
+          },
+          {
+            category: "Pants & Tights",
+            href: "#",
+          },
+          {
+            category: "Shorts",
+            href: "#",
+          },
+          {
+            category: "Jackets & Vests",
+            href: "#",
+          },
+          {
+            category: "Swimwear",
+            href: "#",
+          },
+          {
+            category: "Nike Pro & Compression",
+            href: "#",
+          },
+          {
+            category: "Plus Size",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "New & Featured",
+            href: "#",
+          },
+          {
+            category: "New Arrivals",
+            href: "#",
+          },
+          {
+            category: "New in Running",
+            href: "#",
+          },
+          {
+            category: "Best Sellers",
+            href: "#",
+          },
+          {
+            category: "Best of Air Max",
+            href: "#",
+          },
+          {
+            category: "Best of Fleece",
+            href: "#",
+          },
+          {
+            category: "Gear up for Sport",
+            href: "#",
+          },
+          {
+            category: "Valentine's Day Shop",
+            href: "#",
+          },
+          {
+            category: "Sale - up to 40% off",
+            href: "#",
+          },
+        ],
+      },
+    ],
   },
   {
     id: "kids",
     title: "KIDS",
+    metaCatogry: [
+      {
+        categories: [
+          {
+            category: "New & Featured",
+            href: "#",
+          },
+          {
+            category: "New Arrivals",
+            href: "#",
+          },
+          {
+            category: "New in Running",
+            href: "#",
+          },
+          {
+            category: "Best Sellers",
+            href: "#",
+          },
+          {
+            category: "Best of Air Max",
+            href: "#",
+          },
+          {
+            category: "Best of Fleece",
+            href: "#",
+          },
+          {
+            category: "Gear up for Sport",
+            href: "#",
+          },
+          {
+            category: "Valentine's Day Shop",
+            href: "#",
+          },
+          {
+            category: "Sale - up to 40% off",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "Shoes",
+            href: "#",
+          },
+          {
+            category: "All Shoes",
+            href: "#",
+          },
+          {
+            category: "Lifestyles",
+            href: "#",
+          },
+          {
+            category: "Running",
+            href: "#",
+          },
+          {
+            category: "Basketball",
+            href: "#",
+          },
+          {
+            category: "Jordan",
+            href: "#",
+          },
+          {
+            category: "Customize with Nike By You",
+            href: "#",
+          },
+          {
+            category: "Training & Gym",
+            href: "#",
+          },
+          {
+            category: "Soccer",
+            href: "#",
+          },
+          {
+            category: "Golf",
+            href: "#",
+          },
+          {
+            category: "Tennis",
+            href: "#",
+          },
+          {
+            category: "Walking",
+            href: "#",
+          },
+          {
+            category: "Nike SB",
+            href: "#",
+          },
+          {
+            category: "Shoes $100 & Under",
+            href: "#",
+          },
+          {
+            category: "Baseball",
+            href: "#",
+          },
+          {
+            category: "Sandals & Slides",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "Clothing",
+            href: "#",
+          },
+          {
+            category: "All Clothing",
+            href: "#",
+          },
+          {
+            category: "Tops & T-Shirts",
+            href: "#",
+          },
+          {
+            category: "Hoodies & Sweatshirts",
+            href: "#",
+          },
+          {
+            category: "Pants & Tights",
+            href: "#",
+          },
+          {
+            category: "Shorts",
+            href: "#",
+          },
+          {
+            category: "Jackets & Vests",
+            href: "#",
+          },
+          {
+            category: "Swimwear",
+            href: "#",
+          },
+          {
+            category: "Nike Pro & Compression",
+            href: "#",
+          },
+          {
+            category: "Plus Size",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "New & Featured",
+            href: "#",
+          },
+          {
+            category: "New Arrivals",
+            href: "#",
+          },
+          {
+            category: "New in Running",
+            href: "#",
+          },
+          {
+            category: "Best Sellers",
+            href: "#",
+          },
+          {
+            category: "Best of Air Max",
+            href: "#",
+          },
+          {
+            category: "Best of Fleece",
+            href: "#",
+          },
+          {
+            category: "Gear up for Sport",
+            href: "#",
+          },
+          {
+            category: "Valentine's Day Shop",
+            href: "#",
+          },
+          {
+            category: "Sale - up to 40% off",
+            href: "#",
+          },
+        ],
+      },
+    ],
   },
   {
     id: "gifts",
     title: "GIFTS",
+    metaCatogry: [
+      {
+        categories: [
+          {
+            category: "New & Featured",
+            href: "#",
+          },
+          {
+            category: "New Arrivals",
+            href: "#",
+          },
+          {
+            category: "New in Running",
+            href: "#",
+          },
+          {
+            category: "Best Sellers",
+            href: "#",
+          },
+          {
+            category: "Best of Air Max",
+            href: "#",
+          },
+          {
+            category: "Best of Fleece",
+            href: "#",
+          },
+          {
+            category: "Gear up for Sport",
+            href: "#",
+          },
+          {
+            category: "Valentine's Day Shop",
+            href: "#",
+          },
+          {
+            category: "Sale - up to 40% off",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "Shoes",
+            href: "#",
+          },
+          {
+            category: "All Shoes",
+            href: "#",
+          },
+          {
+            category: "Lifestyles",
+            href: "#",
+          },
+          {
+            category: "Running",
+            href: "#",
+          },
+          {
+            category: "Basketball",
+            href: "#",
+          },
+          {
+            category: "Jordan",
+            href: "#",
+          },
+          {
+            category: "Customize with Nike By You",
+            href: "#",
+          },
+          {
+            category: "Training & Gym",
+            href: "#",
+          },
+          {
+            category: "Soccer",
+            href: "#",
+          },
+          {
+            category: "Golf",
+            href: "#",
+          },
+          {
+            category: "Tennis",
+            href: "#",
+          },
+          {
+            category: "Walking",
+            href: "#",
+          },
+          {
+            category: "Nike SB",
+            href: "#",
+          },
+          {
+            category: "Shoes $100 & Under",
+            href: "#",
+          },
+          {
+            category: "Baseball",
+            href: "#",
+          },
+          {
+            category: "Sandals & Slides",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "Clothing",
+            href: "#",
+          },
+          {
+            category: "All Clothing",
+            href: "#",
+          },
+          {
+            category: "Tops & T-Shirts",
+            href: "#",
+          },
+          {
+            category: "Hoodies & Sweatshirts",
+            href: "#",
+          },
+          {
+            category: "Pants & Tights",
+            href: "#",
+          },
+          {
+            category: "Shorts",
+            href: "#",
+          },
+          {
+            category: "Jackets & Vests",
+            href: "#",
+          },
+          {
+            category: "Swimwear",
+            href: "#",
+          },
+          {
+            category: "Nike Pro & Compression",
+            href: "#",
+          },
+          {
+            category: "Plus Size",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "New & Featured",
+            href: "#",
+          },
+          {
+            category: "New Arrivals",
+            href: "#",
+          },
+          {
+            category: "New in Running",
+            href: "#",
+          },
+          {
+            category: "Best Sellers",
+            href: "#",
+          },
+          {
+            category: "Best of Air Max",
+            href: "#",
+          },
+          {
+            category: "Best of Fleece",
+            href: "#",
+          },
+          {
+            category: "Gear up for Sport",
+            href: "#",
+          },
+          {
+            category: "Valentine's Day Shop",
+            href: "#",
+          },
+          {
+            category: "Sale - up to 40% off",
+            href: "#",
+          },
+        ],
+      },
+    ],
   },
   {
     id: "sale",
     title: "SALE",
+    metaCatogry: [
+      {
+        categories: [
+          {
+            category: "New & Featured",
+            href: "#",
+          },
+          {
+            category: "New Arrivals",
+            href: "#",
+          },
+          {
+            category: "New in Running",
+            href: "#",
+          },
+          {
+            category: "Best Sellers",
+            href: "#",
+          },
+          {
+            category: "Best of Air Max",
+            href: "#",
+          },
+          {
+            category: "Best of Fleece",
+            href: "#",
+          },
+          {
+            category: "Gear up for Sport",
+            href: "#",
+          },
+          {
+            category: "Valentine's Day Shop",
+            href: "#",
+          },
+          {
+            category: "Sale - up to 40% off",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "Shoes",
+            href: "#",
+          },
+          {
+            category: "All Shoes",
+            href: "#",
+          },
+          {
+            category: "Lifestyles",
+            href: "#",
+          },
+          {
+            category: "Running",
+            href: "#",
+          },
+          {
+            category: "Basketball",
+            href: "#",
+          },
+          {
+            category: "Jordan",
+            href: "#",
+          },
+          {
+            category: "Customize with Nike By You",
+            href: "#",
+          },
+          {
+            category: "Training & Gym",
+            href: "#",
+          },
+          {
+            category: "Soccer",
+            href: "#",
+          },
+          {
+            category: "Golf",
+            href: "#",
+          },
+          {
+            category: "Tennis",
+            href: "#",
+          },
+          {
+            category: "Walking",
+            href: "#",
+          },
+          {
+            category: "Nike SB",
+            href: "#",
+          },
+          {
+            category: "Shoes $100 & Under",
+            href: "#",
+          },
+          {
+            category: "Baseball",
+            href: "#",
+          },
+          {
+            category: "Sandals & Slides",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "Clothing",
+            href: "#",
+          },
+          {
+            category: "All Clothing",
+            href: "#",
+          },
+          {
+            category: "Tops & T-Shirts",
+            href: "#",
+          },
+          {
+            category: "Hoodies & Sweatshirts",
+            href: "#",
+          },
+          {
+            category: "Pants & Tights",
+            href: "#",
+          },
+          {
+            category: "Shorts",
+            href: "#",
+          },
+          {
+            category: "Jackets & Vests",
+            href: "#",
+          },
+          {
+            category: "Swimwear",
+            href: "#",
+          },
+          {
+            category: "Nike Pro & Compression",
+            href: "#",
+          },
+          {
+            category: "Plus Size",
+            href: "#",
+          },
+        ],
+      },
+      {
+        categories: [
+          {
+            category: "New & Featured",
+            href: "#",
+          },
+          {
+            category: "New Arrivals",
+            href: "#",
+          },
+          {
+            category: "New in Running",
+            href: "#",
+          },
+          {
+            category: "Best Sellers",
+            href: "#",
+          },
+          {
+            category: "Best of Air Max",
+            href: "#",
+          },
+          {
+            category: "Best of Fleece",
+            href: "#",
+          },
+          {
+            category: "Gear up for Sport",
+            href: "#",
+          },
+          {
+            category: "Valentine's Day Shop",
+            href: "#",
+          },
+          {
+            category: "Sale - up to 40% off",
+            href: "#",
+          },
+        ],
+      },
+    ],
   },
 ];
 export const topInfo = [
@@ -400,3 +1370,41 @@ export const countryName = [
     name: "Algeria",
   },
 ];
+
+
+      // {
+      //   category: "New & Featured",
+      //   href: "#",
+      // },
+      // {
+      //   category: "New Arrivals",
+      //   href: "#",
+      // },
+      // {
+      //   category: "New in Running",
+      //   href: "#",
+      // },
+      // {
+      //   category: "Best Sellers",
+      //   href: "#",
+      // },
+      // {
+      //   category: "Best of Air Max",
+      //   href: "#",
+      // },
+      // {
+      //   category: "Best of Fleece",
+      //   href: "#",
+      // },
+      // {
+      //   category: "Gear up for Sport",
+      //   href: "#",
+      // },
+      // {
+      //   category: "Valentine's Day Shop",
+      //   href: "#",
+      // },
+      // {
+      //   category: "Sale - up to 40% off",
+      //   href: "#",
+      // },

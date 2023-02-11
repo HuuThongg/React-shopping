@@ -20,7 +20,7 @@ const ItemsContainer = ({ data }) => {
                 */}
             <div className="mt-[10px] mb-5 ">
               {/* gird */}
-              <div className="grid grid-cols-2 screen600:grid-cols-3 screen960:grid-cols-4">
+              <div className="grid grid-cols-2 screen600:grid-cols-3 screen960:grid-cols-4 gap-[1px]">
                 {data.map((item) => (
                   <GridItem key={item._id.$oid} data={item} />
                 ))}

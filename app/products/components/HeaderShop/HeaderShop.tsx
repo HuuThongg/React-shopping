@@ -13,7 +13,7 @@ const HeaderShop = ({ data }) => {
             {/* Header wrapper */}
             <div className=" mb-0">
               <h1 className="inline text-center  text-[24px] font-semibold italic screen960:text-[30px] screen1600:text-[40px]">
-                <span>Men's Black Friday Deals 2022: Up to 70% Off</span>
+                <span>Men&apos;s Black Friday Deals 2022: Up to 70% Off</span>
               </h1>
               <div className="ml-3 inline-block text-[#767677]">
                 [{data.length}]

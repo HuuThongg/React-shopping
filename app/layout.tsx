@@ -7,8 +7,6 @@ import AuthContext from './AuthContext';
 import { type Session } from "next-auth";
 
 
-
-
 // async function getSession(cookie: string): Promise<Session> {
 //   // const response = await fetch(`${process.env.LOCAL_AUTH_URL}/api/auth/session`, {
 //   //   headers: {
@@ -36,14 +34,14 @@ export default async function RootLayout({
       */}
       <head/>
       <body>
-        {/* <AuthContext session={session}> */}
-
-          <AuthContext >
-            <NavBar />
-            {children}
-            <Footer />
-          </AuthContext>
-          
+          <div id="next_app">
+              <AuthContext >
+                <NavBar />
+                {children}
+                <Footer />
+              </AuthContext>
+          </div>
+          <div id="modalLogin"></div>
       </body>
     </html>
   )

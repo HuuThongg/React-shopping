@@ -32,3 +32,12 @@
 // export default apolloServer.createHandler({
 //   path: "/api/graphql",
 // });
+
+const UPDATE_DISPLAY_IMAGE = gql`
+  mutation UpdateDisplayImage($id: String!, $displayImage: String!) {
+    updateDisplayImage(id: $id, displayImage: $displayImage) {
+      id
+      displayImage
+    }
+  }
+`;
