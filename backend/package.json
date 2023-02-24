@@ -23,6 +23,7 @@
     "lodash.merge": "^4.6.2",
     "next-auth": "^4.19.2",
     "ts-node": "^10.9.1",
+    "uuid": "^9.0.0",
     "ws": "^8.12.1"
   },
   "devDependencies": {
@@ -33,7 +34,7 @@
     "prisma": "^4.10.1",
     "typescript": "^4.9.5"
   },
-    "prisma": {
+  "prisma": {
     "schema": "./src/prisma/schema.prisma"
   }
 }
