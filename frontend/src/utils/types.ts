@@ -5,5 +5,5 @@
 //   include: typeof 
 
 // export interface ProductsData {
-//   products: Array<ProductPopulated>;
+//   getproducts: Array<ProductPopulated>;
 // }

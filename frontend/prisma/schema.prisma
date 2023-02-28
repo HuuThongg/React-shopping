@@ -70,6 +70,13 @@ model Products {
   @@map("productss")
 }
 
+model Favorites {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @map("user_id") @db.ObjectId
+  products String[]
+  @@map("favoritess")
+}
+
 type Color{
   alt String?
   img String?

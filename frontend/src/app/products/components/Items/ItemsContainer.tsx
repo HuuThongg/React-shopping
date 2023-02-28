@@ -18,7 +18,7 @@ const ItemsContainer = () => {
 
 
   // const { data, error, isLoading } = useSWR(url, fetcher)
-  const { data: products, error: errorProducts, loading } = useQuery(productsOperation.Queries.getProducts);
+  const { data: products, error: errorProducts, loading } = useQuery(productsOperation.Queries.products);
   if (errorProducts) return <div>Error</div>;
 
   // create a skeleton loader for the GidItem component
@@ -33,7 +33,7 @@ const ItemsContainer = () => {
 
   return (
     <>
-      {products?.getProducts.map((item) => (
+      {products?.products.map((item) => (
           <GridItem key={item.id} data={item} />
         ))}
     </>

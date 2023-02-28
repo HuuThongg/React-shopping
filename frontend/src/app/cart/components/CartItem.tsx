@@ -11,7 +11,8 @@ import axios from "axios";
 import useSWR from 'swr';
 import { closeToggle } from "@/stores/jotai";
 import Image from "next/image";
-
+import ProductsOperation from "@/graphql/operations/products";
+import { useQuery } from '@apollo/client';
 const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
 interface Item{
@@ -29,9 +30,16 @@ const CartItem = ({ item }: { item: Item }) => {
   const { amount, price, size, id } = item;
   const [chosenAmountItems, setChosenAmountItems] = useState(amount)
 
-  const newId = +id - 1;
-  const { data, error, isLoading } = useSWR(`https://api.npoint.io/412448615c4faa493df3/${newId}` 
-  , fetcher)
+  const { data, error: errorProduct, loading: isLoading } = useQuery(ProductsOperation.Queries.product, {
+    variables: {
+      productId:id
+    }
+  });
+
+
+  if (isLoading)
+    return <div> fetching single Data in CartIem component</div>
+  if (errorProduct) return <div>Error ss </div>
   
   const deleteItemFromCart = useCartStore((state) => state.actions.deleteItem);
   const changeAmountItems = useCartStore((state) => state.actions.changeAmountItems);
@@ -52,10 +60,9 @@ const CartItem = ({ item }: { item: Item }) => {
       document.removeEventListener("mousedown", checkIfLickedOutside);
     };
   }, [isSizeOptions]);
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error</div>;
-
-  const { imgs, name } = data;
+  
+  const product = data.product;
+  const { imgs, name } = product;
   const img = imgs[0];
   const isFavItem = favoriteItems.findIndex((e: { id: string; }) => e.id === id);
   const handleAddDelelteFave = () => {
@@ -86,7 +93,7 @@ const CartItem = ({ item }: { item: Item }) => {
               className="relative block h-0 bg-[#eceff1] pb-[100%]"
               href={`/products/${id}`}
             >
-              <Image className="w-full  object-contain" src={img} alt=""  width={30} height={30}/>
+              <Image className="w-full  object-contain" src={img} alt=""  width={200} height={200}/>
             </Link>
           </div>
 

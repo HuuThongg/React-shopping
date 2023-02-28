@@ -1,6 +1,7 @@
 
 import exampleTypeDefs from './example';
 import productsTypeDefs from './products';
-const typeDefs = [exampleTypeDefs, productsTypeDefs];
+import FavoritesTypeDefs from './favorites';
+const typeDefs = [exampleTypeDefs, productsTypeDefs, FavoritesTypeDefs];
 
 export default typeDefs;

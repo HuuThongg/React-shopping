@@ -57,14 +57,14 @@ const SidePanelOverlay = () => {
 
               <div className='flex flex-wrap px-[55px] pb-[10px] border-b-[1px] border-solid border-[#d3d7da] '>
                 <div className='flex-1 basis-[50%]'>
-                  <Image src="/adiclub-level-1-badge-MOB-SVG.svg" alt="adiclub-level" width={100} height={41} />
+                  <Image src="/adiclub-level-1-badge-MOB-SVG.svg" alt="adiclub-level" width={150} height={41} />
                 </div>
                 <div className='flex-1 basis-[50%] text-right text-sm font-normal tracking-normal no-underline' >
                   <div className=''>
                     Points to spend
                   </div>
                   <div className='mt-2 flex justify-end'>
-                    <Image src="/adiclub-spendable-points-icon-black.svg" alt="adiclub point" width={17} height={17} className="mr-1" />
+                    <Image src="/adiclub-spendable-points-icon-black.svg" width={20}  height={20} alt="adiclub point"  className="mr-1 max-w-full h-auto  " />
                     <strong>0</strong>
                   </div>
                 </div>

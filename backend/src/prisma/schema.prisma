@@ -46,6 +46,7 @@ model User {
   username      String?   
   accounts      Account[]
   sessions      Session[]
+  favorites Favorite[]
   role    Role     @default(USER)
   @@map("users")
 }
@@ -68,7 +69,19 @@ model Products {
   sizes String[]
   colors  Color[]
   description String
+  favoriteId String @map("favorite_id") @db.ObjectId @unique
+  favorite   Favorite @relation(fields: [favoriteId], references: [id])
+
   @@map("productss")
+}
+model Favorite {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @map("user_id") @db.ObjectId @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Products?
+  count Int @default(0)
+  @@map("favorite")
+  // @@unique([userId, product])
 }
 
 type Color{

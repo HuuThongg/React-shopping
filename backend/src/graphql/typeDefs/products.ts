@@ -8,7 +8,7 @@ const typeDefs = gql`
   }
 
   type Product {
-    id: ID!
+    id: String!
     imgs: [String]
     name: String!
     price: String!
@@ -18,7 +18,10 @@ const typeDefs = gql`
   }
 
   type Query {
-    getProducts: [Product]
+    products: [Product]
+  }
+  type Query {
+    product (productId: ID!): Product
   }
 `;
 export default typeDefs;

@@ -4,6 +4,8 @@ import { FaHeart } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiArrowLongRight, HiArrowLongLeft } from "react-icons/hi2";
 import Link from "next/link";
+import { v4 as uuidv4 } from 'uuid'
+
 const NewArrivals = () => {
   const handleNextButton = () => {
     console.log("next  button");
@@ -64,7 +66,7 @@ const NewArrivals = () => {
                       {/* each carousel item */}
                       {/* w-[20.3125%] */}
                       {[...Array(10)].map((_, i) => 
-                        <div className="  my-1 mr-[10px] ml-1 flex  min-h-[280px] w-[145px] flex-none basis-auto snap-align-none hover:outline hover:outline-0 hover:outline-offset-0 hover:outline-black screen600:min-h-[386px] screen600:w-[235px] screen960:min-h-[400px] screen960:w-[235px] screen1280:w-[260px] screen1600:w-[16%]">
+                        <div key={uuidv4()} className="  my-1 mr-[10px] ml-1 flex  min-h-[280px] w-[145px] flex-none basis-auto snap-align-none hover:outline hover:outline-0 hover:outline-offset-0 hover:outline-black screen600:min-h-[386px] screen600:w-[235px] screen960:min-h-[400px] screen960:w-[235px] screen1280:w-[260px] screen1600:w-[16%]">
                           <section className="h-full">
                             {/* glass product cart container */}
                             <div className="relative h-full  w-auto">

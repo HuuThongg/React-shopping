@@ -1,0 +1,29 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "React Shopping",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/src/index.ts",
+    "server": " npm run dev --prefix backend",
+    "frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "buildfrontend": "npm run build --prefix frontend",
+    "buildbackend": "npm run build --prefix backend",
+    "build": "npm run buildfrontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HuuThongg/nextAppTemplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HuuThongg/nextAppTemplate/issues"
+  },
+  "homepage": "https://github.com/HuuThongg/nextAppTemplate#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

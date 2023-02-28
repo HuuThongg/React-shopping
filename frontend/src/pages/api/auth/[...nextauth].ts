@@ -10,11 +10,11 @@ export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
     session({ session, user }) {
-      console.log("in the callbacks", user);
+      // console.log("in the callbacks", user);
       if (session.user) {
         session.user.name = user.name;
         session.user.email = user.email;
-        // session.user.id = user.id;
+        session.user.id = user.id;
         // session.user.username = user.username;
         // session.user.theme = user.theme;
       }
@@ -62,33 +62,33 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
 
     }),
-    CredentialsProvider({
-      id: "custom-login",
-      name: "Custom Login",
-      async authorize(credentials, req) {
-        // Add logic here to look up the user from the credentials supplied
-        console.log("credentials", credentials)
-        const user = {
-          id: 1,
-          name: "J Smith",
-          email: "md@gmail.com",
-          // emailVerified: null,
-          image: "image.com",
-          // role: "USER",
-          username: "jsmith",
-        };
-        if (user) {
-          return Promise.resolve(user);
-        }
+    // CredentialsProvider({
+    //   id: "custom-login",
+    //   name: "Custom Login",
+    //   async authorize(credentials, req) {
+    //     // Add logic here to look up the user from the credentials supplied
+    //     console.log("credentials", credentials)
+    //     const user = {
+    //       id: 1,
+    //       name: "J Smith",
+    //       email: "md@gmail.com",
+    //       // emailVerified: null,
+    //       image: "image.com",
+    //       // role: "USER",
+    //       username: "jsmith",
+    //     };
+    //     if (user) {
+    //       return Promise.resolve(user);
+    //     }
 
-        // return null;
-        return Promise.resolve(null);
-      },
-      credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
-        password: { label: "Password", type: "password" },
-      },
-    }),
+    //     // return null;
+    //     return Promise.resolve(null);
+    //   },
+    //   credentials: {
+    //     username: { label: "Username", type: "text", placeholder: "jsmith" },
+    //     password: { label: "Password", type: "password" },
+    //   },
+    // }),
     /**
      * ...add more providers here
      *

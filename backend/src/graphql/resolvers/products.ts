@@ -1,10 +1,14 @@
-import {User} from "@prisma/client"
+import {User, Products} from "@prisma/client"
 import { GraphQLError } from "graphql";
 import { GraphQLContext } from "../../utils/types";
 
 const resolvers = {
   Query: {
-    getProducts: async (_: any, __: any, context: GraphQLContext) => {
+    products: async (
+      _: any,
+      __: any,
+      context: GraphQLContext
+    ): Promise<Array<Products>> => {
       const { session, prisma } = context;
 
       // if (!session?.user) {
@@ -13,12 +17,7 @@ const resolvers = {
       try {
         const products = await prisma.products.findMany();
         return products;
-      } catch (error) {
-        if(error instanceof GraphQLError){
-
-          // throw error;
-          return error.message;
-        }
+      } catch (error: any) {
         console.log("getProducts error", error);
         throw new GraphQLError("getProducts error", {
           extensions: {
@@ -27,6 +26,34 @@ const resolvers = {
           },
         });
       }
+    },
+    product: async (
+      _: any,
+      args: { productId: string },
+      context: GraphQLContext
+    ): Promise<Products> => {
+      const { session, prisma } = context;
+
+      // if (!session?.user) {
+      //   throw new GraphQLError("Not authorized");
+      // }
+      let  product = {} as Products | null;
+      const { productId } = args;
+      try {
+        product = await prisma.products.findUnique({
+          where: { id: productId },
+        });
+      } catch (error: any) {
+        console.log("getProduct error", error);
+        throw new GraphQLError("getProduct error", {
+          extensions: {
+            code: "INTERNAL_SERVER_ERROR",
+            argumentName: "id",
+          },
+        });
+      }
+        return product!;
+
     },
   },
 };

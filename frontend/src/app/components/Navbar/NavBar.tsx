@@ -21,6 +21,7 @@ let firstRender = true;
 const  NavBar =  () => {
   const [isSidePanelOpen, setIsSidePanelOpen] = useAtom(toggle_sidePanel)
   const { data: session, status } = useSession();
+  console.log(session)
   const amountFav = useFavoriteStore((state) => state.amountItems);
   const storedItems = useCartStore((state) => state.items);
   
@@ -88,8 +89,8 @@ const  NavBar =  () => {
             <ul className=" flex list-none items-center justify-end pl-12 text-[14px]">
               {topInfo.map((nav, index) => (
                 <li
-                  // key={uuidv4()}
-                  key={nav.id}
+                  key={uuidv4() + index}
+                  // key={nav.id}
                   className={` cursor-pointer text-[14px] font-normal   ${index === topInfo.length - 1 ? "mr-0" : "mr-4"
                     } `}
                 >
@@ -138,8 +139,8 @@ const  NavBar =  () => {
               {navLinks.map((nav, index) => (
                 <>
                   <div
-                    // key={uuidv4()}
-                    key={nav.id}
+                    key={uuidv4() + nav.id}
+                    // key={nav.id}
 
                     className={`w-[5rem] cursor-pointer font-poppins text-[13px] font-normal ${active === nav.title ? "text-black-100" : "text-neutral-600 "
                       }   ${index === 0 || index === 1 || index == 2
@@ -169,10 +170,18 @@ const  NavBar =  () => {
                             <div className='max-w-[80rem] mx-auto  flex justify-center items-start ' >
                               {
                                 nav.metaCatogry && nav.metaCatogry.map((item,index) =>(
-                                  <div key={index} className='flex flex-col flex-1 opacity-100 align-top text-left pt-4'>
+                                  <div 
+                                    key={uuidv4() + index}
+
+                                  // key={index} 
+
+                                  className='flex flex-col flex-1 opacity-100 align-top text-left pt-4'>
                                     {item.categories?.map((item,index) =>(
     
-                                      <Link key={index} href={item.href} className={`  font-medium leading-6 ${index === 0 ? "text-[1.5rem] mb-3" :"text-gray-500 mb-2 hover:underline"}`}>{item.category}</Link>
+                                      <Link 
+                                      key={uuidv4() + index}
+                                      // key={index} 
+                                      href={item.href} className={`  font-medium leading-6 ${index === 0 ? "text-[1.5rem] mb-3" :"text-gray-500 mb-2 hover:underline"}`}>{item.category}</Link>
                                     ))}
                                     
                                   </div>
@@ -267,8 +276,8 @@ const  NavBar =  () => {
           <ul className="flex  flex-1 list-none flex-col   items-center justify-start p-10">
             {navLinks.map((nav, index) => (
               <li
-                // key={uuidv4()}
-                key={nav.id}
+                key={uuidv4() + nav.id}
+                // key={nav.id}
                 className={`cursor-pointer py-5 font-poppins text-[16px]  font-semibold`}
                 onClick={() => {
                   setActive(nav.title);
