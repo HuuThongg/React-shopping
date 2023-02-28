@@ -8,7 +8,6 @@ import { signIn, signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import SignNextAuth from "./SignNextAuth";
 import SignUp from "./SignUp";
-
 const validationSchema = z.object({
   email: z.string().email().min(2),
   password: z.string().min(6)
@@ -17,8 +16,9 @@ const validationSchema = z.object({
 type ValidationSchema = z.infer<typeof validationSchema>; 
 
 
-export default function SignInSignUp() {
+export default  function SignInSignUp() {
   const { data: session, status } = useSession();
+  // console.log(session)
   const [showModal, setShowModal] = useState(false);
   const [tab,setTab] = useState("signIn");
   const [isTouchedEmail, setIsTouchedEmail] = useState(false);
@@ -35,7 +35,7 @@ export default function SignInSignUp() {
       password:""
     }
   });
-  const onSubmit: SubmitHandler = (data) => {
+  const onSubmit: SubmitHandler<ValidationSchema> = (data) => {
     alert(JSON.stringify(data));
   };
   return (

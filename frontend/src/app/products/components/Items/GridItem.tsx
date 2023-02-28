@@ -16,9 +16,8 @@ const GridItem = ({ data }) => {
   const addFav = useFavoriteStore((state) => state.addFav);
   const deleteFav = useFavoriteStore((state) => state.deleteFav)
 
-  const { _id: fakeId, price, imgs } = data;
+  const { id, price, imgs } = data;
   const img = imgs[0];
-  const id = fakeId.$oid;
   const isFavItem = favoriteItems.findIndex((e) => e.id === id);
 
   const handleAddFave = () => {
@@ -43,7 +42,7 @@ const GridItem = ({ data }) => {
           <div className="relative w-full cursor-pointer bg-white text-sm font-normal text-black">
             {/* Assets ( images) */}
             <div className="relative pb-[100%]">
-              <Link href={`/products/${data._id.$oid}`} className="absolute inset-0">
+              <Link href={`/products/${data.id}`} className="absolute inset-0">
                 <img
                   data-auto-id="image"
                   title="Adilette Comfort Slides"
@@ -65,7 +64,7 @@ const GridItem = ({ data }) => {
                 </button>
               </div>
               <Link
-                href={data._id.$oid}
+                href={data.id}
                 className={` absolute ${isShown ? "bottom-2" : "bottom-0"
                   } left-1  transition-all`}
               >
@@ -87,7 +86,7 @@ const GridItem = ({ data }) => {
                 </div>
               </Link>
             </div>
-            <Link href={data._id.$oid}>
+            <Link href={data.id}>
               {/* Product-card _ details  Adjust min high later */}
               <div className="min-h-[75px] p-[10px] ">
                 <p>Adilette Comfort Slides</p>

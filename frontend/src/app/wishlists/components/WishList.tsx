@@ -7,6 +7,7 @@ import axios from "axios";
 
 const WishList = ({ product }) => {
 
+
   const [isShown, setIsShown] = useState(false);
   const { id } = product;
   const img = product.img

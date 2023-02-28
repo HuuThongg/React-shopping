@@ -48,10 +48,17 @@ async function main() {
           console.log("SERVER CONTEXT", ctx.connectionParams);
 
           const { session } = ctx.connectionParams;
-          return { session, prisma, pubsub };
+          return { 
+            session, 
+            prisma,
+            pubsub 
+            };
         }
         // Otherwise let our resolvers know we don't have a current user
-        return { session: null, prisma, pubsub };
+        return { session: null
+          , prisma, 
+          pubsub 
+        };
       },
     },
     wsServer
@@ -94,7 +101,7 @@ async function main() {
         return { 
           session: session as Session, 
           prisma, 
-          // pubsub 
+          pubsub 
         };
       },
     })

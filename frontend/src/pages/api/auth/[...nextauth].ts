@@ -5,10 +5,12 @@ import GitHubProvider from "next-auth/providers/github";
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "../../../lib/prisma";
+import CredentialsProvider from "next-auth/providers/credentials";
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
     session({ session, user }) {
+      console.log("in the callbacks", user);
       if (session.user) {
         session.user.name = user.name;
         session.user.email = user.email;
@@ -58,6 +60,34 @@ export const authOptions: NextAuthOptions = {
     GitHubProvider({
       clientId: process.env.GITHUB_CLIENT_ID!,
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
+
+    }),
+    CredentialsProvider({
+      id: "custom-login",
+      name: "Custom Login",
+      async authorize(credentials, req) {
+        // Add logic here to look up the user from the credentials supplied
+        console.log("credentials", credentials)
+        const user = {
+          id: 1,
+          name: "J Smith",
+          email: "md@gmail.com",
+          // emailVerified: null,
+          image: "image.com",
+          // role: "USER",
+          username: "jsmith",
+        };
+        if (user) {
+          return Promise.resolve(user);
+        }
+
+        // return null;
+        return Promise.resolve(null);
+      },
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: { label: "Password", type: "password" },
+      },
     }),
     /**
      * ...add more providers here

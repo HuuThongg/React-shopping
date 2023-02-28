@@ -18,8 +18,7 @@ import { toggle_sidePanel } from '@/stores/jotai';
 let firstRender = true;
 
 
-const NavBar = () => {
-
+const  NavBar =  () => {
   const [isSidePanelOpen, setIsSidePanelOpen] = useAtom(toggle_sidePanel)
   const { data: session, status } = useSession();
   const amountFav = useFavoriteStore((state) => state.amountItems);

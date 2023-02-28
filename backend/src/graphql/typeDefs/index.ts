@@ -1,6 +1,6 @@
 
 import exampleTypeDefs from './example';
-
-const typeDefs = [exampleTypeDefs];
+import productsTypeDefs from './products';
+const typeDefs = [exampleTypeDefs, productsTypeDefs];
 
 export default typeDefs;

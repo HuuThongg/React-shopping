@@ -5,7 +5,6 @@ import Footer from './components/Footer/Footer';
 import AuthContext from './AuthContext';
 import { type Session } from "next-auth";
 
-
 export const metadata = {
   title: 'Adidas',
 };
@@ -22,7 +21,7 @@ export default async function RootLayout({
       <body>
           <div id="next_app">
               <AuthContext >
-                <NavBar />
+                {/* <NavBar /> */}
                 {children}
                 <Footer />
               </AuthContext>

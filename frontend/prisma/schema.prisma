@@ -45,7 +45,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-
+  role    Role     @default(USER)
   @@map("users")
 }
 
@@ -74,6 +74,10 @@ type Color{
   alt String?
   img String?
   url String?
+}
+enum Role {
+  USER
+  ADMIN
 }
 
 // model Cart {

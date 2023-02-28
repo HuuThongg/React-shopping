@@ -57,335 +57,59 @@ const NewArrivals = () => {
                       id="container"
                       className="scrollbar-hide ml-2 flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden"
                     >
+                      
+                      
+                      
+                      
                       {/* each carousel item */}
                       {/* w-[20.3125%] */}
-                      <div className="  my-1 mr-[10px] ml-1 flex  min-h-[280px] w-[145px] flex-none basis-auto snap-start hover:outline hover:outline-1 hover:outline-offset-0 hover:outline-black screen600:min-h-[386px] screen600:w-[235px] screen960:min-h-[400px] screen960:w-[235px] screen1280:w-[260px] screen1600:w-[16%]">
-                        <section className="h-full">
-                          {/* glass product cart container */}
-                          <div className="relative h-full  w-auto">
-                            {/* product card */}
-                            <div className="relative h-full w-full cursor-pointer border-[1px] border-solid border-white bg-white text-[14px] font-normal tracking-normal">
-                              {/* img */}
-                              <div className="relative bg-white">
-                                {/* assets */}
-                                <Link href="/">
-                                  <img
-                                    src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
-                                    alt="a"
-                                  />
-                                </Link>
+                      {[...Array(10)].map((_, i) => 
+                        <div className="  my-1 mr-[10px] ml-1 flex  min-h-[280px] w-[145px] flex-none basis-auto snap-align-none hover:outline hover:outline-0 hover:outline-offset-0 hover:outline-black screen600:min-h-[386px] screen600:w-[235px] screen960:min-h-[400px] screen960:w-[235px] screen1280:w-[260px] screen1600:w-[16%]">
+                          <section className="h-full">
+                            {/* glass product cart container */}
+                            <div className="relative h-full  w-auto">
+                              {/* product card */}
+                              <div className="relative h-full w-full cursor-pointer border-[1px] border-solid border-white bg-white text-[14px] font-normal tracking-normal">
+                                {/* img */}
+                                <div className="relative bg-white">
+                                  {/* assets */}
+                                  <Link href="#">
+                                    <img
+                                      src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
+                                      alt=""
+                                    />
+                                  </Link>
 
-                                {/*heart  */}
-                                <div className="absolute top-4 right-4">
-                                  <button>
-                                    {/* <FaHeart/> */}
-                                    <AiOutlineHeart />
-                                  </button>
+                                  {/*heart  */}
+                                  <div className="absolute top-4 right-4">
+                                    <button>
+                                      {/* <FaHeart/> */}
+                                      <AiOutlineHeart />
+                                    </button>
+                                  </div>
+                                  {/* price */}
+                                  <a href="#" className="absolute bottom-0">
+                                    <div className="relative ml-[5px] mt-[5px] rounded bg-white py-[5px] px-[2px]">
+                                      <span>$100</span>
+                                    </div>
+                                  </a>
                                 </div>
-                                {/* price */}
-                                <a href="#" className="absolute bottom-0">
-                                  <div className="relative ml-[5px] mt-[5px] rounded bg-white py-[5px] px-[2px]">
-                                    <span>$100</span>
+                                <a href="#" className="no-underline">
+                                  <div className="flex flex-col flex-wrap p-[10px] pr-[20px]">
+                                    <p>Hyperglam Fleece Zebra Jacket</p>
+                                    <p className="flex-auto text-[#767677]">
+                                      Women&apos;s Sportswear
+                                    </p>
+                                    <p>
+                                      <span>new</span>
+                                    </p>
                                   </div>
                                 </a>
                               </div>
-                              <a href="#" className="no-underline">
-                                <div className="flex flex-col flex-wrap p-[10px] pr-[20px]">
-                                  <p>Hyperglam Fleece Zebra Jacket</p>
-                                  <p className="flex-auto text-[#767677]">
-                                    Women&aposs Sportswear
-                                  </p>
-                                  <p>
-                                    <span>new</span>
-                                  </p>
-                                </div>
-                              </a>
                             </div>
-                          </div>
-                        </section>
-                      </div>
-                      {/* each carousel item */}
-                      {/* w-[20.3125%] */}
-                      <div className="  hover:outline-offset- my-1 mr-[10px] ml-1  flex min-h-[280px] w-[145px] flex-none basis-auto snap-start hover:outline hover:outline-1 hover:outline-black screen600:min-h-[386px] screen600:w-[235px] screen960:min-h-[400px] screen960:w-[235px] screen1280:w-[260px] screen1600:w-[16%]">
-                        <section className="h-full">
-                          {/* glass product cart container */}
-                          <div className="relative h-full  w-auto">
-                            {/* product card */}
-                            <div className="relative h-full w-full cursor-pointer border-[1px] border-solid border-white bg-white text-[14px] font-normal tracking-normal">
-                              {/* img */}
-                              <div className="relative bg-white">
-                                {/* assets */}
-                                <Link href="#">
-                                  <img
-                                    src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
-                                    alt=""
-                                  />
-                                </Link>
-
-                                {/*heart  */}
-                                <div className="absolute top-4 right-4">
-                                  <button>
-                                    {/* <FaHeart/> */}
-                                    <AiOutlineHeart />
-                                  </button>
-                                </div>
-                                {/* price */}
-                                <a href="#" className="absolute bottom-0">
-                                  <div className="relative ml-[5px] mt-[5px] rounded bg-white py-[5px] px-[2px]">
-                                    <span>$100</span>
-                                  </div>
-                                </a>
-                              </div>
-                              <a href="#" className="no-underline">
-                                <div className="flex flex-col flex-wrap p-[10px] pr-[20px]">
-                                  <p>Hyperglam Fleece Zebra Jacket</p>
-                                  <p className="flex-auto text-[#767677]">
-                                    Women&apos;s Sportswear
-                                  </p>
-                                  <p>
-                                    <span>new</span>
-                                  </p>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                      {/* each carousel item */}
-                      {/* w-[20.3125%] */}
-                      <div className="  my-1 mr-[10px] ml-1 flex  min-h-[280px] w-[145px] flex-none basis-auto snap-start hover:outline hover:outline-1 hover:outline-offset-0 hover:outline-black screen600:min-h-[386px] screen600:w-[235px] screen960:min-h-[400px] screen960:w-[235px] screen1280:w-[260px] screen1600:w-[16%]">
-                        <section className="h-full">
-                          {/* glass product cart container */}
-                          <div className="relative h-full  w-auto">
-                            {/* product card */}
-                            <div className="relative h-full w-full cursor-pointer border-[1px] border-solid border-white bg-white text-[14px] font-normal tracking-normal">
-                              {/* img */}
-                              <div className="relative bg-white">
-                                {/* assets */}
-                                <Link href="#">
-                                  <img
-                                    src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
-                                    alt=""
-                                  />
-                                </Link>
-
-                                {/*heart  */}
-                                <div className="absolute top-4 right-4">
-                                  <button>
-                                    {/* <FaHeart/> */}
-                                    <AiOutlineHeart />
-                                  </button>
-                                </div>
-                                {/* price */}
-                                <a href="#" className="absolute bottom-0">
-                                  <div className="relative ml-[5px] mt-[5px] rounded bg-white py-[5px] px-[2px]">
-                                    <span>$100</span>
-                                  </div>
-                                </a>
-                              </div>
-                              <a href="#" className="no-underline">
-                                <div className="flex flex-col flex-wrap p-[10px] pr-[20px]">
-                                  <p>Hyperglam Fleece Zebra Jacket</p>
-                                  <p className="flex-auto text-[#767677]">
-                                    Women&apos;s Sportswear
-                                  </p>
-                                  <p>
-                                    <span>new</span>
-                                  </p>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                      {/* each carousel item */}
-                      {/* w-[20.3125%] */}
-                      <div className="  my-1 mr-[10px] ml-1 flex  min-h-[280px] w-[145px] flex-none basis-auto snap-start hover:outline hover:outline-0 hover:outline-offset-0 hover:outline-black screen600:min-h-[386px] screen600:w-[235px] screen960:min-h-[400px] screen960:w-[235px] screen1280:w-[260px] screen1600:w-[16%]">
-                        <section className="h-full">
-                          {/* glass product cart container */}
-                          <div className="relative h-full  w-auto">
-                            {/* product card */}
-                            <div className="relative h-full w-full cursor-pointer border-[1px] border-solid border-white bg-white text-[14px] font-normal tracking-normal">
-                              {/* img */}
-                              <div className="relative bg-white">
-                                {/* assets */}
-                                <Link href="#">
-                                  <img
-                                    src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
-                                    alt=""
-                                  />
-                                </Link>
-
-                                {/*heart  */}
-                                <div className="absolute top-4 right-4">
-                                  <button>
-                                    {/* <FaHeart/> */}
-                                    <AiOutlineHeart />
-                                  </button>
-                                </div>
-                                {/* price */}
-                                <a href="#" className="absolute bottom-0">
-                                  <div className="relative ml-[5px] mt-[5px] rounded bg-white py-[5px] px-[2px]">
-                                    <span>$100</span>
-                                  </div>
-                                </a>
-                              </div>
-                              <a href="#" className="no-underline">
-                                <div className="flex flex-col flex-wrap p-[10px] pr-[20px]">
-                                  <p>Hyperglam Fleece Zebra Jacket</p>
-                                  <p className="flex-auto text-[#767677]">
-                                    Women&apos;s Sportswear
-                                  </p>
-                                  <p>
-                                    <span>new</span>
-                                  </p>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                      {/* each carousel item */}
-                      {/* w-[20.3125%] */}
-                      <div className="  my-1 mr-[10px] ml-1 flex  min-h-[280px] w-[145px] flex-none basis-auto snap-start hover:outline hover:outline-0 hover:outline-offset-0 hover:outline-black screen600:min-h-[386px] screen600:w-[235px] screen960:min-h-[400px] screen960:w-[235px] screen1280:w-[260px] screen1600:w-[16%]">
-                        <section className="h-full">
-                          {/* glass product cart container */}
-                          <div className="relative h-full  w-auto">
-                            {/* product card */}
-                            <div className="relative h-full w-full cursor-pointer border-[1px] border-solid border-white bg-white text-[14px] font-normal tracking-normal">
-                              {/* img */}
-                              <div className="relative bg-white">
-                                {/* assets */}
-                                <Link href="#">
-                                  <img
-                                    src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
-                                    alt=""
-                                  />
-                                </Link>
-
-                                {/*heart  */}
-                                <div className="absolute top-4 right-4">
-                                  <button>
-                                    {/* <FaHeart/> */}
-                                    <AiOutlineHeart />
-                                  </button>
-                                </div>
-                                {/* price */}
-                                <a href="#" className="absolute bottom-0">
-                                  <div className="relative ml-[5px] mt-[5px] rounded bg-white py-[5px] px-[2px]">
-                                    <span>$100</span>
-                                  </div>
-                                </a>
-                              </div>
-                              <a href="#" className="no-underline">
-                                <div className="flex flex-col flex-wrap p-[10px] pr-[20px]">
-                                  <p>Hyperglam Fleece Zebra Jacket</p>
-                                  <p className="flex-auto text-[#767677]">
-                                    Women&apos;s Sportswear
-                                  </p>
-                                  <p>
-                                    <span>new</span>
-                                  </p>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                      {/* each carousel item */}
-                      {/* w-[20.3125%] */}
-                      <div className="  my-1 mr-[10px] ml-1 flex  min-h-[280px] w-[145px] flex-none basis-auto snap-align-none hover:outline hover:outline-0 hover:outline-offset-0 hover:outline-black screen600:min-h-[386px] screen600:w-[235px] screen960:min-h-[400px] screen960:w-[235px] screen1280:w-[260px] screen1600:w-[16%]">
-                        <section className="h-full">
-                          {/* glass product cart container */}
-                          <div className="relative h-full  w-auto">
-                            {/* product card */}
-                            <div className="relative h-full w-full cursor-pointer border-[1px] border-solid border-white bg-white text-[14px] font-normal tracking-normal">
-                              {/* img */}
-                              <div className="relative bg-white">
-                                {/* assets */}
-                                <Link href="#">
-                                  <img
-                                    src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
-                                    alt=""
-                                  />
-                                </Link>
-
-                                {/*heart  */}
-                                <div className="absolute top-4 right-4">
-                                  <button>
-                                    {/* <FaHeart/> */}
-                                    <AiOutlineHeart />
-                                  </button>
-                                </div>
-                                {/* price */}
-                                <a href="#" className="absolute bottom-0">
-                                  <div className="relative ml-[5px] mt-[5px] rounded bg-white py-[5px] px-[2px]">
-                                    <span>$100</span>
-                                  </div>
-                                </a>
-                              </div>
-                              <a href="#" className="no-underline">
-                                <div className="flex flex-col flex-wrap p-[10px] pr-[20px]">
-                                  <p>Hyperglam Fleece Zebra Jacket</p>
-                                  <p className="flex-auto text-[#767677]">
-                                    Women&apos;s Sportswear
-                                  </p>
-                                  <p>
-                                    <span>new</span>
-                                  </p>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
-                      {/* each carousel item */}
-                      {/* w-[20.3125%] */}
-                      <div className="  my-1 mr-[10px] ml-1 flex  min-h-[280px] w-[145px] flex-none basis-auto snap-align-none hover:outline hover:outline-0 hover:outline-offset-0 hover:outline-black screen600:min-h-[386px] screen600:w-[235px] screen960:min-h-[400px] screen960:w-[235px] screen1280:w-[260px] screen1600:w-[16%]">
-                        <section className="h-full">
-                          {/* glass product cart container */}
-                          <div className="relative h-full  w-auto">
-                            {/* product card */}
-                            <div className="relative h-full w-full cursor-pointer border-[1px] border-solid border-white bg-white text-[14px] font-normal tracking-normal">
-                              {/* img */}
-                              <div className="relative bg-white">
-                                {/* assets */}
-                                <Link href="#">
-                                  <img
-                                    src="https://assets.adidas.com/images/w_600,f_auto,q_auto/f5426bca0fe1439190a2aee700cd8c81_9366/Hyperglam_Fleece_Zebra_Jacket_Multicolor_HY1030_21_model.jpg"
-                                    alt=""
-                                  />
-                                </Link>
-
-                                {/*heart  */}
-                                <div className="absolute top-4 right-4">
-                                  <button>
-                                    {/* <FaHeart/> */}
-                                    <AiOutlineHeart />
-                                  </button>
-                                </div>
-                                {/* price */}
-                                <a href="#" className="absolute bottom-0">
-                                  <div className="relative ml-[5px] mt-[5px] rounded bg-white py-[5px] px-[2px]">
-                                    <span>$100</span>
-                                  </div>
-                                </a>
-                              </div>
-                              <a href="#" className="no-underline">
-                                <div className="flex flex-col flex-wrap p-[10px] pr-[20px]">
-                                  <p>Hyperglam Fleece Zebra Jacket</p>
-                                  <p className="flex-auto text-[#767677]">
-                                    Women&apos;s Sportswear
-                                  </p>
-                                  <p>
-                                    <span>new</span>
-                                  </p>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </section>
-                      </div>
+                          </section>
+                        </div>
+                      )}
                     </div>
                     {/* prev button */}
                     <button

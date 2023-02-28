@@ -13,53 +13,74 @@ const SetGift = () => {
 
   const {data , error, isLoading} = useSWR('https://my-json-server.typicode.com/HuuThongg/mockjson/db', fetcher)
   if (isLoading) return (
-    <>
-      <div role="status" className="w-full p-4 border border-gray-200  shadow animate-pulse md:p-6 dark:border-gray-700 flex space-x-1">
-        <div>
-          <div className="h-[326px] w-[244.5px] bg-gray-200  dark:bg-gray-700  mb-4"></div>
-          <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
-        <div>
-          <div className="h-[326px] w-[244.5px] bg-gray-200  dark:bg-gray-700  mb-4"></div>
-          <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
+    <section className="w-full relative  overflow-hidden">
+      <div className=" w-full relative  h-full text-white flex overflow-hidden bg-gray-400">
+        
+        <div className="pt-4 pl-4 z-10 w-full max-w-full  mx-auto h-full screen1280:w-[1280px] overflow-hidden relative ">
+          {/* container */}
 
-        <div>
-          <div className="h-[326px] w-[244.5px] bg-gray-200  dark:bg-gray-700  mb-4"></div>
-          <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
+          <div className="flex flex-wrap px-0 w-full">
+            {/* wrapper */}
+            <div className="w-full">
+              <div>
+                <div className="h-8 bg-gray-200 rounded-sm dark:bg-gray-700  max-w-[16rem] mt-[12px]"></div>
+                <div className="h-4 bg-gray-200 rounded-sm dark:bg-gray-700 max-w-[36rem] mt-4 mb-1"></div>
+              </div>
+            </div>
+          </div>
 
-        <div>
-          <div className="h-[326px] w-[244.5px] bg-gray-200  dark:bg-gray-700  mb-4"></div>
-          <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-          <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+          {/* container    row no-gutters  */}
+          <div className="flex flex-wrap w-full z-30 overflow-hidden overflow-x-auto ">
+            <div className="relative overflow-hidden overflow-x-auto ">
+              {/* control scroll */}
+              <div className="w-full  flex py-1  snap-x snap-mandatory overflow-x-auto scrollbar-hide  mb-5   ">
+                {/* content for each  */}
+                {/*w-[calc((100%-10px)/1.187)]  */}
+                <div >
+                  <div  className="w-full    shadow animate-pulse  flex space-x-1 ">
+                    <div className="">
+                      <div className="h-[410px] w-[230px] screen960:w-[250px] screen1280:w-[306px] bg-gray-200  dark:bg-gray-700  mb-4"></div>
+                      <div className="h-5 bg-gray-200 rounded-lg dark:bg-gray-700 w-48 mb-4"></div>
+                      <div className="h-3 bg-gray-200 rounded-lg dark:bg-gray-700 mb-1.5"></div>
+                      <div className="h-3 bg-gray-200 rounded-lg dark:bg-gray-700 mb-2.5"></div>
+                      <div className="h-7 mt-5 bg-gray-200 rounded-lg max-w-[8rem] dark:bg-gray-700"></div>
+                    </div>
+                    <div className="">
+                      <div className="h-[410px] w-[230px] screen960:w-[250px] screen1280:w-[306px] bg-gray-200  dark:bg-gray-700  mb-4"></div>
+                      <div className="h-5 bg-gray-200 rounded-lg dark:bg-gray-700 w-48 mb-4"></div>
+                      <div className="h-3 bg-gray-200 rounded-lg dark:bg-gray-700 mb-1.5"></div>
+                      <div className="h-3 bg-gray-200 rounded-lg dark:bg-gray-700 mb-2.5"></div>
+                      <div className="h-7 mt-5 bg-gray-200 rounded-lg max-w-[8rem] dark:bg-gray-700"></div>
+                    </div>
+
+                    <div className="">
+                      <div className="h-[410px] w-[230px] screen960:w-[250px] screen1280:w-[306px] bg-gray-200  dark:bg-gray-700  mb-4"></div>
+                      <div className="h-5 bg-gray-200 rounded-lg dark:bg-gray-700 w-48 mb-4"></div>
+                      <div className="h-3 bg-gray-200 rounded-lg dark:bg-gray-700 mb-1.5"></div>
+                      <div className="h-3 bg-gray-200 rounded-lg dark:bg-gray-700 mb-2.5"></div>
+                      <div className="h-7 mt-5 bg-gray-200 rounded-lg max-w-[8rem] dark:bg-gray-700"></div>
+                    </div>
+
+                    <div className="">
+                      <div className="h-[410px] w-[230px] screen960:w-[250px] screen1280:w-[306px] bg-gray-200  dark:bg-gray-700  mb-4"></div>
+                      <div className="h-5 bg-gray-200 rounded-lg dark:bg-gray-700 w-48 mb-4"></div>
+                      <div className="h-3 bg-gray-200 rounded-lg dark:bg-gray-700 mb-1.5"></div>
+                      <div className="h-3 bg-gray-200 rounded-lg dark:bg-gray-700 mb-2.5"></div>
+                      <div className="h-7 mt-5 bg-gray-200 rounded-lg max-w-[8rem] dark:bg-gray-700"></div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </>
+    </section>
+    
   );
   if (error) return <div>Error</div>;
-  // let a = data.backgrounds;
-  // const { isLoading, error, data, isFetching } = useQuery(
-  //   ["repoData"],
-  //   async () => {
-  //     const res = await axios.get(
-  //       "https://my-json-server.typicode.com/HuuThongg/mockjson/db"
-  //     );
-  //     // console.log(res.data)
-  //     return await res.data;
-  //   }
-  // );
+
   return (
     <section className="w-full relative  overflow-hidden">
       <div className=" w-full relative  h-full text-white flex overflow-hidden">

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
+import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import BlackFriday from './components/BlackFriday/BlackFriday'
 import SetGift from './components/SentGift/SentGift'

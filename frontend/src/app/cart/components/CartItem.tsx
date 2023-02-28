@@ -10,6 +10,7 @@ import Link from "next/link";
 import axios from "axios";
 import useSWR from 'swr';
 import { closeToggle } from "@/stores/jotai";
+import Image from "next/image";
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
@@ -85,7 +86,7 @@ const CartItem = ({ item }: { item: Item }) => {
               className="relative block h-0 bg-[#eceff1] pb-[100%]"
               href={`/products/${id}`}
             >
-              <img className="w-full  object-contain" src={img} alt="" />
+              <Image className="w-full  object-contain" src={img} alt=""  width={30} height={30}/>
             </Link>
           </div>
 

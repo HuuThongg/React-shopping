@@ -43,9 +43,10 @@ model User {
   email         String?   @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
+  username      String?   
   accounts      Account[]
   sessions      Session[]
-
+  role    Role     @default(USER)
   @@map("users")
 }
 
@@ -57,4 +58,25 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verificationtokens")
+}
+
+model Products {
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  imgs String[]
+  name String
+  price String
+  sizes String[]
+  colors  Color[]
+  description String
+  @@map("productss")
+}
+
+type Color{
+  alt String?
+  img String?
+  url String?
+}
+enum Role {
+  USER
+  ADMIN
 }
