@@ -21,7 +21,7 @@ export default async function RootLayout({
       <body>
           <div id="next_app">
               <AuthContext >
-                <NavBar />
+                {/* <NavBar /> */}
                 {children}
                 <Footer />
               </AuthContext>

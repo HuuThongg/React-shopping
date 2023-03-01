@@ -3,15 +3,20 @@ import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import Link from "next/link";
-import axios from "axios";
+import { FavoritePopulated } from "../../../../../backend/src/utils/types";
 
-const WishList = ({ product }) => {
+interface WishListProps{
+  faV: FavoritePopulated
+}
+
+const WishList: React.FC<WishListProps> = ({ faV }) => {
 
 
   const [isShown, setIsShown] = useState(false);
-  const { id } = product;
-  const img = product.img
+  const { id } = faV;
 
+  const img = faV.product.imgs[0]
+  console.log(faV)
   return (
     <div className="mb-[15px] grid w-[100%] px-0 screen600:w-[25%] screen600:pr-[15px]">
       {/* wishlist card */}
@@ -27,7 +32,7 @@ const WishList = ({ product }) => {
             {/* product assets */}
             <div className="relative bg-[#eceff1]">
               {/* insert img */}
-              <Link href={`/products/${id}`}>
+              <Link href={`/products/${faV.product.id}`}>
                 <img src={img} alt="" />
               </Link>
               {/* heart */}
@@ -38,7 +43,7 @@ const WishList = ({ product }) => {
                 </button>
               </div>
               <Link
-                href={`/products/${id}`}
+                href={`/products/${faV.product.id}`}
                 className={` absolute ${isShown ? "bottom-2" : "bottom-0"
                   } left-1  transition-all`}
               >
@@ -50,7 +55,7 @@ const WishList = ({ product }) => {
                               $35
                             </div> */}
                   <div className={`text-[12px]  text-[#6f6262]`}>
-                    {product.price}
+                    {faV.product.price}
                   </div>
                 </div>
               </Link>
@@ -58,7 +63,7 @@ const WishList = ({ product }) => {
             <Link href={`/products/${id}`}>
               {/* Product-card _ details  Adjust min high later */}
               <div className="min-h-[75px] p-[10px] text-[12px] text-[#2e2828]">
-                <p>Predator Edge.4 Flexible Ground Soccer Cleats</p>
+                <p>{faV.product.name}</p>
               </div>
             </Link>
           </div>

@@ -3,6 +3,8 @@ import { ISODateString } from "next-auth";
 import { Context } from "graphql-ws/lib/server";
 import { PubSub } from "graphql-subscriptions";
 
+import {favoritePopulated} from "../graphql/resolvers/favorites"
+
 export interface GraphQLContext {
   session: Session | null;
   prisma: PrismaClient;
@@ -25,3 +27,11 @@ export interface SubscriptionContext extends Context {
     session?: Session;
   };
 }
+
+//  favorite
+
+export type FavoritePopulated = Prisma.FavoriteGetPayload<{
+  select: typeof favoritePopulated;
+}>
+
+

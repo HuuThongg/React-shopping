@@ -15,13 +15,14 @@ const typeDefs = gql`
     sizes: [String]
     colors: [Color]
     description: String
+    # isAddedFavorite: Boolean
   }
 
   type Query {
     products: [Product]
   }
   type Query {
-    product (productId: ID!): Product
+    product(productId: ID!): Product
   }
 `;
 export default typeDefs;

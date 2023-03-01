@@ -21,7 +21,7 @@ let firstRender = true;
 const  NavBar =  () => {
   const [isSidePanelOpen, setIsSidePanelOpen] = useAtom(toggle_sidePanel)
   const { data: session, status } = useSession();
-  console.log(session)
+  console.log(session, "session in navbar")
   const amountFav = useFavoriteStore((state) => state.amountItems);
   const storedItems = useCartStore((state) => state.items);
   

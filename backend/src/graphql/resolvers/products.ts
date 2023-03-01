@@ -1,4 +1,4 @@
-import {User, Products} from "@prisma/client"
+import { Products} from "@prisma/client"
 import { GraphQLError } from "graphql";
 import { GraphQLContext } from "../../utils/types";
 
@@ -11,9 +11,7 @@ const resolvers = {
     ): Promise<Array<Products>> => {
       const { session, prisma } = context;
 
-      // if (!session?.user) {
-      //   throw new GraphQLError("Not authorized");
-      // }
+    
       try {
         const products = await prisma.products.findMany();
         return products;
@@ -32,11 +30,8 @@ const resolvers = {
       args: { productId: string },
       context: GraphQLContext
     ): Promise<Products> => {
-      const { session, prisma } = context;
+      const {  prisma } = context;
 
-      // if (!session?.user) {
-      //   throw new GraphQLError("Not authorized");
-      // }
       let  product = {} as Products | null;
       const { productId } = args;
       try {

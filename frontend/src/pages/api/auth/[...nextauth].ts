@@ -10,7 +10,6 @@ export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
     session({ session, user }) {
-      // console.log("in the callbacks", user);
       if (session.user) {
         session.user.name = user.name;
         session.user.email = user.email;
@@ -18,6 +17,8 @@ export const authOptions: NextAuthOptions = {
         // session.user.username = user.username;
         // session.user.theme = user.theme;
       }
+      // console.log("in the callbacks", session);
+
       return session;
     },
     // async signIn({ user }) {
